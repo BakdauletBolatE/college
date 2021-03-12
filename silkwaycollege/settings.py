@@ -42,7 +42,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'settingsS.urls'
+ROOT_URLCONF = 'silkwaycollege.urls'
 
 TEMPLATES = [
     {
@@ -62,7 +62,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'settingsS.wsgi.application'
+WSGI_APPLICATION = 'silkwaycollege.wsgi.application'
 
 
 # Database
