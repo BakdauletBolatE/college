@@ -10,6 +10,7 @@ class Government(models.Model):
     name = models.CharField('Имя',max_length=255)
     age = models.IntegerField('Возраст')
     position = models.CharField('Должность',max_length=255)
+    isimp = models.BooleanField('Важность')
     photo = models.ImageField('Фото',upload_to='government/')
 
     def __str__(self):

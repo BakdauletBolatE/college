@@ -1,484 +1,260 @@
-{% extends 'layouts/app.html' %}
+{% extends 'layouts/app2.html' %}
 
 {% block content %}
 {% load static %}
 
-<div id="carouselExampleControls" class="carousel slide bs-slider box-slider" data-ride="carousel" data-pause="hover" data-interval="false" >
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleControls" data-slide-to="1"></li>
-        <li data-target="#carouselExampleControls" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-            <div id="home" class="first-section" style="background-image:url({% static 'images/slider-01.jpg' %});">
-                <div class="dtab">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 text-right">
-                                <div class="big-tagline">
-                                    <h2><strong>Shymkent </strong></h2>
-                                    <p class="lead">Высший педагогический колледж в Шымкенте </p>
-                                        <a href="#" class="hover-btn-new"><span>Контакты</span></a>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="#" class="hover-btn-new"><span>Подробнее</span></a>
-                                </div>
-                            </div>
-                        </div><!-- end row -->            
-                    </div><!-- end container -->
-                </div>
-            </div><!-- end section -->
-        </div>
-        <div class="carousel-item">
-            <div id="home" class="first-section" style="background-image:url('images/slider-02.jpg');">
-                <div class="dtab">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 text-left">
-                                <div class="big-tagline">
-                                    <h2 data-animation="animated zoomInRight">SmartEDU <strong>education school</strong></h2>
-                                    <p class="lead" data-animation="animated fadeInLeft">With Landigoo responsive landing page template, you can promote your all hosting, domain and email services. </p>
-                                        <a href="#" class="hover-btn-new"><span>Contact Us</span></a>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="#" class="hover-btn-new"><span>Read More</span></a>
-                                </div>
-                            </div>
-                        </div><!-- end row -->            
-                    </div><!-- end container -->
-                </div>
-            </div><!-- end section -->
-        </div>
-        <div class="carousel-item">
-            <div id="home" class="first-section" style="background-image:url('images/slider-03.jpg');">
-                <div class="dtab">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 text-center">
-                                <div class="big-tagline">
-                                    <h2 data-animation="animated zoomInRight"><strong>VPS Servers</strong> Company</h2>
-                                    <p class="lead" data-animation="animated fadeInLeft">1 IP included with each server 
-                                        Your Choice of any OS (CentOS, Windows, Debian, Fedora)
-                                        FREE Reboots</p>
-                                        <a href="#" class="hover-btn-new"><span>Contact Us</span></a>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="#" class="hover-btn-new"><span>Read More</span></a>
-                                </div>
-                            </div>
-                        </div><!-- end row -->            
-                    </div><!-- end container -->
-                </div>
-            </div><!-- end section -->
-        </div>
-        <!-- Left Control -->
-        <a class="new-effect carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="fa fa-angle-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
+	<!-- Home -->
 
-        <!-- Right Control -->
-        <a class="new-effect carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="fa fa-angle-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</div>
+	<div class="home">
+		<div class="home_background" style="background-image: url({% static 'images/event_2.jpg' %});"></div>
+		<div class="home_content">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<h1 class="home_title">Высший педагогический колледж Shymkent</h1>
+						<div class="home_button trans_200"><a href="#">Начинаем</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<div id="overviews" class="section wb">
-    <div class="container">
-        <div class="section-title row text-center">
-            <div class="col-md-8 offset-md-2">
-                <h3>О нас</h3>
-                <p class="lead">На сегодняшний день соответсвенно требованиям нового времени база колледжа полностью оснащена новыми технологиями и созданы все конфортабельные условия для студентов и сотрудников нашего колледжа. </p>
-            </div>
-        </div><!-- end title -->
-    
-        <div class="row align-items-center">
-            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                <div class="message-box">
-                    <h4>2018 BEST SmartEDU education school</h4>
-                    <h2>Welcome to SmartEDU education school</h2>
-                    <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
+	<!-- Language -->
 
-                    <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis montes, nascetur ridiculus mus. Sed vitae rutrum neque. </p>
+	<div class="language">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="language_slider_container">
+						
+						<!-- Language Slider -->
 
-                    <a href="#" class="hover-btn-new orange"><span>Learn More</span></a>
-                </div><!-- end messagebox -->
-            </div><!-- end col -->
-            
-            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                <div class="post-media wow fadeIn">
-                    <img src="{% static 'images/about_02.jpg' %}" alt="" class="img-fluid img-rounded">
-                </div><!-- end media -->
-            </div><!-- end col -->
-        </div>
-        <div class="row align-items-center">
-            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                <div class="post-media wow fadeIn">
-                    <img src="{% static 'images/about_03.jpg' %}" alt="" class="img-fluid img-rounded">
-                </div><!-- end media -->
-            </div><!-- end col -->
-            
-            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                <div class="message-box">
-                    <h2>The standard Lorem Ipsum passage, used since the 1500s</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<div class="owl-carousel owl-theme language_slider">
 
-                    <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum.</p>
+							<!-- Flag -->
+							<div class="owl-item language_item">
+								<a href="#">
+									<div class="flag"><img src="{% static 'images/Ukrainian.svg' %}" alt=""></div>
+									<div class="lang_name">Ukrainian</div>
+								</a>
+							</div>
 
-                    <a href="#" class="hover-btn-new orange"><span>Learn More</span></a>
-                </div><!-- end messagebox -->
-            </div><!-- end col -->
-            
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end section -->
+							<!-- Flag -->
+							<div class="owl-item language_item">
+								<a href="#">
+									<div class="flag"><img src="{% static 'images/Japanese.svg' %}" alt=""></div>
+									<div class="lang_name">Japanese</div>
+								</a>
+							</div>
 
-<section class="section lb page-section">
-    <div class="container">
-         <div class="section-title row text-center">
-            <div class="col-md-8 offset-md-2">
-                <h3>Наша история</h3>
-                <p class="lead">
-    1992 году в городе Шымкент профессор Юнусов Б.С. основал «Педагогический колледж имени «Коджа Ахмета Яссави», в честь великой исторической личности, в предверии строения независимого Казахстана.</p>
-            </div>
-        </div><!-- end title -->
-        <div class="timeline">
-            <div class="timeline__wrap">
-                <div class="timeline__items">
-                    <div class="timeline__item">
-                        <div class="timeline__content img-bg-04">
-                            <h2>2021</h2>
-                            <p>В настоящее время за 15 летнюю историю в ВПК Shymkent достойно работают 2 кандидатов наук, 11 магистров, 87 преподавателя высшей категории, а также 14 «Отличников Образования» и обладатели нагрудного знака Ы.Алтынсарина.</p>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <div class="timeline__content img-bg-01">
-                            <h2>2018 </h2>
-                            <p>19 июня 2018 года указом президента Казахстана Шымкенту был придан статус города республиканского значения, он был изъят из состава Южно-Казахстанской области, которая тем же указом была переименована в Туркестанскую область.</p>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <div class="timeline__content img-bg-02">
-                            <h2>2004 </h2>
-                            <p>12 лет спустя Б.С Юнусов основал Южно-Казахстанский педагогический колледж среди частных учебных заведений Казахстана. В 2004 г., </p>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <div class="timeline__content img-bg-03">
-                            <h2>1993 </h2>
-                            <p>22 декабря 1993 года указом Министерства Образования РК колледжу была выдана лицензия за серийным номером БМ №0000002. Таким образом, среди частных образовательных учреждений Республики Казахстан он стал вторым учебным заведением, которому была присвоена Государственная лецензия.</p>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <div class="timeline__content img-bg-04">
-                            <h2>1992</h2>
-                            <p>в городе Шымкент профессор Юнусов Б.С. основал «Педагогический колледж имени «Коджа Ахмета Яссави», в честь великой исторической личности, в предверии строения независимого Казахстана.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+							<!-- Flag -->
+							<div class="owl-item language_item">
+								<a href="#">
+									<div class="flag"><img src="{% static 'images/Lithuanian.svg' %}" alt=""></div>
+									<div class="lang_name">Lithuanian</div>
+								</a>
+							</div>
 
-<div class="section cl">
-    <div class="container">
-        <div class="row text-left stat-wrap">
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-study"></i></span>
-                <p class="stat_count">3700</p>
-                <h3>Выпускников</h3>
-            </div><!-- end col -->
+							<!-- Flag -->
+							<div class="owl-item language_item">
+								<a href="#">
+									<div class="flag"><img src="{% static 'images/Swedish.svg' %}" alt=""></div>
+									<div class="lang_name">Swedish</div>
+								</a>
+							</div>
 
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-online"></i></span>
-                <p class="stat_count">13</p>
-                <h3>Специальностей</h3>
-            </div><!-- end col -->
+							<!-- Flag -->
+							<div class="owl-item language_item">
+								<a href="#">
+									<div class="flag"><img src="{% static 'images/English.svg' %}" alt=""></div>
+									<div class="lang_name">English</div>
+								</a>
+							</div>
 
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-years"></i></span>
-                <p class="stat_count">1200</p>
-                <h3>Студентов</h3>
-            </div><!-- end col -->
-            {% comment %} <div class="col-md-4 col-sm-4 col-xs-12">
-                <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-years"></i></span>
-                <p class="stat_count">87</p>
-                <h3>Преподавателей</h3>
-            </div><!-- end col --> {% endcomment %}
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end section -->
+							<!-- Flag -->
+							<div class="owl-item language_item">
+								<a href="#">
+									<div class="flag"><img src="{% static 'images/Italian.svg' %}" alt=""></div>
+									<div class="lang_name">Italian</div>
+								</a>
+							</div>
 
-<div id="plan" class="section lb">
-    <div class="container">
-        <div class="section-title text-center">
-            <h3>Choose Your Plan</h3>
-            <p>Lorem ipsum dolor sit aet, consectetur adipisicing lit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-        </div><!-- end title -->
+							<!-- Flag -->
+							<div class="owl-item language_item">
+								<a href="#">
+									<div class="flag"><img src="{% static 'images/Chinese.svg' %}" alt=""></div>
+									<div class="lang_name">Chinese</div>
+								</a>
+							</div>
 
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <div class="message-box">
-                    <ul class="nav nav-pills nav-stacked" id="myTabs">
-                        <li><a class="active" href="#tab1" data-toggle="pill">Monthly Subscription</a></li>
-                        <li><a href="#tab2" data-toggle="pill">Yearly Subscription</a></li>
-                    </ul>
-                </div>
-            </div><!-- end col -->
-        </div>
+							<!-- Flag -->
+							<div class="owl-item language_item">
+								<a href="#">
+									<div class="flag"><img src="{% static 'images/French.svg' %}" alt=""></div>
+									<div class="lang_name">French</div>
+								</a>
+							</div>
 
-        <hr class="invis">
+							<!-- Flag -->
+							<div class="owl-item language_item">
+								<a href="#">
+									<div class="flag"><img src="{% static 'images/German.svg' %}" alt=""></div>
+									<div class="lang_name">German</div>
+								</a>
+							</div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="tab-content">
-                    <div class="tab-pane active fade show" id="tab1">
-                        <div class="row text-center">
-                            <div class="col-md-4">
-                                <div class="pricing-table pricing-table-highlighted">
-                                    <div class="pricing-table-header grd1">
-                                        <h2>$45</h2>
-                                        <h3>per month</h3>
-                                    </div>
-                                    <div class="pricing-table-space"></div>
-                                    <div class="pricing-table-features">
-                                        <p><i class="fa fa-envelope-o"></i> <strong>250</strong> Email Addresses</p>
-                                        <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
-                                        <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
-                                        <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                        <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                    </div>
-                                    <div class="pricing-table-sign-up">
-                                        <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-table pricing-table-highlighted">
-                                    <div class="pricing-table-header grd1">
-                                        <h2>$59</h2>
-                                        <h3>per month</h3>
-                                    </div>
-                                    <div class="pricing-table-space"></div>
-                                    <div class="pricing-table-features">
-                                        <p><i class="fa fa-envelope-o"></i> <strong>150</strong> Email Addresses</p>
-                                        <p><i class="fa fa-rocket"></i> <strong>65GB</strong> of Storage</p>
-                                        <p><i class="fa fa-database"></i> <strong>60</strong> Databases</p>
-                                        <p><i class="fa fa-link"></i> <strong>30</strong> Domains</p>
-                                        <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                    </div>
-                                    <div class="pricing-table-sign-up">
-                                        <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
-                                    </div>
-                                </div>
-                            </div>
+						</div>
 
-                            <div class="col-md-4">
-                                <div class="pricing-table pricing-table-highlighted">
-                                    <div class="pricing-table-header grd1">
-                                        <h2>$85</h2>
-                                        <h3>per month</h3>
-                                    </div>
-                                    <div class="pricing-table-space"></div>
-                                    <div class="pricing-table-features">
-                                        <p><i class="fa fa-envelope-o"></i> <strong>250</strong> Email Addresses</p>
-                                        <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
-                                        <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
-                                        <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                        <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                    </div>
-                                    <div class="pricing-table-sign-up">
-                                        <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- end row -->
-                    </div><!-- end pane -->
+						<div class="lang_nav lang_prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+						<div class="lang_nav lang_next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                    <div class="tab-pane fade" id="tab2">
-                        <div class="row text-center">
-                            <div class="col-md-4">
-                                <div class="pricing-table pricing-table-highlighted">
-                                    <div class="pricing-table-header grd1">
-                                        <h2>$477</h2>
-                                        <h3>Year</h3>
-                                    </div>
-                                    <div class="pricing-table-space"></div>
-                                    <div class="pricing-table-features">
-                                        <p><i class="fa fa-envelope-o"></i> <strong>250</strong> Email Addresses</p>
-                                        <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
-                                        <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
-                                        <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                        <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                    </div>
-                                    <div class="pricing-table-sign-up">
-                                        <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-table pricing-table-highlighted">
-                                    <div class="pricing-table-header grd1">
-                                        <h2>$485</h2>
-                                        <h3>Year</h3>
-                                    </div>
-                                    <div class="pricing-table-space"></div>
-                                    <div class="pricing-table-features">
-                                        <p><i class="fa fa-envelope-o"></i> <strong>150</strong> Email Addresses</p>
-                                        <p><i class="fa fa-rocket"></i> <strong>65GB</strong> of Storage</p>
-                                        <p><i class="fa fa-database"></i> <strong>60</strong> Databases</p>
-                                        <p><i class="fa fa-link"></i> <strong>30</strong> Domains</p>
-                                        <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                    </div>
-                                    <div class="pricing-table-sign-up">
-                                        <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
-                                    </div>
-                                </div>
-                            </div>
+	<!-- Courses -->
 
-                            <div class="col-md-4">
-                                <div class="pricing-table pricing-table-highlighted">
-                                    <div class="pricing-table-header grd1">
-                                        <h2>$500</h2>
-                                        <h3>Year</h3>
-                                    </div>
-                                    <div class="pricing-table-space"></div>
-                                    <div class="pricing-table-features">
-                                        <p><i class="fa fa-envelope-o"></i> <strong>250</strong> Email Addresses</p>
-                                        <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
-                                        <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
-                                        <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                        <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                    </div>
-                                    <div class="pricing-table-sign-up">
-                                        <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- end row -->
-                    </div><!-- end pane -->
-                </div><!-- end content -->
-            </div><!-- end col -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end section -->
+	<div class="courses">
+		<div class="courses_background"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h2 class="section_title text-center">Наши специалисности</h2>
+				</div>
+			</div>
+			<div class="row courses_row">
+                {% for specialization in specializations %}
+				<!-- Course -->
+				<div class="col-lg-4 course_col">
+					<div class="course">
+						<div class="course_image"><img src="{{specialization.photo.url}}" alt=""></div>
+						<div class="course_body">
+							<div class="course_title"><a href="{% url 'specapp:detail' specialization.id  %}">{{specialization.name}}</a></div>
+							<div class="course_info">
+								<ul>
+									<li><a href="instructors.html">{{specialization.uid}}</a></li>
+									<li><a href="#">English</a></li>
+								</ul>
+							</div>
+							<div class="course_text">
+								<p>{{specialization.desctiption}}</p>
+							</div>
+						</div>
+						<div class="course_footer d-flex flex-row align-items-center justify-content-start">
+							<!-- <div class="course_students"><i class="fa fa-user" aria-hidden="true"></i><span>10</span></div>
+							<div class="course_rating ml-auto"><i class="fa fa-star" aria-hidden="true"></i><span>4,5</span></div> -->
+							<div class="course_mark course_free trans_200"><a href="#">Посмотреть</a></div>
+						</div>
+					</div>
+				</div>
 
-<div id="testimonials" class="parallax section db parallax-off" style="background-image:url('images/parallax_04.jpg');">
-    <div class="container">
-        <div class="section-title text-center">
-            <h3>Testimonials</h3>
-            <p>Lorem ipsum dolor sit aet, consectetur adipisicing lit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-        </div><!-- end title -->
+                {% endfor %}
 
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="testi-carousel owl-carousel owl-theme">
-                    <div class="testimonial clearfix">
-                        <div class="testi-meta">
-                            <img src="{% static 'images/testi_01.png' %}" alt="" class="img-fluid">
-                            <h4>James Fernando </h4>
-                        </div>
-                        <div class="desc">
-                            <h3><i class="fa fa-quote-left"></i> Wonderful Support!</h3>
-                            <p class="lead">They have got my project on time with the competition with a sed highly skilled, and experienced & professional team.</p>
-                        </div>
-                        <!-- end testi-meta -->
-                    </div>
-                    <!-- end testimonial -->
+			
 
-                    <div class="testimonial clearfix">
-                        <div class="testi-meta">
-                            <img src="{% static 'images/testi_02.png' %}" alt="" class="img-fluid">
-                            <h4>Jacques Philips </h4>
-                        </div>
-                        <div class="desc">
-                            <h3><i class="fa fa-quote-left"></i> Awesome Services!</h3>
-                            <p class="lead">Explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you completed.</p>
-                        </div>
-                        <!-- end testi-meta -->
-                    </div>
-                    <!-- end testimonial -->
+			</div>
+		</div>
+	</div>
 
-                    <div class="testimonial clearfix">
-                        <div class="testi-meta">
-                            <img src="{% static 'images/testi_03.png' %}" alt="" class="img-fluid ">
-                            <h4>Venanda Mercy </h4>
-                        </div>
-                        <div class="desc">
-                            <h3><i class="fa fa-quote-left"></i> Great & Talented Team!</h3>
-                            <p class="lead">The master-builder of human happines no one rejects, dislikes avoids pleasure itself, because it is very pursue pleasure. </p>
-                        </div>
-                        <!-- end testi-meta -->
-                    </div>
-                    <!-- end testimonial -->
-                    <div class="testimonial clearfix">
-                        <div class="testi-meta">
-                            <img src="{% static 'images/testi_01.png' %}" alt="" class="img-fluid">
-                            <h4>James Fernando </h4>
-                        </div>
-                        <div class="desc">
-                            <h3><i class="fa fa-quote-left"></i> Wonderful Support!</h3>
-                            <p class="lead">They have got my project on time with the competition with a sed highly skilled, and experienced & professional team.</p>
-                        </div>
-                        <!-- end testi-meta -->
-                    </div>
-                    <!-- end testimonial -->
+	<!-- Instructors -->
 
-                    <div class="testimonial clearfix">
-                        <div class="testi-meta">
-                            <img src="{% static 'images/testi_02.png' %}" alt="" class="img-fluid">
-                            <h4>Jacques Philips </h4>
-                        </div>
-                        <div class="desc">
-                            <h3><i class="fa fa-quote-left"></i> Awesome Services!</h3>
-                            <p class="lead">Explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you completed.</p>
-                        </div>
-                        <!-- end testi-meta -->
-                    </div>
-                    <!-- end testimonial -->
+	<div class="instructors">
+		<div class="instructors_background" style="background-image:url(images/instructors_background.png)"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h2 class="section_title text-center">Наши руководители</h2>
+				</div>
+			</div>
+			<div class="row instructors_row">
+				
+				{% for imp in imps %}
+				<!-- Instructor -->
+				<div class="col-lg-4 instructor_col">
+					<div class="instructor text-center">
+						<div class="instructor_image_container">
+							<div class="instructor_image"><img src="{{imp.photo.url}}" alt=""></div>
+						</div>
+						<div class="instructor_name"><a href="instructors.html">{{imp.name}}</a></div>
+						<div class="instructor_title">{{imp.position}}</div>
+						<div class="instructor_text">
+							<p>{{imp.desctiption}}</p>
+						</div>
+						<div class="instructor_social">
+							<ul>
+								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				
 
-                    <div class="testimonial clearfix">
-                        <div class="testi-meta">
-                            <img src="images/testi_03.png" alt="" class="img-fluid">
-                            <h4>Venanda Mercy </h4>
-                        </div>
-                        <div class="desc">
-                            <h3><i class="fa fa-quote-left"></i> Great & Talented Team!</h3>
-                            <p class="lead">The master-builder of human happines no one rejects, dislikes avoids pleasure itself, because it is very pursue pleasure. </p>
-                        </div>
-                        <!-- end testi-meta -->
-                    </div><!-- end testimonial -->
-                </div><!-- end carousel -->
-            </div><!-- end col -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end section -->
 
-<div class="parallax section dbcolor">
-    <div class="container">
-        <div class="row logos">
-            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                <a href="#"><img src="images/logo_01.png" alt="" class="img-repsonsive"></a>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                <a href="#"><img src="images/logo_02.png" alt="" class="img-repsonsive"></a>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                <a href="#"><img src="images/logo_03.png" alt="" class="img-repsonsive"></a>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                <a href="#"><img src="images/logo_04.png" alt="" class="img-repsonsive"></a>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                <a href="#"><img src="images/logo_05.png" alt="" class="img-repsonsive"></a>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                <a href="#"><img src="images/logo_06.png" alt="" class="img-repsonsive"></a>
-            </div>
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end section -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Register -->
+
+	<div class="register">
+		<div class="container">
+			<div class="row">
+				
+				<!-- Register Form -->
+
+				<div class="col-lg-6">
+					<div class="register_form_container">
+						<div class="register_form_title">Задайте вопрос</div>
+						<form action="#" id="register_form" class="register_form">
+							<div class="row register_row">
+								<div class="col-lg-6 register_col">
+									<input type="text" class="form_input" placeholder="Имя" required="required">
+								</div>
+								<div class="col-lg-6 register_col">
+									<input type="email" class="form_input" placeholder="Email" required="required">
+								</div>
+								<div class="col-lg-6 register_col">
+									<input type="tel" class="form_input" placeholder="Телефон">
+								</div>
+								<div class="col-lg-6 register_col">
+									<input type="url" class="form_input" placeholder="Site">
+								</div>
+								<div class="col">
+									<button type="submit" class="form_button trans_200">Отправить</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<!-- Register Timer -->
+
+				<div class="col-lg-6">
+					<div class="register_timer_container">
+						<div class="register_timer_title">Подписывайтесь сейчас</div>
+						<div class="register_timer_text">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis fringilla tortor.</p>
+						</div>
+						<!-- <div class="timer_container">
+							<ul class="timer_list">
+								<li><div id="day" class="timer_num">00</div><div class="timer_ss">days</div></li>
+								<li><div id="hour" class="timer_num">00</div><div class="timer_ss">hours</div></li>
+								<li><div id="minute" class="timer_num">00</div><div class="timer_ss">minutes</div></li>
+								<li><div id="second" class="timer_num">00</div><div class="timer_ss">seconds</div></li>
+							</ul>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Events -->
+
+	
 
 {% endblock %}
