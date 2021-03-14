@@ -17,6 +17,11 @@ class Government(models.Model):
 
         return self.name
 
+    class Meta:
+
+        verbose_name = 'Руководство колледжа'
+        verbose_name_plural = 'Руководство колледжа'
+
 class Employees(models.Model):
 
     name = models.CharField('Имя',max_length=255)
@@ -28,6 +33,11 @@ class Employees(models.Model):
     def __str__(self):
 
         return self.name
+
+    class Meta:
+
+        verbose_name = 'Преподаватель колледжа'
+        verbose_name_plural = 'Преподаватели колледжа'
 
 
 class EmployeesLikes(models.Model):
@@ -44,3 +54,8 @@ class EmployeesLikes(models.Model):
     def __str__(self):
 
         return f'к сотруднику {self.employees.name} нажал(а) лайк пользователь{self.likeuser.username}'
+    
+    class Meta:
+
+        verbose_name = 'Лайк к преподавателю'
+        verbose_name_plural = 'Лайки к преподавателю'

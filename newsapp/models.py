@@ -13,6 +13,11 @@ class NewsCategory(models.Model):
 
         return self.name
 
+    class Meta:
+
+        verbose_name = 'Категория новости'
+        verbose_name_plural = 'Категорий новости'
+
 class NewsPost(models.Model):
     title = models.CharField('Загаловок поста',max_length=255)
     description = models.TextField('Описание поста')
@@ -21,6 +26,11 @@ class NewsPost(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
 
 class NewsLikes(models.Model):
 
@@ -36,3 +46,8 @@ class NewsLikes(models.Model):
     def __str__(self):
 
         return f'к посту {self.newspost.title} нажал(а) лайк пользователь{self.likeuser.username}'
+
+    class Meta:
+
+        verbose_name = 'Лайк к новостью'
+        verbose_name_plural = 'Лайки к новостью'

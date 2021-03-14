@@ -269,7 +269,7 @@ section
 .top_bar
 {
 	width: 100%;
-	background: #FFFFFF;
+	background: #8f2437;
 	border-bottom: solid 1px #ebebeb;
 	z-index: 10;
 }
@@ -281,7 +281,7 @@ section
 {
 	height: 49px;
 	font-size: 12px;
-	color: rgba(0,0,0,0.4);
+	color: white;
 	font-weight: 600;
 }
 .top_bar_phone
@@ -308,7 +308,7 @@ section
 }
 .lang_list li a
 {
-	color: rgba(0,0,0,0.4);
+	color: white!important;
 	padding-top: 17px;
 	padding-bottom: 17px;
 }
@@ -325,7 +325,7 @@ section
 	position: absolute;
 	right: -10px;
 	top: 44px;
-	background: #FFFFFF;
+	background: #8f2437;
 	padding-right: 23px;
 	padding-left: 20px;
 	padding-top: 15px;
@@ -366,6 +366,9 @@ section
 .social_title
 {
 	margin-right: 13px;
+}
+.social_title a{
+	color:white;
 }
 .top_bar_social ul
 {
@@ -951,7 +954,7 @@ section
 {
 	width: 225px;
 	height: 43px;
-	background: #2e21df;
+	background: #004878;
 	text-align: center;
 	border-radius: 3px;
 	margin-left: auto;
@@ -982,7 +985,7 @@ section
 {
 	width: 100%;
 	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-bottom: 25px;
 }
 .language_slider_container
 {
@@ -1082,7 +1085,7 @@ section
 
 .courses
 {
-	padding-top: 150px;
+	padding-top: 50px;
 	padding-bottom: 80px;
 	background: #FFFFFF;
 }
@@ -1162,7 +1165,7 @@ section
 .course_info ul li:not(:last-child)::after
 {
 	display: inline-block;
-	font-family: 'FontAwesome';
+	font-family: 'Font Awesome 5 Pro';
 	color: #b8b8b8;
 	font-size: 4px;
 	margin-left: 7px;
@@ -1225,7 +1228,7 @@ section
 }
 .course_free
 {
-	background: #2e21df;
+	background: #004878;
 }
 
 /*********************************
@@ -1349,8 +1352,8 @@ section
 
 .register
 {
-	padding-top: 120px;
-	padding-bottom: 120px;
+	padding-top: 20px;
+	padding-bottom: 100px;
 	background: #f8f8f8;
 }
 .register_form_container
@@ -1491,7 +1494,7 @@ section
 {
 	width: 100%;
 	height: 43px;
-	background: #2e21df;
+	background: #004878;
 	color: #FFFFFF;
 	text-transform: uppercase;
 	letter-spacing: 0.3em;
@@ -2560,7 +2563,7 @@ section
 .author_info ul li:not(:last-child)::after
 {
 	display: inline-block;
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Pro';
     color: #b8b8b8;
     font-size: 4px;
     margin-left: 7px;
@@ -2729,7 +2732,7 @@ section
 }
 .register
 {
-	margin-top: 41px;
+	
 }
 .register_form_container
 {
@@ -2875,7 +2878,7 @@ section
 {
 	width: 100%;
 	height: 43px;
-	background: #2e21df;
+	background: #004878;
 	color: #FFFFFF;
 	text-transform: uppercase;
 	letter-spacing: 0.3em;
@@ -3235,7 +3238,7 @@ section
 {
 	width: 100%;
 	height: 43px;
-	background: #2e21df;
+	background: #004878;
 	color: #FFFFFF;
 	text-transform: uppercase;
 	letter-spacing: 0.3em;
@@ -3264,7 +3267,7 @@ section
 
 .course
 {
-	padding-bottom: 150px;
+	padding-bottom: 10px;
 }
 .course_top
 {
@@ -3357,11 +3360,10 @@ section
 .instructors
 {
 	width: 100%;
-	margin-top: 58px;
 }
 .instructors_row
 {
-	margin-top: 32px;
+	margin-top: 15px;
 }
 .instructor
 {
@@ -3449,7 +3451,7 @@ section
 .accordion::before
 {
 	display: inline-block;
-	font-family: 'FontAwesome';
+	font-family: 'Font Awesome 5 Pro';
 	content: '\f067';
 	font-size: 14px;
 	color: rgba(0,0,0,0.4);
@@ -3495,11 +3497,16 @@ section
 	color: rgba(0,0,0,0.4);
 	line-height: 1.71;
 }
-
+.pt-15{
+	padding-top: 150px;
+}
 /*********************************
 7.2 Curriculum
 *********************************/
-
+.background__none{
+	background: transparent!important;
+	background-color: transparent!important;
+}
 .curriculum_items
 {
 	margin-top: 58px;
@@ -3690,7 +3697,7 @@ section
 }
 .cur_reviews
 {
-	margin-top: 80px;
+	/* margin-top: 80px; */
 }
 .review
 {
@@ -3817,7 +3824,7 @@ section
 	left: 0;
 	background: #f8f8f8;
 	width: calc(100% + 113px);
-	height: calc(100% + 150px);
+	height: calc(100% - 20px);
 }
 .sidebar_top
 {

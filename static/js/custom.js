@@ -45,6 +45,10 @@ $(document).ready(function()
 	initMenu();
 	initLang();
 	initTimer();
+	initTabs();
+	initAccordions();
+
+
 
 	/* 
 
@@ -481,6 +485,7 @@ $(document).ready(function()
 			]
     	}
 
+	
     	// Initialize a map with options
     	map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
@@ -513,9 +518,6 @@ $(document).ready(function()
 		});
 	}
 
-	5. Init Tabs
-
-	*/
 
 	function initTabs()
 	{
@@ -608,53 +610,53 @@ $(document).ready(function()
 
 	*/
 
-	function initPBars()
-	{
-		if($('.cur_pbar').length)
-		{
-			var bars = $('.cur_pbar');
+	// function initPBars()
+	// {
+	// 	if($('.cur_pbar').length)
+	// 	{
+	// 		var bars = $('.cur_pbar');
 
-			bars.each(function()
-			{
-				var ele = $(this);
-	    		var elePerc = ele.data('perc');
-	    		var eleName = '#' + ele.attr('id');
-	    		var color = "#b3b3b3";
-	    		var pbar = new ProgressBar.Line(eleName, 
-	    		{
-	    			strokeWidth: 1,
-					easing: 'easeInOut',
-					duration: 1400,
-					color: color,
-					trailColor: '#f1f1f1',
-					trailWidth: 1,
-					svgStyle: {display: 'block', width: '100%', height: '100%'},
-					text: {
-						style: {
-							// Text color.
-							// Default: same as stroke color (options.color)
-							fontFamily: 'Poppins',
-							textAlign: 'right',
-							fontSize: '12px',
-							fontWeight: '500',
-							width: '46px',
-							color: 'rgba(0,0,0,0.4)',
-							position: 'absolute',
-							right: '0',
-							top: '-5px',
-							padding: 0,
-							margin: 0,
-							transform: null
-							},
-							autoStyleContainer: false
-					},
-					step: function(state, bar) {
-					bar.setText(Math.round(bar.value() * 100) + ' %');
-					}
-	    		});
-	    		pbar.animate(elePerc);
-			})
-		}
-	}
+	// 		bars.each(function()
+	// 		{
+	// 			var ele = $(this);
+	//     		var elePerc = ele.data('perc');
+	//     		var eleName = '#' + ele.attr('id');
+	//     		var color = "#b3b3b3";
+	//     		var pbar = new ProgressBar.Line(eleName, 
+	//     		{
+	//     			strokeWidth: 1,
+	// 				easing: 'easeInOut',
+	// 				duration: 1400,
+	// 				color: color,
+	// 				trailColor: '#f1f1f1',
+	// 				trailWidth: 1,
+	// 				svgStyle: {display: 'block', width: '100%', height: '100%'},
+	// 				text: {
+	// 					style: {
+	// 						// Text color.
+	// 						// Default: same as stroke color (options.color)
+	// 						fontFamily: 'Poppins',
+	// 						textAlign: 'right',
+	// 						fontSize: '12px',
+	// 						fontWeight: '500',
+	// 						width: '46px',
+	// 						color: 'rgba(0,0,0,0.4)',
+	// 						position: 'absolute',
+	// 						right: '0',
+	// 						top: '-5px',
+	// 						padding: 0,
+	// 						margin: 0,
+	// 						transform: null
+	// 						},
+	// 						autoStyleContainer: false
+	// 				},
+	// 				step: function(state, bar) {
+	// 				bar.setText(Math.round(bar.value() * 100) + ' %');
+	// 				}
+	//     		});
+	//     		pbar.animate(elePerc);
+	// 		})
+	// 	}
+	// }
 
 });

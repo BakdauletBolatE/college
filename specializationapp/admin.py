@@ -1,6 +1,27 @@
 from django.contrib import admin
-from .models import Specialization
+from .models import Specialization,SpecializationComment,SpecializationFaq
 # Register your models here.
 
+class SpecializationFaqInline(admin.TabularInline):
+    model = SpecializationFaq
+    extra = 4
 
-admin.site.register(Specialization)
+
+class SpecializationAdmin(admin.ModelAdmin):
+
+     inlines = [
+        SpecializationFaqInline,
+    ]
+
+
+admin.site.register(Specialization,SpecializationAdmin)
+admin.site.register(SpecializationFaq)
+
+
+
+
+class SpecializationCommentAdmin(admin.ModelAdmin):
+     list_filter = ('visible', )
+
+admin.site.register(SpecializationComment,SpecializationCommentAdmin)
+

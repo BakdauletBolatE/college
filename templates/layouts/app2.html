@@ -15,8 +15,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
 <link href="{% static 'plugins/video-js/video-js.css' %}" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="{% static 'styles/blog_responsive.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'styles/blog_single_responsive.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/custom.css' %}">
 </head>
 <body>
@@ -54,6 +52,13 @@
 									<!-- Social -->
 									<div class="top_bar_social">
 										<span class="top_bar_title social_title">Подписывайтесь</span>
+										{% if request.user.is_authenticated %}
+										<span class="top_bar_title social_title"><a href="{% url 'sapp:login' %}">{{request.user}}</a></span>
+										<span class="top_bar_title social_title"><a href="">Выйти</a></span>
+										{% else %}
+										<span class="top_bar_title social_title"><a href="{% url 'sapp:login' %}">Логин</a></span>
+										<span class="top_bar_title social_title"><a href="{% url 'sapp:register' %}">Регистрация</a></span>
+										{% endif %}
 										<ul>
 											<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
 											<li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
@@ -152,9 +157,9 @@
 			<div class="menu_social">
 				<span class="menu_title">follow us</span>
 				<ul>
-					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
 				</ul>
 			</div>
 		</div>
@@ -177,7 +182,12 @@
 							<div class="logo_text">
 								<img class="logo_img" src="{% static 'images/new/light.png' %}" alt="">
 							</div>
-							<p class="footer_title">Основателем и первым президентом учреждения «Высший Педагогический колледж «Shynkent»   является – Юнусов Бахтияр Саидович (1954-2010 г.г.) – профессор, ученый-арабист, член-корреспондент Академии естественных наук РК и Международной Академии наук педагогического образования России</p>
+							<ul class="footer_list">
+								<li><a href="">
+									Основателем и первым президентом учреждения «Высший Педагогический колледж «Shynkent»   является – Юнусов Бахтияр Саидович (1954-2010 г.г.) – профессор, ученый-арабист, член-корреспондент Академии естественных наук РК и Международной Академии наук педагогического образования России
+								</a></li>
+							</ul>
+							
 							
 						</div>
 					</div>
@@ -254,8 +264,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Вс�
 <script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
 <script src="{% static 'plugins/easing/easing.js' %}"></script>
 <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
-<script src="{% static 'js/blog.js' %}"></script>
-<script src="{% static 'js/blog_single.js' %}"></script>
 <script src="{% static 'js/custom.js' %}"></script>
 </body>
 </html>
