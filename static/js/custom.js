@@ -158,10 +158,10 @@ $(document).ready(function()
 				dots:false,
 				responsive:
 				{
-					0:{items:2},
-					480:{items:4},
-					720:{items:6},
-					990:{items:9}
+					0:{items:1},
+					480:{items:2},
+					720:{items:4},
+					990:{items:4}
 				}
 			});
 

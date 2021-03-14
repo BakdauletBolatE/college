@@ -7,6 +7,7 @@ from django.utils import timezone
 class NewsCategory(models.Model):
 
     name = models.CharField('Название категорий',max_length=255)
+    poster = models.ImageField('Постер',upload_to="newsC/")
     created_at = models.DateTimeField('Когда создано',default=timezone.now)
 
     def __str__(self):
@@ -21,6 +22,7 @@ class NewsCategory(models.Model):
 class NewsPost(models.Model):
     title = models.CharField('Загаловок поста',max_length=255)
     description = models.TextField('Описание поста')
+    poster = models.ImageField('Постер',upload_to="news/")
     category = models.ForeignKey(NewsCategory,verbose_name='Категория новости',default=0,on_delete=models.CASCADE)
     created_at = models.DateTimeField('Когда создано',default=timezone.now)
 

@@ -1002,7 +1002,7 @@ section
 }
 .flag
 {
-	width: 50px;
+	width: 200px;
 	margin: 0 auto;
 	-webkit-transition: all 400ms ease;
 	-moz-transition: all 400ms ease;
@@ -1012,7 +1012,7 @@ section
 }
 .flag img
 {
-	max-width: 100%;
+	width: 100%;
 }
 .lang_name
 {
@@ -3284,6 +3284,7 @@ section
 }
 .tabs
 {
+	
 	padding-top: 20px;
 }
 .tab

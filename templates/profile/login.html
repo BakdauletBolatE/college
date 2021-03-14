@@ -2,7 +2,13 @@
 {% load static %}
 
 {% block content %}
-<div class="pt-15">
-    {{form}}
+<div class="pt-15 pb-5 col-4 mx-auto d-block">
+   
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button class="btn mt-2 btn-primary mx-auto d-block">Войти</button>
+    </form>
+   
 </div>
 {% endblock %}

@@ -54,7 +54,7 @@
 										<span class="top_bar_title social_title">Подписывайтесь</span>
 										{% if request.user.is_authenticated %}
 										<span class="top_bar_title social_title"><a href="{% url 'sapp:login' %}">{{request.user}}</a></span>
-										<span class="top_bar_title social_title"><a href="">Выйти</a></span>
+										<span class="top_bar_title social_title"><a href="{% url 'sapp:logout' %}">Выйти</a></span>
 										{% else %}
 										<span class="top_bar_title social_title"><a href="{% url 'sapp:login' %}">Логин</a></span>
 										<span class="top_bar_title social_title"><a href="{% url 'sapp:register' %}">Регистрация</a></span>
@@ -92,18 +92,26 @@
 									<li class="{% if request.path == '/about-us/' %}active{% endif %} main_nav__item"><a href="{% url 'sapp:aboutUrl' %}">О колледже</a>
                                         <ul class="sub-main_nav">
                                             <li class="sub-main_nav__item {% if request.path == '/employes/gov/' %}active{% endif %}"><a href="{% url 'empapp:indexG' %}">Штат</a></li>
-                                            <li><a href="">Расписание</a></li>
+                                            <li class="sub-main_nav__item {% if request.path == '/code_of_honor/' %}active{% endif %}"><a href="{% url 'sapp:code_of_honor' %}">Кодекс чести</a></li>
                                         </ul>
                                     </li>
 									<li class="main_nav__item {% if request.path == '/speciliazation/' %}active{% endif %}"><a href="{% url 'specapp:index' %}">Специальности</a></li>
-									<li class="main_nav__item"><a href="#">Новости</a></li>
-									<li class="main_nav__item"><a href="blog.html">Международный отдел</a></li>
+									<li class="main_nav__item {% if request.path == '/news/' %}active{% endif %}"><a href="{% url 'newsapp:listView' %}">Новости</a></li>
+									<li class="main_nav__item"><a href="">Абитуриенту</a>
+										<ul class="sub-main_nav">
+                                            <li class="sub-main_nav__item "><a href="{% url 'sapp:admission_rules' %}">Правила приема на обучение</a></li>
+                                            <li class="sub-main_nav__item "><a href="{% url 'sapp:newEFormat' %}">Новый формат ЕНТ</a></li>
+											<li class="sub-main_nav__item "><a href="{% url 'sapp:ab2020' %}">Абитуриент-2020</a></li>
+                                        </ul>
+									</li>
+									<li class="main_nav__item {% if request.path == '/international/' %}active{% endif %}"><a href="{% url 'sapp:internationalUrl' %}">Международный отдел</a></li>
 									<li class="main_nav__item {% if request.path == '/contacts/' %}active{% endif %}"><a href="{% url 'sapp:contact' %}">Контакты</a></li>
 								</ul>
                               
 							</nav>
-							<!-- <div class="header_content_right ml-auto text-right">
-								<div class="header_search">
+							<div class="">
+								<!-- header_content_right ml-auto text-right -->
+								<!-- <div class="header_search">
 									<div class="search_form_container">
 										<form action="#" id="search_form" class="search_form trans_400">
 											<input type="search" class="header_search_input trans_400" placeholder="Type for Search" required="required">
@@ -112,7 +120,7 @@
 											</div>
 										</form>
 									</div>
-								</div>
+								</div> -->
 
 								
 
@@ -120,7 +128,7 @@
 								<div class="hamburger menu_mm">
 									<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
 								</div>
-							</div> -->
+							</div>
 
 						</div>
 					</div>

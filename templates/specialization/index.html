@@ -18,11 +18,11 @@
 					<div class="course">
 						<div class="course_image"><img src="{{specialization.photo.url}}" alt=""></div>
 						<div class="course_body">
-							<div class="course_title"><a href="course.html">{{specialization.name}}</a></div>
+							<div class="course_title"><a href="{% url 'specapp:detail' specialization.id  %}">{{specialization.name}}</a></div>
 							<div class="course_info">
 								<ul>
-									<li><a href="instructors.html">{{specialization.uid}}</a></li>
-									<li><a href="#">English</a></li>
+									<li><a href="">{{specialization.uid}}</a></li>
+									<li><a href="#">Шифр</a></li>
 								</ul>
 							</div>
 							<div class="course_text">
@@ -32,7 +32,7 @@
 						<div class="course_footer d-flex flex-row align-items-center justify-content-start">
 							<!-- <div class="course_students"><i class="fa fa-user" aria-hidden="true"></i><span>10</span></div>
 							<div class="course_rating ml-auto"><i class="fa fa-star" aria-hidden="true"></i><span>4,5</span></div> -->
-							<div class="course_mark course_free trans_200"><a href="#">Посмотреть</a></div>
+							<div class="course_mark course_free trans_200"><a href="{% url 'specapp:detail' specialization.id  %}">Посмотреть</a></div>
 						</div>
 					</div>
 				</div>

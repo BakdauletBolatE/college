@@ -23,6 +23,7 @@ urlpatterns = [
     path('',include(('sapp.urls','sapp'))),
     path('employes/',include(('employeesapp.urls','empapp'))),
     path('speciliazation/', include(('specializationapp.urls','specapp'))),
+    path('news/',include(('newsapp.urls','newsapp'))),
     path('admin/', admin.site.urls),
 ]
 
