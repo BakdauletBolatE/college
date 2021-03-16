@@ -12,6 +12,10 @@
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
 <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
 <link href="{% static 'plugins/video-js/video-js.css' %}" rel="stylesheet" type="text/css">
@@ -90,7 +94,7 @@
 								<ul class="main_nav">
 									<li class="{% if request.path == '/' %}active{% endif %} main_nav__item"><a href="{% url 'sapp:index' %}">Главная</a></li>
 									<li class="{% if request.path == '/about-us/' %}active{% endif %} main_nav__item"><a href="{% url 'sapp:aboutUrl' %}">О колледже</a>
-                                        <ul class="sub-main_nav">
+                                        <ul class="sub-main_nav sub_column">
                                             <li class="sub-main_nav__item {% if request.path == '/employes/gov/' %}active{% endif %}"><a href="{% url 'empapp:indexG' %}">Штат</a></li>
                                             <li class="sub-main_nav__item {% if request.path == '/code_of_honor/' %}active{% endif %}"><a href="{% url 'sapp:code_of_honor' %}">Кодекс чести</a></li>
                                         </ul>
@@ -267,6 +271,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Вс�
 </script>
 
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
 <script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
 <script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>

@@ -53,3 +53,20 @@ class NewsLikes(models.Model):
 
         verbose_name = 'Лайк к новостью'
         verbose_name_plural = 'Лайки к новостью'
+
+class NewsComment(models.Model):
+
+    text = models.TextField('Ответ')
+    author = models.ForeignKey(User,verbose_name='Автор комента',on_delete=models.CASCADE)
+    specialization = models.ForeignKey(NewsPost,verbose_name='Новость', related_name='comments', on_delete=models.CASCADE)
+    visible = models.BooleanField('Видимость коммента',default=True)
+    created_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+
+        return self.text
+
+    class Meta:
+
+        verbose_name = 'Коментарий к новостью'
+        verbose_name_plural = 'Коментарий к новостью'

@@ -6,6 +6,7 @@ from django.contrib.auth.views import LoginView,LogoutView
 from django.views.generic import CreateView
 from .forms import AuthUserForm,RegisterUserForm
 from django.contrib.auth import authenticate, login
+from newsapp.models import NewsPost
 
 # Create your views here.
 
@@ -13,10 +14,12 @@ def index(request):
 
     specializations = Specialization.objects.all()[:3]
     imps = Government.objects.filter(isimp=1)[:3]
+    news = NewsPost.objects.all()[:3]
 
     data = {
         'specializations':specializations,
-        'imps':imps
+        'imps':imps,
+        'news':news
     }
     return render(request,'sapp/home.html',data)
 

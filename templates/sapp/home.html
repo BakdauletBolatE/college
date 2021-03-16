@@ -4,21 +4,70 @@
 {% load static %}
 
 	<!-- Home -->
-
-	<div class="home">
-		<div class="home_background" style="background-image: url({% static 'images/collegeout.jpg' %});"></div>
-		<div class="home_content">
-			<div class="container">
-				<div class="row">
-					<div class="col text-center">
-						<h1 class="home_title">Высший педагогический колледж Shymkent</h1>
-						<div class="home_button trans_200"><a href="#">Начинаем</a></div>
+	<!-- Slider main container -->
+<div class="swiper-container mt-3">
+	<!-- Additional required wrapper -->
+	<div class="swiper-wrapper">
+	  <!-- Slides -->
+	  <div class="swiper-slide">
+		<div class="home">
+			<div class="home_background" style="background-image: url({% static 'images/compressedjpg/15.jpeg' %});"></div>
+			<div class="home_content">
+				<div class="container">
+					<div class="row">
+						<div class="col text-center">
+							<h1 class="home_title">Высший педагогический колледж Shymkent</h1>
+							<div class="home_button trans_200"><a href="#">Начинаем</a></div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	
+	  </div>
+	  <div class="swiper-slide">
+		<div class="home">
+			<div class="home_background" style="background-image: url({% static 'images/compressedjpg/15.jpeg' %}) no-repeat center; background-size:cover; "></div>
+			<div class="home_content">
+				<div class="container">
+					<div class="row">
+						<div class="col text-center">
+							<h1 class="home_title">Высший педагогический колледж Shymkent2</h1>
+							<div class="home_button trans_200"><a href="#">Начинаем</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	  </div>
+	  <div class="swiper-slide">
+		<div class="home">
+			<div class="home_background" style="background-image: url({% static 'images/compressedjpg/15.jpeg' %});"></div>
+			<div class="home_content">
+				<div class="container">
+					<div class="row">
+						<div class="col text-center">
+							<h1 class="home_title">Высший педагогический колледж Shymkent3</h1>
+							<div class="home_button trans_200"><a href="#">Начинаем</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	  </div>
+	  ...
 	</div>
 
+	<!-- If we need navigation buttons -->
+	<div class="swiper-button-prev"></div>
+	<div class="swiper-button-next"></div>
+
+  </div>
+
+  
+	
 	<!-- Language -->
 
 	<div class="language">
@@ -34,74 +83,35 @@
 							<!-- Flag -->
 							<div class="owl-item language_item">
 								<a href="#">
-									<div class="flag"><img src="{% static 'images/Ukrainian.svg' %}" alt=""></div>
-									<div class="lang_name">Ukrainian</div>
+									<div class="flag"><img src="{% static 'icons/svg/020-trophy.svg' %}" alt=""></div>
+									<div class="lang_name">Достижение</div>
 								</a>
 							</div>
 
 							<!-- Flag -->
 							<div class="owl-item language_item">
 								<a href="#">
-									<div class="flag"><img src="{% static 'images/Japanese.svg' %}" alt=""></div>
-									<div class="lang_name">Japanese</div>
+									<div class="flag"><img src="{% static 'icons/svg/024-schedule.svg' %}" alt=""></div>
+									<div class="lang_name">Расписание</div>
 								</a>
 							</div>
 
 							<!-- Flag -->
 							<div class="owl-item language_item">
 								<a href="#">
-									<div class="flag"><img src="{% static 'images/Lithuanian.svg' %}" alt=""></div>
-									<div class="lang_name">Lithuanian</div>
+									<div class="flag"><img src="{% static 'icons/svg/050-physics.svg' %}" alt=""></div>
+									<div class="lang_name">Наука и Исследования</div>
 								</a>
 							</div>
 
 							<!-- Flag -->
 							<div class="owl-item language_item">
 								<a href="#">
-									<div class="flag"><img src="{% static 'images/Swedish.svg' %}" alt=""></div>
-									<div class="lang_name">Swedish</div>
+									<div class="flag"><img src="{% static 'icons/svg/038-student card.svg' %}" alt=""></div>
+									<div class="lang_name">Преподаватели</div>
 								</a>
 							</div>
 
-							<!-- Flag -->
-							<div class="owl-item language_item">
-								<a href="#">
-									<div class="flag"><img src="{% static 'images/English.svg' %}" alt=""></div>
-									<div class="lang_name">English</div>
-								</a>
-							</div>
-
-							<!-- Flag -->
-							<div class="owl-item language_item">
-								<a href="#">
-									<div class="flag"><img src="{% static 'images/Italian.svg' %}" alt=""></div>
-									<div class="lang_name">Italian</div>
-								</a>
-							</div>
-
-							<!-- Flag -->
-							<div class="owl-item language_item">
-								<a href="#">
-									<div class="flag"><img src="{% static 'images/Chinese.svg' %}" alt=""></div>
-									<div class="lang_name">Chinese</div>
-								</a>
-							</div>
-
-							<!-- Flag -->
-							<div class="owl-item language_item">
-								<a href="#">
-									<div class="flag"><img src="{% static 'images/French.svg' %}" alt=""></div>
-									<div class="lang_name">French</div>
-								</a>
-							</div>
-
-							<!-- Flag -->
-							<div class="owl-item language_item">
-								<a href="#">
-									<div class="flag"><img src="{% static 'images/German.svg' %}" alt=""></div>
-									<div class="lang_name">German</div>
-								</a>
-							</div>
 
 						</div>
 
@@ -253,7 +263,37 @@
 		</div>
 	</div>
 
-	<!-- Events -->
+	<div class="events">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h2 class="section_title text-center">Upcoming Events</h2>
+				</div>
+			</div>
+			<div class="row events_row">
+				
+				{% for new in news %}
+				<!-- Event -->
+				<div class="col-lg-4 event_col">
+					<div class="event">
+						<div class="event_image"><img src='{{ new.poster.url }}' alt=""></div>
+						<div class="event_date d-flex flex-column align-items-center justify-content-center">
+							<div class="event_day">{{ new.created_at|date:"D" }}</div>
+							<div class="event_month">{{ new.created_at|date:"M" }}</div>
+						</div>
+						<div class="event_body d-flex flex-row align-items-center justify-content-start">
+							<div class="event_title"><a href="#">{{ new.title }}</a></div>
+							<div class="event_tag ml-auto">Free</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+
+				
+
+			</div>
+		</div>
+	</div>
 
 	
 

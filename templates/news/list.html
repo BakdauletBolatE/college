@@ -87,7 +87,7 @@
                         <div class="blog_post_text">
                             <p>{{new.description}}</p>
                         </div>
-                        <div class="read_more"><a href="blog_single.html">Читать далее<img src="{% static 'images/right.png' %}" alt=""></a></div>
+                        <div class="read_more"><a href="{% url 'newsapp:detailView' new.id %}">Читать далее<img src="{% static 'images/right.png' %}" alt=""></a></div>
                     </div>
                 </div>
             </div>

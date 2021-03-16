@@ -55,7 +55,7 @@
 
                                     {% for faq in specialization.faq.all %}
                                     <div class="accordion_container">
-                                        <div class="accordion d-flex flex-row align-items-center active"><div>{{faq.question}}</div></div>
+                                        <div class="accordion d-flex flex-row align-items-center"><div>{{faq.question}}</div></div>
                                         <div class="accordion_panel">
                                             <p>{{faq.answer}}</p>
                                         </div>
@@ -76,6 +76,7 @@
                     
                         <div class="cur_reviews">
                             <!-- Review -->
+                            {% if request.user.is_authenticated %}
                             <form action="{% url 'specapp:detail' specialization.id  %}" method="POST">
                                 {% csrf_token %}
                                 <div>
@@ -83,6 +84,13 @@
                                 </div>
                                 <button class="btn btn-primary mt-1 mb-1 mx-auto d-block">Отправить</button>
                             </form>
+                            {% else %}
+
+                            <div class="">
+                                <a href="{% url 'sapp:login' %}">Авторизуитесь чтобы оставить отзыв</a>
+                            </div>
+
+                            {% endif %}
                           
                             {% for comment in comments %}
                             <div class="review">
@@ -109,101 +117,22 @@
 
                     <!-- Members -->
                     <div class="tab_panel members">
-                        <div class="panel_title">Members</div>
+                        <div class="panel_title">Преподаватели</div>
                         <div class="panel_text">
-                            <p>Lorem ipsum dolor sit amet, te eros consulatu pro, quem labores petentium no sea, atqui posidonium interpretaris pri eu. At soleat maiorum platonem vix, no mei case fierent. Primis quidam ancillae te mei.</p>
+                            <p>В нашем колледже проподают самые лучшие преподаватели</p>
                         </div>
                         <div class="members_list d-flex flex-row flex-wrap align-items-start justify-content-start">
-
+                            
+                            {% for employee in specialization.employees.all %}
                             <!-- Member -->
                             <div class="member">
-                                <div class="member_image"><img src="images/member_1.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
+                                <div class="member_image"><img src="{{employee.photo.url}}" alt=""></div>
+                                <div class="member_title"><a href="#">{{employee.name}}</a></div>
                             </div>
 
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_0.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
+                            {% endfor %}
 
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_0.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
-
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_2.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
-
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_3.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
-
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_4.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
-
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_0.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
-
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_5.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
-
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_6.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
-
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_0.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
-
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_7.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
-
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_8.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
-
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_0.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
-
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_9.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
-
-                            <!-- Member -->
-                            <div class="member">
-                                <div class="member_image"><img src="images/member_0.jpg" alt=""></div>
-                                <div class="member_title"><a href="#">Sarah Parker</a></div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
