@@ -2,6 +2,9 @@
 
 {% block content %}
 {% load static %}
+{% load i18n %}
+
+
 
 	<!-- Home -->
 	<!-- Slider main container -->
@@ -267,7 +270,22 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h2 class="section_title text-center">Upcoming Events</h2>
+					<h2 class="section_title text-center">Upcoming Events
+						{% get_current_language as LANGUAGE_CODE %}
+<!-- Current language: {{ LANGUAGE_CODE }} -->
+<p>{% translate "Welcome to our page" %}</p>
+<p>{% get_available_languages as ls %}</p>
+<select name="" id="">
+	{% for l in ls %}
+	<option value="">{{l}}</option>
+	{% endfor %}
+</select>
+{% language 'ru' %}
+    {% get_current_language as LANGUAGE_CODE %}
+    <!-- Current language: {{ LANGUAGE_CODE }} -->
+    <p>{% translate "Welcome to our page" %} {{LANGUAGE_CODE}}</p>
+{% endlanguage %}
+					</h2>
 				</div>
 			</div>
 			<div class="row events_row">

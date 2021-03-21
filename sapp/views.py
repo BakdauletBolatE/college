@@ -7,7 +7,7 @@ from django.views.generic import CreateView
 from .forms import AuthUserForm,RegisterUserForm
 from django.contrib.auth import authenticate, login
 from newsapp.models import NewsPost
-
+from django.utils.translation import activate, get_language_info
 # Create your views here.
 
 def index(request):
@@ -15,6 +15,11 @@ def index(request):
     specializations = Specialization.objects.all()[:3]
     imps = Government.objects.filter(isimp=1)[:3]
     news = NewsPost.objects.all()[:3]
+
+    
+    activate('ru')
+    li = get_language_info('ru')
+    print(li['name'], li['name_local'], li['name_translated'], li['bidi'])
 
     data = {
         'specializations':specializations,
