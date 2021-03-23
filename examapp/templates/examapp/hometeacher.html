@@ -1,0 +1,131 @@
+{% extends 'layouts/admin.html' %}
+
+{% block content %}
+{% load static %}
+{% load i18n %}
+
+<div class="container mt-15 mb-15">
+    <input type="hidden" id="csrf_token" value="{{csrf_token}}">
+    <form method="POST" class="form-group mb-2 row" action="">
+        {% csrf_token %}
+        <div class="row col-8">
+            <div class="col-3 form-group">
+                <label for="">Выберите группу</label>
+                <select class="form-control" name="group" id="">
+                    {% for group in teacher.groups.all %}
+                   
+                    <option data-g="{{group.id}}" class="goption" value="{{group.id}}" > {{group}}</option>
+                     
+                    {% endfor %}
+                    <script>
+                        let goption = document.querySelector('[data-g="{{g_id}}"]');
+                        if(goption){
+                            goption.selected = true; 
+                        }
+                       
+                    </script>
+                </select>
+            </div>
+            <div class="col-3 form-group">
+                <label for="">Выберите Семестр</label>
+                <select class="form-control" name="cemester" id="">
+                    {% for cemester in cemesters %}
+                    <option data-c="{{cemester.id}}" class="cemoption" value="{{cemester.id}}" >{{cemester.name}}</option>
+                    {% endfor %}
+                    <script>
+                        let cemoption = document.querySelector('[data-c="{{c_id}}"]');
+                        if (cemoption){
+                            cemoption.selected = true;                       
+                        }
+                        
+                    </script>
+                </select>
+            </div>
+            <div class="col-3 form-group">
+                <label for="">Выберите Неделю</label>
+                <select class="form-control" name="week" id="">
+                    {% for week in weeks %}
+                    <option data-w="{{week.id}}" class="weekoption" value="{{week.id}}" >{{week.name}}</option>
+                    {% endfor %}
+                    <script>
+                        let weekoption = document.querySelector('[data-w="{{w_id}}"]');
+                        if (weekoption){
+                            weekoption.selected = true;
+                        }
+                      
+                    </script>
+                </select>
+            </div>
+            <div class="col-3 form-group">
+                <label for="">Нажмите чтобы найти</label>
+                <button class="btn btn-primary">Найти</button>
+            </div>
+            
+        </div>
+        <div class="col-4">
+            <label for="">Создайте новые задания для студентов</label>
+                <a class="btn btn-primary d-block" href="{% url 'examapp:addTask' %}">Создать новую заданию</a>
+        </div>
+    </form>
+
+    <div class="row">
+        <table class="table table-bordered ">
+            <thead>
+                <tr>
+                    <th>Имя заданий</th>
+                    <th>Группа</th>
+                    <th>Предмет заданий</th>
+                    <th>Семестр</th>
+                    <th>Неделя</th>
+                </td>
+               
+            </thead>
+            <tbody>
+                {% for task in qs %}
+                <tr>
+                    <td>{{task.question}}</td>
+                    <td>{{task.group}}</td>
+                    <td>{{task.subject}}</td>
+                    <td>{{task.cemester}}</td>
+                    <td>{{task.week}}</td>
+                </tr>  
+                <table class="table table-bordered table-sm">
+                    <thead>
+                        <tr>
+                            <th>Ответ</th>
+                            <th>Студент</th>
+                            <th>Балл</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for answer in task.answers.all %}
+                        <tr>
+                            <td><a href="{{answer.files.url}}">Задания </a>{{answer}} </td>
+                            <td>{{answer.user.username}}</td>
+                            {% if answer.rate %}
+                            <td>{{answer.rate.rate}}</td>
+                            {% else %}
+                            <td>
+                                <form class="rate form-group" action="{% url 'examapp:addRate' %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="number" name="rate">
+                                    <input type="hidden" name="answer" value="{{answer.id}}">
+                                    <input type="hidden" name="user" value="{{request.user.id}}">
+                                    <button type="submit" class="btn btn-primary">Поставить</button>
+                                </form>
+                            </td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+<script>
+    console.log(window.location.href);
+</script>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'layouts/admin.html' %}
+
+{% block content %}
+{% load static %}
+{% load i18n %}
+
+<div class="container mt-15 mb-15">
+<div class="row">
+    <div class="col-8">
+
+                <form method="GET" class="stat" action="{% url 'examapp:stask' %}">
+                            <select class="form-control" name="group" id="">
+                                {% for group in teacher.groups.all %}
+                                <option value="{{group.id}}">{{group}}</option>
+                                {% endfor %}
+                            </select>
+                 
+                    
+                            <select class="form-control" name="subject" id="">
+                                {% for subject in teacher.subject.all %}
+                                <option value="{{subject.id}}">{{subject}}</option>
+                                {% endfor %}
+                            </select>
+                       
+                     
+                            <select class="form-control" name="cemester" id="">
+                                {% for cemester in cemesters %}
+                                <option value="{{cemester.id}}">{{cemester}}</option>
+                                {% endfor %}
+                            </select>
+                     
+                       <button class="btn btn-primary">Найти</button>     
+               
+            </form>  
+            
+
+    </div> 
+    <div class="content col-8"></div>
+    
+     
+        
+    </div>
+</div>
+
+<script>
+    console.log(window.location.href);
+</script>
+{% endblock %}

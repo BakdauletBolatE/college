@@ -1,0 +1,39 @@
+{% extends 'layouts/app2.html' %}
+
+{% block content %}
+{% load static %}
+{% load getor %}
+{% load i18n %}
+<div class="main-background pt-15 pb-15">
+    <div class="container ">
+        <div class="row">
+            {% include 'include/sidebar.html' %}
+            <div class="col-8 ml-3 content">
+                <div class="row">
+                    <div class="col-8">
+                        <h2 class="main__title">Имя: {{student.user.username}}</h2>
+                        <p class="main__paragraph">Группа: {{student.group}}</p>
+                        <p class="main__paragraph">Курс: {{student.group.course}}</p>
+                        <p class="main__paragraph text-center">Об студенте</p>
+                        <p class="second__paragraph">
+                            1992 году в городе Шымкент профессор Юнусов Б.С. основал «Педагогический колледж имени «Коджа Ахмета Яссави», в честь великой исторической личности, в предверии строения независимого Казахстана
+
+22 декабря 1993 года указом Министерства Образования РК колледжу была выдана лицензия за серийным номером БМ №0000002. Таким образом, среди частных образовательных учреждений Республики Казахстан он стал вторым учебным заведением, которому была присвоена Государственная лецензия.
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <img class="w100" src="{% static 'images/instructor_5.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+  
+</script>
+
+
+{% endblock %}

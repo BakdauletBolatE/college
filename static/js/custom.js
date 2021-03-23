@@ -1,18 +1,69 @@
-/* JS Document */
+const csrf_token = document.getElementById('csrf_token');
+function ajaxSend(url,data,form,name){
+	fetch(url,{
+		method: 'POST', 
+    	headers: {
+             "X-CSRFToken": csrf_token.value
+    	},
+    	body: data
+	})
+	.then((datas) => {
+		console.log(datas); // JSON data parsed by `response.json()` call
+	})
+	.then(render(data,form,name));
 
-/******************************
+}
 
-[Table of Contents]
+const answerForm = document.querySelectorAll('.answer');
 
-1. Vars and Inits
-2. Set Header
-3. Init Search
-4. Init Menu
-5. Init Language Slider
-6. Init Timer
+if (answerForm){
+	answerForm.forEach(form=>{
+		form.addEventListener('submit',function(e){
+			e.preventDefault();
+			let url = this.action;
+			const form = this;
+			const name = this.querySelector('input[name="name"]').value
+			const task = this.querySelector('input[name="task"]').value
+			const files = this.querySelector('input[name="files"]').files[0]
+			const user = this.querySelector('input[name="user"]').value
+			const csrfmiddlewaretoken = this.querySelector('input[name="csrfmiddlewaretoken"]').value
+			const data = new FormData()
+			data.append('csrfmiddlewaretoken',csrfmiddlewaretoken)
+			data.append('name',name)
+			data.append('task',task)
+			data.append('user',user)
+			data.append('files',files)
+			ajaxSend(url,data,form,name);
+		})
+	})
+}
 
 
-******************************/
+const rateForm = document.querySelectorAll('.rate');
+if (rateForm){
+	rateForm.forEach(form=>{
+		form.addEventListener('submit',function(e){
+			e.preventDefault();
+			let url = this.action;
+			const form = this;
+			const rate = this.querySelector('input[name="rate"]').value
+			const answer = this.querySelector('input[name="answer"]').value
+			const user = this.querySelector('input[name="user"]').value
+			const csrfmiddlewaretoken = this.querySelector('input[name="csrfmiddlewaretoken"]').value
+			const data = new FormData()
+			data.append('csrfmiddlewaretoken',csrfmiddlewaretoken)
+			data.append('rate',rate)
+			data.append('answer',answer)
+			data.append('user',user)
+			ajaxSend(url,data,form,rate);
+		})
+	})
+}
+
+function render(data,form,name){
+	console.log(data,form);
+	form.innerHTML = `Задания уже загружено <a href="#">${name}</a>`;
+}
 
 const swiper = new Swiper('.swiper-container', {
 	// Optional parameters

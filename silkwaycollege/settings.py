@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'employeesapp',
     'newsapp',
     'sapp',
-    'specializationapp'
+    'specializationapp',
+    'examapp'
 ]
 
 MIDDLEWARE = [

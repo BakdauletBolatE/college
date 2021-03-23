@@ -24,6 +24,7 @@ urlpatterns = [
     path('employes/',include(('employeesapp.urls','empapp'))),
     path('speciliazation/', include(('specializationapp.urls','specapp'))),
     path('news/',include(('newsapp.urls','newsapp'))),
+    path('account/',include(('examapp.urls','examapp'))),
     path('admin/', admin.site.urls),
 ]
 

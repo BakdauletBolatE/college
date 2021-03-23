@@ -1,0 +1,80 @@
+{% extends 'layouts/app2.html' %}
+
+{% block content %}
+{% load static %}
+{% load i18n %}
+
+<div class="container mt-15 mb-15">
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    <form  class="form-group mb-2 row" action="" method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <div class="col-8 row mx-auto">
+            <input type="hidden" name="user" value="{{request.user.id}}">
+            <div class="col-6 form-group">
+                <label for="">Выберите группу</label>
+                <select class="form-control" name="group" id="">
+                    
+                    {% for group in teacher.groups.all %}
+                   
+                    <option value="{{group.id}}" > {{group}}</option>
+                     
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-6 form-group">
+                <label for="">Выберите предмет</label>
+                <select class="form-control" name="subject" id="">
+                   
+                    {% for subject in teacher.subject.all %}
+                   
+                    <option value="{{subject.id}}" > {{subject}}</option>
+                     
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-6 form-group">
+                <label for="">Выберите Семестр</label>
+                <select class="form-control" name="cemester" id="">
+                    {% for cemester in cemesters %}
+                    <option value="{{cemester.id}}" >{{cemester.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-6 form-group">
+                <label for="">Выберите неделю</label>
+                <select class="form-control" name="week" id="">
+                    {% for week in weeks %}
+                    <option value="{{week.id}}" >{{week.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-6 form-group">
+                <label for="">Задания</label>
+                <input type="text" name="question" placeholder="Укажите здесь заданию">
+            </div>
+            <div class="col-6 form-group">
+                <label for="file">Задания</label>
+                <input type="file" name="files" id="file" placeholder="Укажите здесь заданию">
+            </div>
+            <div class="col-12 form-group">
+                <button class="btn btn-primary">Создать</button>
+            </div>
+            
+        </div>
+        
+    </form>
+
+    <div class="row">
+       
+    </div>
+    
+</div>
+
+
+{% endblock %}

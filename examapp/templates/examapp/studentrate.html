@@ -1,0 +1,87 @@
+{% extends 'layouts/app2.html' %}
+
+{% block content %}
+{% load static %}
+{% load getor %}
+{% load i18n %}
+
+<div class="container mt-15 mb-15">
+    <input type="hidden" id="csrf_token" value="{{csrf_token}}">
+    <form method="POST" class="form-group row mb-2" action="">
+        {% csrf_token %}
+        <div class="col-inputs row col-6">
+            <div class="form-group">
+               <input name="group" value="{{student.group.id}}" type="hidden">
+            </div>
+            <div class="col-inputs col-3 form-group">
+                <label for="">Выберите Семестр </label>
+                <select class="form-control" name="cemester" id="">
+                    {% for cemester in cemesters %}
+                    <option data-c="{{cemester.id}}" class="cemoption" value="{{cemester.id}}" >{{cemester.name}}</option>
+                    {% endfor %}
+                    <script>
+                        let cemoption = document.querySelector('[data-c="{{c_id}}"]');
+                        if (cemoption){
+                            cemoption.selected = true;  
+                        }
+                    </script>
+                </select>
+            </div>
+            <div class="col-3 form-group">
+                <label for="">Выберите Предмет</label>
+                <select class="form-control" name="subject" id="">
+                    {% for subject in subjects %}
+                    <option value="{{subject.id}}" >{{subject.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-5 form-group">
+                <label for="">Нажмите чтобы найти</label>
+                <button class="d-block btn btn-primary">Найти</button>
+            </div>
+        </div>
+        <div class="col-5 row">
+            <div class="input-items col-4">
+                Предмет:{{subject}}
+            </div>
+            <div class="input-items col-4">
+                Семестр:{{cemester}}
+            </div>
+            <div class="input-items col-4">
+                Группа:{{student.group}}
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        <table class="table table-bordered  table-sm">
+            <thead>
+                <tr>
+                    <th >Имя заданий</th>
+                    <!-- <th >Группа</th> -->
+                    <!-- <th >Предмет заданий</th> -->
+                    <!-- <th >Семестр</th> -->
+                    <th >Неделя</th>
+                    <th >Ответ</th>
+                </td>
+               
+            </thead>
+            <tbody>
+                {% for task in qs %}
+                <tr>
+                    <td scope="row">{{task.question}}  <a class="d-block" href="{{task.files.url}}">Скачать задания</a></td>
+                    <!-- <td>{{task.group}}</td> -->
+                    <!-- <td>{{task.subject}}</td> -->
+                    <!-- <td>{{task.cemester}}</td> -->
+                    <td>{{task.week}}</td>
+                    <td >{% anser_check task.answers.all request.user.id task.id csrf_token %}</tds>
+                </tr>  
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+
+{% endblock %}

@@ -98,24 +98,11 @@
 							</div>
 							<nav class="main_nav_contaner">
 								<ul class="main_nav">
-									<li class="{% if request.path == '/' %}active{% endif %} main_nav__item"><a href="{% url 'sapp:index' %}">Главная</a></li>
-									<li class="{% if request.path == '/about-us/' %}active{% endif %} main_nav__item"><a href="{% url 'sapp:aboutUrl' %}">О колледже</a>
-                                        <ul class="sub-main_nav sub_column">
-                                            <li class="sub-main_nav__item {% if request.path == '/employes/gov/' %}active{% endif %}"><a href="{% url 'empapp:indexG' %}">Штат</a></li>
-                                            <li class="sub-main_nav__item {% if request.path == '/code_of_honor/' %}active{% endif %}"><a href="{% url 'sapp:code_of_honor' %}">Кодекс чести</a></li>
-                                        </ul>
+                                    <!-- {% url 'examapp:teacher' as turl %} -->
+                                    <!-- {% url 'examapp:tstat' as tstat %} -->
+									<li class="{% if request.path == turl %}active{% endif %} main_nav__item"><a href="{{turl}}">Оценка</a></li>
+									<li class="{% if request.path == tstat %}active{% endif %} main_nav__item"><a href="{{tstat}}">Статистика</a>
                                     </li>
-									<li class="main_nav__item {% if request.path == '/speciliazation/' %}active{% endif %}"><a href="{% url 'specapp:index' %}">Специальности</a></li>
-									<li class="main_nav__item {% if request.path == '/news/' %}active{% endif %}"><a href="{% url 'newsapp:listView' %}">Новости</a></li>
-									<li class="main_nav__item"><a href="">Абитуриенту</a>
-										<ul class="sub-main_nav">
-                                            <li class="sub-main_nav__item "><a href="{% url 'sapp:admission_rules' %}">Правила приема на обучение</a></li>
-                                            <li class="sub-main_nav__item "><a href="{% url 'sapp:newEFormat' %}">Новый формат ЕНТ</a></li>
-											<li class="sub-main_nav__item "><a href="{% url 'sapp:ab2020' %}">Абитуриент-2020</a></li>
-                                        </ul>
-									</li>
-									<li class="main_nav__item {% if request.path == '/international/' %}active{% endif %}"><a href="{% url 'sapp:internationalUrl' %}">Международный отдел</a></li>
-									<li class="main_nav__item {% if request.path == '/contacts/' %}active{% endif %}"><a href="{% url 'sapp:contact' %}">Контакты</a></li>
 								</ul>
                               
 							</nav>
@@ -286,5 +273,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Вс�
 <script src="{% static 'plugins/easing/easing.js' %}"></script>
 <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
 <script src="{% static 'js/custom.js' %}"></script>
+<script src="{% static 'js/admin.js' %}"></script>
 </body>
 </html>
