@@ -80,15 +80,15 @@
                 </td>
                
             </thead>
+            {% for task in qs %}
             <tbody>
-                {% for task in qs %}
-                <tr>
+                <tr>     
                     <td>{{task.question}}</td>
                     <td>{{task.group}}</td>
                     <td>{{task.subject}}</td>
                     <td>{{task.cemester}}</td>
-                    <td>{{task.week}}</td>
-                </tr>  
+                    <td>{{task.week}}</td>  
+                </tr> 
                 <table class="table table-bordered table-sm">
                     <thead>
                         <tr>
@@ -118,9 +118,9 @@
                         </tr>
                         {% endfor %}
                     </tbody>
-                </table>
-                {% endfor %}
+                </table>  
             </tbody>
+            {% endfor %}
         </table>
     </div>
     

@@ -31,8 +31,14 @@
                 <label for="">Выберите Предмет</label>
                 <select class="form-control" name="subject" id="">
                     {% for subject in subjects %}
-                    <option value="{{subject.id}}" >{{subject.name}}</option>
+                    <option data-s="{{subject.id}}" value="{{subject.id}}" >{{subject.name}}</option>
                     {% endfor %}
+                    <script>
+                        let soption = document.querySelector('[data-s="{{s_id}}"]');
+                        if (soption){
+                            soption.selected = true;  
+                        }
+                    </script>
                 </select>
             </div>
             <div class="col-5 form-group">
@@ -63,6 +69,7 @@
                     <!-- <th >Семестр</th> -->
                     <th >Неделя</th>
                     <th >Ответ</th>
+                    <th>Балл</th>
                 </td>
                
             </thead>
@@ -75,6 +82,9 @@
                     <!-- <td>{{task.cemester}}</td> -->
                     <td>{{task.week}}</td>
                     <td >{% anser_check task.answers.all request.user.id task.id csrf_token %}</tds>
+                    <td>
+                    {% anser_check2 task.answers.all request.user.id %}
+                    </td>
                 </tr>  
                 {% endfor %}
             </tbody>

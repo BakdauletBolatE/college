@@ -8,7 +8,8 @@
 <div class="row">
     <div class="col-8">
 
-                <form method="GET" class="stat" action="{% url 'examapp:stask' %}">
+                <form method="POST" class="stat" action="{% url 'examapp:tstat' %}">
+                    {% csrf_token %}
                             <select class="form-control" name="group" id="">
                                 {% for group in teacher.groups.all %}
                                 <option value="{{group.id}}">{{group}}</option>
@@ -32,14 +33,54 @@
                        <button class="btn btn-primary">Найти</button>     
                
             </form>  
-            
-
     </div> 
-    <div class="content col-8"></div>
+    <div class="row col-6">
+        <table class="table table-bordered  table-sm">
+            <thead>
+                <tr>
+                    <th >Группа</th>
+                    <th >Неделя</th>
+                    <th>Посмотреть заданий</th>
+                </td>
+               
+            </thead>
+            <tbody>
+                {% for task in qs %}
+                <tr>
+                    <td >{{task.group}}</td>
+                    <td>{{task.week}}</td>    
+                    <td>Смотреть</td>       
+                </tr>  
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="content col-6">
+        <table class="table table-bordered  table-sm">
+            <thead>
+                <tr>
+                    <th >Студент</th>
+                    <th >Балл</th>
+                </td>
+               
+            </thead>
+            <tbody>
+                {% for task in qs2 %}
+                <tr>
+                    
+                    <td >{{task.user.username}}</td>
+                    {% if task.rate %}
+                    <td>{{task.rate.rate}}</td> 
+                    {% endif %}        
+                </tr>  
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     
      
         
-    </div>
+    
 </div>
 
 <script>

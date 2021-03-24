@@ -1,6 +1,7 @@
 from django import template
 from django.utils.safestring import mark_safe
 from django.urls import reverse
+from django.core.exceptions import ObjectDoesNotExist
 
 register = template.Library()
 
@@ -31,4 +32,26 @@ def anser_check(qs,arg,arg2,csrf_token):
     else:
 
         return mark_safe(ans)
+
+
+@register.simple_tag
+def anser_check2(qs,r_id):
+
+    dontB = "Балл еще не поставлен"
+
+    check = False
+
+    for answer in qs:
+        if answer.user.id == r_id:
+            check = True
+            try:
+                rate = str(answer.rate.rate)
+                return rate
+            except ObjectDoesNotExist:
+                rate = "Балл еще не поставлен"
+                return rate
+
+    
+   
+           
 

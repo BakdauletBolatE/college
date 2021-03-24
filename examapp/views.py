@@ -5,8 +5,12 @@ from .forms import AddRateForm,AddTaskForm,AddAnswerForm
 from django.contrib import messages
 from django.http import JsonResponse
 from django.core.exceptions import ObjectDoesNotExist
+from .decarators import role_reqiured,addTaskDecarator
+from django.views import View
 # Create your views here.
 
+
+@role_reqiured()
 def teacherprofile(request):
 
     teacher = request.user.teacher
@@ -21,14 +25,12 @@ def teacherprofile(request):
     if request.POST.get('group'):
         g_id = request.POST.get('group')
     else:
-        g_id = 1
+        g_id = teacher.groups.first().id
 
     if request.POST.get('week'):
         w_id = request.POST.get('week')
     else:
         w_id = 1
-
-    
 
     qs = Tasks.objects.filter(group_id=g_id,cemester_id=c_id,week_id=w_id)
     data = {
@@ -46,7 +48,6 @@ def teacherstat(request):
 
     teacher = request.user.teacher
     cemesters = Cemester.objects.all()
-    weeks = Weekend.objects.all()
 
     if request.POST.get('cemester'):
         c_id  = request.POST.get('cemester')
@@ -56,32 +57,28 @@ def teacherstat(request):
     if request.POST.get('group'):
         g_id = request.POST.get('group')
     else:
-        g_id = 1
+        g_id = teacher.groups.first().id
 
-    if request.POST.get('week'):
-        w_id = request.POST.get('week')
+    if request.POST.get('subject'):
+        s_id = request.POST.get('subject')
     else:
-        w_id = 1
+        s_id = teacher.subject.first().id
 
     
 
-    qs = Tasks.objects.filter(group_id=g_id,cemester_id=c_id,week_id=w_id)
+    qs = Tasks.objects.filter(group_id=g_id,cemester_id=c_id,subject_id=s_id).order_by('week')
+    qs2 = Answer.objects.filter(task_id=1)
     data = {
         'teacher':teacher,
         'cemesters':cemesters,
-        'weeks':weeks,
         'c_id':c_id,
         'g_id':g_id,
-        'w_id':w_id,
+        's_id':s_id,
         'qs':qs,
+        'qs2':qs2
     }
     return render(request,'examapp/teacherstat.html',data)
 
-def tasksbyweek(request):
-    
-    g = request.body
-    print(g)
-    return JsonResponse({'g':g})
 
 def studentprofile(request):
 
@@ -105,8 +102,16 @@ def studentrate(request):
     else:
         c_id = 1
 
-    g_id = request.POST.get('group')
-    s_id = request.POST.get('subject')
+   
+    g_id = student.group.id
+
+    if request.POST.get('subject'):
+        s_id = request.POST.get('subject')
+    else:
+        s_id = student.subject.first().id
+
+   
+    
     
     cemester = Cemester.objects.get(id=c_id)
     subject = Subject.objects.get(id=s_id)
@@ -123,13 +128,14 @@ def studentrate(request):
         'subjects':subjects,
         'subject':subject,
         'qs':qs,
-        'c_id':c_id
+        'c_id':c_id,
+        's_id':s_id
         
     }
     return render(request,'examapp/studentrate.html',data)
 
 def addRate(request):
-    print(request.path)
+   
     if request.method == 'POST':
         form = AddRateForm(request.POST)
         if form.is_valid():
@@ -148,6 +154,8 @@ def addAnswer(request):
             return redirect(str(reverse('examapp:student')))
 
 
+
+@addTaskDecarator()
 def addTask(request):
 
 
