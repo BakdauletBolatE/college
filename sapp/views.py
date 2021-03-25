@@ -13,7 +13,7 @@ from newsapp.models import NewsPost
 def index(request):
 
     specializations = Specialization.objects.all()[:3]
-    imps = Government.objects.filter(isimp=1)[:3]
+    imps = Government.objects.filter(isimp=1).order_by('order')[:3]
     news = NewsPost.objects.all()[:3]
 
     data = {

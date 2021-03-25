@@ -12,6 +12,7 @@ class Government(models.Model):
     position = models.CharField('Должность',max_length=255)
     isimp = models.BooleanField('Важность')
     photo = models.ImageField('Фото',upload_to='government/')
+    order = models.IntegerField('Филтрация')
 
     def __str__(self):
 
