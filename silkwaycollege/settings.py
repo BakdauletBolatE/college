@@ -15,7 +15,7 @@ SECRET_KEY = '8rp&j5jfqdi-spuqv-)!g%erfdw2qzizrp_h0keouv$0+391f('
 DEBUG = True
 
 if DEBUG:
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = ['*','185.146.3.237'] 
 else:
     ALLOWED_HOSTS = ['185.146.3.237']
 
