@@ -93,6 +93,7 @@
 							<nav class="main_nav_contaner">
 								<ul class="main_nav">
 									<li class="{% if request.path == '/' %}active{% endif %} main_nav__item"><a href="{% url 'sapp:index' %}">Главная</a></li>
+									<li class="main_nav__item"><a href="{% url 'sapp:structure' %}">Структура</a></li>
 									<li class="{% if request.path == '/about-us/' %}active{% endif %} main_nav__item"><a href="{% url 'sapp:aboutUrl' %}">О колледже</a>
                                         <ul class="sub-main_nav sub_column">
                                             <li class="sub-main_nav__item {% if request.path == '/employes/gov/' %}active{% endif %}"><a href="{% url 'empapp:indexG' %}">Штат</a></li>
@@ -280,5 +281,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Вс�
 <script src="{% static 'plugins/easing/easing.js' %}"></script>
 <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
 <script src="{% static 'js/custom.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
 </body>
 </html>

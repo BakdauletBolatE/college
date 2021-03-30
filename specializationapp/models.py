@@ -3,6 +3,31 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
+class Section(models.Model):
+
+    name = models.CharField('Название',max_length=255)
+    uid = models.CharField('Код шифра',max_length=30)
+
+    def __str__(self):
+
+        return self.uid + " " + self.name
+
+
+class SubSection(models.Model):
+
+    name = models.CharField('Название',max_length=255)
+    uid = models.CharField('Код шифра',max_length=30)
+    section = models.ForeignKey(Section,related_name="subsection",verbose_name="Профиль",on_delete=models.CASCADE)
+
+
+    def __str__(self):
+
+        return self.uid + " " + self.name
+
+
+
+
 class Specialization(models.Model):
 
     name = models.CharField('Название',max_length=255)
@@ -11,10 +36,11 @@ class Specialization(models.Model):
     photo = models.ImageField('Фото',upload_to='specialization/',blank=True,null=True)
     sertification = models.ImageField('Фото сертификата',upload_to='specializationC/',blank=True,null=True)
     duration = models.CharField('Продолжительность',max_length=30)
+    subsection = models.ForeignKey(SubSection,related_name="specialization",verbose_name="подпроифиль",on_delete=models.CASCADE)
 
     def __str__(self):
 
-        return self.name
+        return self.uid + " " + self.name
 
     class Meta:
 
@@ -54,4 +80,12 @@ class SpecializationComment(models.Model):
         verbose_name_plural = 'Коментарий к специализаций'
 
 
+class Qualification(models.Model):
 
+    name = models.CharField('Название',max_length=255)
+    uid = models.CharField('Код шифра',max_length=30)
+    specialization = models.ForeignKey(Specialization,related_name="Qualification",verbose_name="Специялизация",on_delete=models.CASCADE)
+    
+    def __str__(self):
+
+        return self.uid + " " + self.name

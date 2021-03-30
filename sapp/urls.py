@@ -1,7 +1,8 @@
 from django.urls import path,include
-from .views import index,aboutUrl,code_of_honor,contact,CollegeLoginView,CollegeRegisterView,admission_rules,newEFormat,ab2020,internationalUrl,CollegeLogoutView
+from .views import index,aboutUrl,code_of_honor,contact,CollegeLoginView,CollegeRegisterView,admission_rules,newEFormat,ab2020,internationalUrl,CollegeLogoutView,structure
 urlpatterns = [
     path('',index,name="index"),
+    path('structure',structure,name="structure"),
     path('about-us/',aboutUrl,name="aboutUrl"),
     path('international/',internationalUrl,name="internationalUrl"),
     path('contacts/',contact,name="contact"),

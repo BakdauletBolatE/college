@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '8rp&j5jfqdi-spuqv-)!g%erfdw2qzizrp_h0keouv$0+391f('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 if DEBUG:
     ALLOWED_HOSTS = ['*','185.146.3.237'] 
@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'employeesapp',
     'newsapp',
     'sapp',
-    'specializationapp'
+    'specializationapp',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -73,18 +74,13 @@ WSGI_APPLICATION = 'silkwaycollege.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 if DEBUG:
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.sqlite3',
-    #         'NAME': BASE_DIR / 'db.sqlite3',
-    #     }
-    # }
+    
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'college',
-            'USER': 'bbb',
-            'PASSWORD': 'baguvix123F',
+            'USER': 'postgres',
+            'PASSWORD': '123',
             'HOST': 'localhost',
             'PORT':''
         }
@@ -125,8 +121,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-# LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'ru'
+
+LANGUAGE_CODE = 'kk'
 
 TIME_ZONE = 'UTC'
 

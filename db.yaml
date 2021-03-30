@@ -1,0 +1,312 @@
+- model: specializationapp.section
+  pk: 1
+  fields:
+    name: Білім
+    uid: '01'
+- model: specializationapp.section
+  pk: 2
+  fields:
+    name: Өнер және гуманитарлық ғылымдар
+    uid: '02'
+- model: specializationapp.section
+  pk: 3
+  fields:
+    name: Әлеуметтік ғылымдар және ақпарат
+    uid: '03'
+- model: specializationapp.section
+  pk: 4
+  fields:
+    name: Кәсіпкерлік, басқару және құқық
+    uid: '04'
+- model: specializationapp.section
+  pk: 5
+  fields:
+    name: Информационно-коммуникационные технологии
+    uid: '06'
+- model: specializationapp.subsection
+  pk: 1
+  fields:
+    name: Мектепке дейінгі мекемелерге тәрбиешілерді даярлау
+    uid: '0112'
+    section: 1
+- model: specializationapp.subsection
+  pk: 2
+  fields:
+    name: Пәндік мамандандырылған мұғалімдерін даярлау
+    uid: '0114'
+    section: 1
+- model: specializationapp.subsection
+  pk: 3
+  fields:
+    name: Сән, интерьер дизайны және өнеркәсіптік дизайны
+    uid: '0212'
+    section: 2
+- model: specializationapp.subsection
+  pk: 4
+  fields:
+    name: Тілдерді оқу
+    uid: '0231'
+    section: 2
+- model: specializationapp.subsection
+  pk: 5
+  fields:
+    name: Кітапханалық іс, ақпаратты өндеу және мұрағаттану
+    uid: '0322'
+    section: 3
+- model: specializationapp.subsection
+  pk: 6
+  fields:
+    name: Бухгалтерлік іс және салық салу
+    uid: '0411'
+    section: 4
+- model: specializationapp.subsection
+  pk: 7
+  fields:
+    name: Құқық
+    uid: '0421'
+    section: 5
+- model: specializationapp.subsection
+  pk: 8
+  fields:
+    name: Создание баз данных и информационных сетей и их администрирование
+    uid: '0612'
+    section: 5
+- model: specializationapp.subsection
+  pk: 9
+  fields:
+    name: Разработка и анализ программного обеспечения
+    uid: '0613'
+    section: 5
+- model: specializationapp.specialization
+  pk: 1
+  fields:
+    name: Мектепке дейінгі тәрбие және оқыту
+    uid: '01120100'
+    desctiption: '01120100'
+    photo: ''
+    sertification: ''
+    duration: '4'
+    subsection: 1
+- model: specializationapp.specialization
+  pk: 2
+  fields:
+    name: Бастауыш білім беру педагогикасы мен әдістемесі
+    uid: '01140100'
+    desctiption: '01140100'
+    photo: ''
+    sertification: ''
+    duration: '4'
+    subsection: 2
+- model: specializationapp.specialization
+  pk: 3
+  fields:
+    name: Информатика
+    uid: '01140700'
+    desctiption: '01140700'
+    photo: ''
+    sertification: ''
+    duration: '4'
+    subsection: 2
+- model: specializationapp.specialization
+  pk: 4
+  fields:
+    name: Музыкалық білім беру
+    uid: '01140200'
+    desctiption: '01140200'
+    photo: ''
+    sertification: ''
+    duration: '4'
+    subsection: 2
+- model: specializationapp.specialization
+  pk: 5
+  fields:
+    name: Дене тәрбиесі  және спорт
+    uid: '01140500'
+    desctiption: '01140500'
+    photo: ''
+    sertification: ''
+    duration: '4'
+    subsection: 2
+- model: specializationapp.specialization
+  pk: 6
+  fields:
+    name: Негізгі орта білім берудегі тіл мен әдебиетті оқытудың педагогикасы мен
+      әдістемесі
+    uid: '01140600'
+    desctiption: '01140600'
+    photo: ''
+    sertification: ''
+    duration: '4'
+    subsection: 2
+- model: specializationapp.specialization
+  pk: 7
+  fields:
+    name: Киім дизайны
+    uid: '02120200'
+    desctiption: '02120200'
+    photo: ''
+    sertification: ''
+    duration: '4'
+    subsection: 3
+- model: specializationapp.specialization
+  pk: 8
+  fields:
+    name: Аударма ісі  (түрлері бойынша)
+    uid: '02310100'
+    desctiption: '02310100'
+    photo: ''
+    sertification: ''
+    duration: '4'
+    subsection: 4
+- model: specializationapp.specialization
+  pk: 9
+  fields:
+    name: Кітапхана ісі
+    uid: '03220100'
+    desctiption: '03220100'
+    photo: ''
+    sertification: ''
+    duration: '4'
+    subsection: 5
+- model: specializationapp.specialization
+  pk: 10
+  fields:
+    name: Есеп және аудит
+    uid: '04110100'
+    desctiption: '04110100'
+    photo: ''
+    sertification: ''
+    duration: '4'
+    subsection: 6
+- model: specializationapp.specialization
+  pk: 11
+  fields:
+    name: Құқықтану
+    uid: '0420100'
+    desctiption: '0420100'
+    photo: ''
+    sertification: ''
+    duration: '4'
+    subsection: 7
+- model: specializationapp.specialization
+  pk: 12
+  fields:
+    name: Есептеу техникасы және ақпараттық желілер  (түрлері бойынша)
+    uid: '06120100'
+    desctiption: '06120100'
+    photo: ''
+    sertification: ''
+    duration: '4'
+    subsection: 8
+- model: specializationapp.specialization
+  pk: 13
+  fields:
+    name: Бағдарламалық қамтамасыз ету (түрлері бойынша)
+    uid: '06130100'
+    desctiption: '06130100'
+    photo: ''
+    sertification: ''
+    duration: '4'
+    subsection: 9
+- model: specializationapp.qualification
+  pk: 1
+  fields:
+    name: Мектепке дейінгі тәрбие мен оқыту ұйымдарының тәрбиешісі
+    uid: 4S01120102
+    specialization: 1
+- model: specializationapp.qualification
+  pk: 2
+  fields:
+    name: Мектепке дейінгі тәрбие және оқытудың қолданбалы бакалавры
+    uid: 5AB01120101
+    specialization: 1
+- model: specializationapp.qualification
+  pk: 3
+  fields:
+    name: Бастауыш білім беру мұғалімі
+    uid: 4S01140101
+    specialization: 2
+- model: specializationapp.qualification
+  pk: 4
+  fields:
+    name: Бастауыш білім берудің  қолданбалы бакалавры
+    uid: 5AB01140101
+    specialization: 2
+- model: specializationapp.qualification
+  pk: 5
+  fields:
+    name: Бастауыш білім берудегі шет тілі мұғалімі
+    uid: 4S01140102
+    specialization: 2
+- model: specializationapp.qualification
+  pk: 6
+  fields:
+    name: Бастауыш және негізгі орта білім берудің информатика мұғалімі
+    uid: 4S01140701
+    specialization: 3
+- model: specializationapp.qualification
+  pk: 7
+  fields:
+    name: Мектепке дейінгі, бастауыш және негізгі орта білім берудің музыка мұғалімі
+    uid: 4S01140201
+    specialization: 4
+- model: specializationapp.qualification
+  pk: 8
+  fields:
+    name: Дене тәрбиесі мұғалімі
+    uid: 4S01140501
+    specialization: 5
+- model: specializationapp.qualification
+  pk: 9
+  fields:
+    name: Қазақ тілі мен әдебиеті мұғалімі
+    uid: 4S01140601
+    specialization: 6
+- model: specializationapp.qualification
+  pk: 10
+  fields:
+    name: Техникалық және көркемдік эскиздерді орындаушы
+    uid: 3W02120201
+    specialization: 7
+- model: specializationapp.qualification
+  pk: 11
+  fields:
+    name: Киім дизайнері
+    uid: 4S02120203
+    specialization: 7
+- model: specializationapp.qualification
+  pk: 12
+  fields:
+    name: Аудармашы
+    uid: 4S02310101
+    specialization: 8
+- model: specializationapp.qualification
+  pk: 13
+  fields:
+    name: Кітапханашы
+    uid: 4S03220101
+    specialization: 9
+- model: specializationapp.qualification
+  pk: 14
+  fields:
+    name: Бухгалтер
+    uid: 4S04110102
+    specialization: 10
+- model: specializationapp.qualification
+  pk: 15
+  fields:
+    name: Заңгер
+    uid: 4S04210101
+    specialization: 11
+- model: specializationapp.qualification
+  pk: 16
+  fields:
+    name: Компьютерлік аппараттық қамтамасыз ету операторы
+    uid: 3W06120101
+    specialization: 12
+- model: specializationapp.qualification
+  pk: 17
+  fields:
+    name: Бағдарламалық қамтамасыздандыруды құрастырушысы
+    uid: 4S06130103
+    specialization: 13

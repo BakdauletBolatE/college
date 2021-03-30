@@ -139,7 +139,9 @@
 				<!-- Course -->
 				<div class="col-lg-4 course_col">
 					<div class="course">
+						{% if specialization.photo %}
 						<div class="course_image"><img src="{{specialization.photo.url}}" alt=""></div>
+						{% endif %}
 						<div class="course_body">
 							<div class="course_title"><a href="{% url 'specapp:detail' specialization.id  %}">{{specialization.name}}</a></div>
 							<div class="course_info">
@@ -184,9 +186,11 @@
 				<!-- Instructor -->
 				<div class="col-lg-4 instructor_col">
 					<div class="instructor text-center">
+						{% if imp.photo %}
 						<div class="instructor_image_container">
 							<div class="instructor_image"><img src="{{imp.photo.url}}" alt=""></div>
 						</div>
+						{% endif %}
 						<div class="instructor_name"><a href="instructors.html">{{imp.name}}</a></div>
 						<div class="instructor_title">{{imp.position}}</div>
 						<div class="instructor_text">

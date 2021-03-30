@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Specialization,SpecializationComment,SpecializationFaq
+from .models import Specialization,SpecializationComment,SpecializationFaq,Section,SubSection,Qualification
 # Register your models here.
 
 class SpecializationFaqInline(admin.TabularInline):
@@ -24,4 +24,9 @@ class SpecializationCommentAdmin(admin.ModelAdmin):
      list_filter = ('visible', )
 
 admin.site.register(SpecializationComment,SpecializationCommentAdmin)
+
+
+admin.site.register(Section)
+admin.site.register(SubSection)
+admin.site.register(Qualification)
 

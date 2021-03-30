@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from specializationapp.models import Specialization
+from specializationapp.models import Section,SubSection, Specialization,Qualification
 from employeesapp.models import Government
 from django.contrib.auth.views import LoginView,LogoutView
 from django.views.generic import CreateView
@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login
 from newsapp.models import NewsPost
 
 # Create your views here.
+
 
 def index(request):
 
@@ -22,6 +23,14 @@ def index(request):
         'news':news
     }
     return render(request,'sapp/home.html',data)
+
+def structure(request):
+
+    section = Section.objects.all()
+    data = {
+        'sections': section
+    }
+    return render(request,'sapp/strucrure.html',data)
 
 def code_of_honor(request):
     return render(request,'pages/code_of_honor.html')
