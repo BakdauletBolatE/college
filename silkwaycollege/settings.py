@@ -74,26 +74,26 @@ WSGI_APPLICATION = 'silkwaycollege.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'college',
-            'USER': 'bbb',
-            'PASSWORD': 'baguvix123F',
-            'HOST': 'localhost',
-            'PORT': ''
-        }
-    }
     # DATABASES = {
     #     'default': {
     #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
     #         'NAME': 'college',
-    #         'USER': 'postgres',
-    #         'PASSWORD': '123',
+    #         'USER': 'bbb',
+    #         'PASSWORD': 'baguvix123F',
     #         'HOST': 'localhost',
-    #         'PORT':''
+    #         'PORT': ''
     #     }
     # }
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'college',
+            'USER': 'postgres',
+            'PASSWORD': '123',
+            'HOST': 'localhost',
+            'PORT':''
+        }
+    }
 else:
     DATABASES = {
         'default': {
