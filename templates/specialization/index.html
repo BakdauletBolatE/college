@@ -16,7 +16,9 @@
 				<!-- Course -->
 				<div class="col-lg-4 course_col">
 					<div class="course">
+                        {% if specialization.photo %}
 						<div class="course_image"><img src="{{specialization.photo.url}}" alt=""></div>
+                        {% endif %}
 						<div class="course_body">
 							<div class="course_title"><a href="{% url 'specapp:detail' specialization.id  %}">{{specialization.name}}</a></div>
 							<div class="course_info">
