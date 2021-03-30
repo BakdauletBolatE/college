@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from specializationapp.models import Section,SubSection, Specialization,Qualification
+from specializationapp.models import Section,SubSection, Specialization
 from employeesapp.models import Government
 from django.contrib.auth.views import LoginView,LogoutView
 from django.views.generic import CreateView
