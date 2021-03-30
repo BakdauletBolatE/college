@@ -9,9 +9,16 @@ class Section(models.Model):
     name = models.CharField('Название',max_length=255)
     uid = models.CharField('Код шифра',max_length=30)
 
+    class Meta:
+
+        verbose_name = '01 Профиль'
+        verbose_name_plural = '01 Профили'
+
     def __str__(self):
 
         return self.uid + " " + self.name
+
+
 
 
 class SubSection(models.Model):
@@ -20,6 +27,10 @@ class SubSection(models.Model):
     uid = models.CharField('Код шифра',max_length=30)
     section = models.ForeignKey(Section,related_name="subsection",verbose_name="Профиль",on_delete=models.CASCADE)
 
+    class Meta:
+
+        verbose_name = '02 Подпрофиль'
+        verbose_name_plural = '02 Подпрофили'
 
     def __str__(self):
 
@@ -44,8 +55,8 @@ class Specialization(models.Model):
 
     class Meta:
 
-        verbose_name = 'Специализация'
-        verbose_name_plural = 'Специализаций'
+        verbose_name = '03 Специализация'
+        verbose_name_plural = '03 Специализаций'
 
 class SpecializationFaq(models.Model):
 
@@ -89,3 +100,8 @@ class Qualification(models.Model):
     def __str__(self):
 
         return self.uid + " " + self.name
+
+    class Meta:
+
+        verbose_name = '04 Квалификация'
+        verbose_name_plural = '04 Квалификаций'
