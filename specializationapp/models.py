@@ -36,7 +36,7 @@ class Specialization(models.Model):
     photo = models.ImageField('Фото',upload_to='specialization/',blank=True,null=True)
     sertification = models.ImageField('Фото сертификата',upload_to='specializationC/',blank=True,null=True)
     duration = models.CharField('Продолжительность',max_length=30)
-    subsection = models.ForeignKey(SubSection,related_name="specialization",verbose_name="подпроифиль",on_delete=models.CASCADE)
+    # subsection = models.ForeignKey(SubSection,related_name="specialization",verbose_name="подпроифиль",on_delete=models.CASCADE)
 
     def __str__(self):
 
