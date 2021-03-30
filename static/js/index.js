@@ -5,7 +5,7 @@ const specializationid = document.getElementById('specializationid');
 const quaid = document.getElementById('quaid');
 
 
-const speciliazationurl = 'http://185.146.3.237/speciliazation/';
+const speciliazationurl = 'http://185.146.3.237/speciliazation';
 
 let loading = false;
 
