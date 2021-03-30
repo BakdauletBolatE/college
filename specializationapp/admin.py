@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Specialization,SpecializationComment,SpecializationFaq,Section,SubSection
+from .models import Specialization,SpecializationComment,SpecializationFaq,Section,SubSection,Qualification
 # Register your models here.
 
 class SpecializationFaqInline(admin.TabularInline):
@@ -28,5 +28,5 @@ admin.site.register(SpecializationComment,SpecializationCommentAdmin)
 
 admin.site.register(Section)
 admin.site.register(SubSection)
-# admin.site.register(Qualification)
+admin.site.register(Qualification)
 

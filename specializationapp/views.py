@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.urls import reverse
-from .models import Specialization,SubSection
+from .models import Specialization,SubSection,Qualification
 from .forms import SpecializationCommentForm
 from django.http import HttpResponse
 from django.contrib import messages
@@ -33,7 +33,7 @@ class SpecializationDetailView(APIView):
 class QualificationDetailView(APIView):
 
     def get(self, request, id):
-        specialization = Specialization.objects.filter(specialization_id=id)
+        specialization = Qualification.objects.filter(specialization_id=id)
         serializer = QualificationSerializer(specialization,many=True)
         return JsonResponse({'data':serializer.data})
 

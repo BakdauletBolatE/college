@@ -1,5 +1,5 @@
-from rest_framework import routers,serializers,viewsets
-from .models import SubSection,Specialization
+from rest_framework import serializers
+from .models import SubSection,Specialization,Qualification
 
 class SubSectionsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,5 +13,5 @@ class SpecializationSerializer(serializers.ModelSerializer):
 
 class QualificationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = SubSection
+        model = Qualification
         fields = ['id', 'uid', 'name']
