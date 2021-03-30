@@ -1,5 +1,5 @@
 from django.db import models
-from specializationapp.models import Specialization
+from specializationapp.models import Specialization,Qualification
 from django.contrib.auth.models import User
 from django.utils import timezone
 # Create your models here.
@@ -28,6 +28,7 @@ class Employees(models.Model):
     name = models.CharField('Имя',max_length=255)
     age = models.IntegerField('Возраст')
     specialization = models.ForeignKey(Specialization,verbose_name='Специализация',related_name="employees", blank=True,null=True,on_delete=models.CASCADE)
+    qualification = models.ForeignKey(Qualification,verbose_name='Квалификация',related_name="employees", blank=True,null=True,on_delete=models.CASCADE)
     position = models.CharField('Должность',max_length=255)
     photo = models.ImageField('Фото',upload_to='employees/')
 
