@@ -80,12 +80,12 @@ class SpecializationComment(models.Model):
         verbose_name_plural = 'Коментарий к специализаций'
 
 
-class Qualification(models.Model):
-
-    name = models.CharField('Название',max_length=255)
-    uid = models.CharField('Код шифра',max_length=30)
-    specialization = models.ForeignKey(Specialization,related_name="Qualification",verbose_name="Специялизация",on_delete=models.CASCADE)
-    
-    def __str__(self):
-
-        return self.uid + " " + self.name
+# class Qualification(models.Model):
+#
+#     name = models.CharField('Название',max_length=255)
+#     uid = models.CharField('Код шифра',max_length=30)
+#     specialization = models.ForeignKey(Specialization,related_name="Qualification",verbose_name="Специялизация",on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#
+#         return self.uid + " " + self.name
