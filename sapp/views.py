@@ -50,6 +50,9 @@ def contact(request):
 def aboutUrl(request):
     return render(request,'sapp/about.html')
 
+def galletyView(request):
+    return render(request,'pages/gallery.html')
+
 def internationalUrl(request):
     return render(request,'sapp/international.html')
 

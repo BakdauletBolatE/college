@@ -19,7 +19,7 @@
 						<div class="instructor_image_container">
 							<div class="instructor_image"><img src="{{imp.photo.url}}" alt=""></div>
 						</div>
-						<div class="instructor_name"><a href="instructors.html">{{imp.name}}</a></div>
+						<div class="instructor_name"><a href="{% url 'empapp:detailView' imp.id %}">{{imp.name}}</a></div>
 						<div class="instructor_title">{{imp.position}}</div>
 						<div class="instructor_text">
 							<p>{{imp.desctiption}}</p>

@@ -1,0 +1,50 @@
+{% extends 'layouts/app2.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Blog Image -->
+
+<div class="blog_top_image">
+    <div class="blog_top">
+        <div class="blog_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/blog_4.jpg' %}" data-speed="0.8"></div>
+    </div>
+    
+</div>
+
+<!-- Blog Content -->
+
+<div class="blog_container">
+    <div class="container">
+        <div class="row blog_content_row">
+            <div class="col">
+                <div class="blog_content">
+                    <div class="blog_post_title_container">
+                        {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}" role="alert">
+                                    {{ message }}
+                                </div>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <div class="blog_category"><a href="#">Возрасть: {{government.age}}</a></div>
+                        <div class="blog_title">Имя: {{government.name}}</div>
+                    </div>
+                    <div class="blog_text">
+                        {{government.position}}
+                    </div>
+                    <div style="height: 70px; margin-top: 20px; border-radius: 5px; overflow: hidden;" class="img">
+                        <img height="100%" src="{{ government.photo.url }}" alt="">
+                    </div>                    
+                  
+                </div>
+            </div>
+        </div>
+   
+
+      
+    </div>
+</div>
+{% endblock %}

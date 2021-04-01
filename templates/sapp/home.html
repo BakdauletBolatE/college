@@ -107,7 +107,7 @@
 
 							<!-- Flag -->
 							<div class="owl-item language_item">
-								<a href="#">
+								<a href="{% url 'empapp:indexT' %}">
 									<div class="flag"><img src="{% static 'icons/svg/038-student card.svg' %}" alt=""></div>
 									<div class="lang_name">Преподаватели</div>
 								</a>
@@ -191,7 +191,7 @@
 							<div class="instructor_image"><img src="{{imp.photo.url}}" alt=""></div>
 						</div>
 						{% endif %}
-						<div class="instructor_name"><a href="instructors.html">{{imp.name}}</a></div>
+						<div class="instructor_name"><a href="">{{imp.name}}</a></div>
 						<div class="instructor_title">{{imp.position}}</div>
 						<div class="instructor_text">
 							<p>{{imp.desctiption}}</p>
@@ -272,7 +272,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h2 class="section_title text-center">Upcoming Events</h2>
+					<h2 class="section_title text-center">Последние новости</h2>
 				</div>
 			</div>
 			<div class="row events_row">

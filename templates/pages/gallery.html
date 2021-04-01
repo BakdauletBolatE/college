@@ -1,0 +1,25 @@
+{% extends 'layouts/app2.html' %}
+{% load static %}
+
+{% block content %}
+
+<video
+id="my-video"
+class="video-js"
+controls
+preload="auto"
+width="640"
+height="264"
+data-setup="{}"
+>
+<source src="https://www.youtube.com/watch?v=2KdXIKsRunw" type="video/mp4" />
+<p class="vjs-no-js">
+  To view this video please enable JavaScript, and consider upgrading to a
+  web browser that
+  <a href="https://www.youtube.com/watch?v=2KdXIKsRunw" target="_blank"
+    >supports HTML5 video</a
+  >
+</p>
+</video>
+
+{% endblock %}

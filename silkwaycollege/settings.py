@@ -1,4 +1,10 @@
 
+try:
+    from .local_settings import *
+    DEBUG = True
+except ImportError as e:
+    DEBUG = False
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -11,8 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '8rp&j5jfqdi-spuqv-)!g%erfdw2qzizrp_h0keouv$0+391f('
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+
 
 if DEBUG:
     ALLOWED_HOSTS = ['*','185.146.3.237'] 
@@ -74,16 +79,6 @@ WSGI_APPLICATION = 'silkwaycollege.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 if DEBUG:
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #         'NAME': 'college',
-    #         'USER': 'bbb',
-    #         'PASSWORD': 'baguvix123F',
-    #         'HOST': 'localhost',
-    #         'PORT': ''
-    #     }
-    # }
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',

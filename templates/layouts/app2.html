@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
@@ -96,7 +97,9 @@
 									<li class="main_nav__item"><a href="{% url 'sapp:structure' %}">Структура</a></li>
 									<li class="{% if request.path == '/about-us/' %}active{% endif %} main_nav__item"><a href="{% url 'sapp:aboutUrl' %}">О колледже</a>
                                         <ul class="sub-main_nav sub_column">
-                                            <li class="sub-main_nav__item {% if request.path == '/employes/gov/' %}active{% endif %}"><a href="{% url 'empapp:indexG' %}">Штат</a></li>
+                                            <li class="sub-main_nav__item {% if request.path == '/employes/gov/' %}active{% endif %}"><a href="{% url 'empapp:indexG' %}">Администрация</a></li>
+											<li class="sub-main_nav__item {% if request.path == '/employes/gov/' %}active{% endif %}"><a href="{% url 'empapp:indexT' %}">Преподаватели</a></li>
+											<li class="sub-main_nav__item {% if request.path == '/code_of_honor/' %}active{% endif %}"><a href="{% url 'sapp:galleryView' %}">Галерея</a></li>
                                             <li class="sub-main_nav__item {% if request.path == '/code_of_honor/' %}active{% endif %}"><a href="{% url 'sapp:code_of_honor' %}">Кодекс чести</a></li>
                                         </ul>
                                     </li>
@@ -272,7 +275,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Вс�
 </script>
 
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-
+<script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
