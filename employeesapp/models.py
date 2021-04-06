@@ -14,9 +14,9 @@ class Government(models.Model):
     photo = models.ImageField('Фото',upload_to='government/')
     order = models.IntegerField('Филтрация')
 
-    def __str__(self):
-
-        return self.name
+    # def __str__(self):
+    #
+    #     return self.name
 
     class Meta:
 

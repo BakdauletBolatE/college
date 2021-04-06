@@ -27,7 +27,7 @@ class NewsPost(models.Model):
     created_at = models.DateTimeField('Когда создано',default=timezone.now)
 
     def __str__(self):
-        return self.title
+        return self.title_ru
 
     class Meta:
 
