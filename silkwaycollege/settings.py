@@ -36,11 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'employeesapp',
     'newsapp',
     'sapp',
     'specializationapp',
-    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -84,7 +84,7 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'college',
+            'NAME': 'college5',
             'USER': 'postgres',
             'PASSWORD': '123',
             'HOST': 'localhost',
