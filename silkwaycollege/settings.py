@@ -95,7 +95,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'college',
+            'NAME': 'college2',
             'USER': 'bbb',
             'PASSWORD': 'baguvix123F',
             'HOST': 'localhost',
