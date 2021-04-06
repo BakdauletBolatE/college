@@ -1,7 +1,7 @@
 {% extends 'layouts/app2.html' %}
 
 {% block content %}
-
+  {% load i18n %}
 {% load static %}
 
 	<!-- Home -->
@@ -17,8 +17,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col text-center">
-							<h1 class="home_title">Высший педагогический колледж Shymkent</h1>
-							<div class="home_button trans_200"><a href="#">Начинаем</a></div>
+							<h1 class="home_title">{% trans 'Высший педагогический колледж Shymkent' %}</h1>
+							<div class="home_button trans_200"><a href="#">{% trans 'Начинаем' %}</a></div>
 						</div>
 					</div>
 				</div>
@@ -85,7 +85,7 @@
 							<div class="owl-item language_item">
 								<a href="#">
 									<div class="flag"><img src="{% static 'icons/svg/020-trophy.svg' %}" alt=""></div>
-									<div class="lang_name">Достижение</div>
+									<div class="lang_name">{% trans 'Достижение' %}</div>
 								</a>
 							</div>
 
@@ -93,7 +93,7 @@
 							<div class="owl-item language_item">
 								<a href="#">
 									<div class="flag"><img src="{% static 'icons/svg/024-schedule.svg' %}" alt=""></div>
-									<div class="lang_name">Расписание</div>
+									<div class="lang_name">{% trans 'Расписание' %}</div>
 								</a>
 							</div>
 
@@ -101,7 +101,7 @@
 							<div class="owl-item language_item">
 								<a href="#">
 									<div class="flag"><img src="{% static 'icons/svg/050-physics.svg' %}" alt=""></div>
-									<div class="lang_name">Наука и Исследования</div>
+									<div class="lang_name">{% trans 'Наука и Исследования' %}</div>
 								</a>
 							</div>
 
@@ -109,7 +109,7 @@
 							<div class="owl-item language_item">
 								<a href="{% url 'empapp:indexT' %}">
 									<div class="flag"><img src="{% static 'icons/svg/038-student card.svg' %}" alt=""></div>
-									<div class="lang_name">Преподаватели</div>
+									<div class="lang_name">{% trans 'Преподаватели' %}</div>
 								</a>
 							</div>
 
@@ -131,7 +131,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h2 class="section_title text-center">СПЕЦИАЛЬНОСТИ</h2>
+					<h2 class="section_title text-center">{% trans 'СПЕЦИАЛЬНОСТИ' %}</h2>
 				</div>
 			</div>
 			<div class="row courses_row">
@@ -147,7 +147,7 @@
 							<div class="course_info">
 								<ul>
 									<li><a href="">{{specialization.uid}}</a></li>
-									<li><a href="#">Шифр</a></li>
+									<li><a href="#">{% trans 'Шифр' %}</a></li>
 								</ul>
 							</div>
 							<div class="course_text">
@@ -177,7 +177,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h2 class="section_title text-center">Наши руководители</h2>
+					<h2 class="section_title text-center">{% trans 'Наши руководители' %}</h2>
 				</div>
 			</div>
 			<div class="row instructors_row">
@@ -223,7 +223,7 @@
 
 				<div class="col-lg-6">
 					<div class="register_form_container">
-						<div class="register_form_title">Задайте вопрос</div>
+						<div class="register_form_title">{% trans 'Задайте вопрос' %}</div>
 						<form action="#" id="register_form" class="register_form">
 							<div class="row register_row">
 								<div class="col-lg-6 register_col">
@@ -239,7 +239,7 @@
 									<input type="url" class="form_input" placeholder="Site">
 								</div>
 								<div class="col">
-									<button type="submit" class="form_button trans_200">Отправить</button>
+									<button type="submit" class="form_button trans_200">{% trans 'Отправить' %}</button>
 								</div>
 							</div>
 						</form>
@@ -250,7 +250,7 @@
 
 				<div class="col-lg-6">
 					<div class="register_timer_container">
-						<div class="register_timer_title">Подписывайтесь сейчас</div>
+						<div class="register_timer_title">{% trans 'Подписывайтесь сейчас' %}</div>
 						<div class="register_timer_text">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis fringilla tortor.</p>
 						</div>
@@ -272,7 +272,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h2 class="section_title text-center">Последние новости</h2>
+					<h2 class="section_title text-center">{% trans 'Последние новости' %}</h2>
 				</div>
 			</div>
 			<div class="row events_row">

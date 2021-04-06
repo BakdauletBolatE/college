@@ -94,9 +94,6 @@ function render(data){
             }
         })
     })
-
-
-
 }
 
 

@@ -17,15 +17,20 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('i18/',include('django.conf.urls.i18n')),
+
+]
+
+urlpatterns += i18n_patterns(
     path('',include(('sapp.urls','sapp'))),
     path('employes/',include(('employeesapp.urls','empapp'))),
     path('speciliazation/', include(('specializationapp.urls','specapp'))),
     path('news/',include(('newsapp.urls','newsapp'))),
-    path('admin/', admin.site.urls),
-]
+)
 
 
 if settings.DEBUG:

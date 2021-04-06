@@ -1,18 +1,19 @@
 {% extends 'layouts/app2.html' %}
 {% load static %}
+  {% load i18n %}
 {% block content %}
 <div class="blog">
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="welcome_title">Добро пожаловать в наш блог</div>
+                <div class="welcome_title">{% trans 'Добро пожаловать в наш блог' %}</div>
             </div>
         </div>
         <div class="row categories_row">
             {% for category in categories %}
             <!-- Category -->
             <div class="col-xl-2 col-lg-4 col-md-6 blog_category_col">
-                <a href="blog.html">
+                <a href="">
                     <div class="blog_category">
                         <div class="blog_category_image"><img src="{{category.poster.url}}" alt=""></div>
                         <div class="blog_category_title">{{category.name}}</div>

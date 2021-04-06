@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,32 +38,41 @@
 					<div class="row">
 						<div class="col">
 							<div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
-								<div class="top_bar_phone"><span class="top_bar_title">Телефон:</span>+7 (702) 890-00-80</div>
+								<div class="top_bar_phone"><span class="top_bar_title">{% trans 'Телефон:' %}</span>+7 (702) 890-00-80</div>
 								<div class="top_bar_right ml-auto">
 
 									<!-- Language -->
 									<div class="top_bar_lang">
-										<span class="top_bar_title">Язык:</span>
+										<span class="top_bar_title">{% trans 'Язык:' %}</span>
+                             <form action="{% url 'set_language' %}" method="POST" >
 										<ul class="lang_list">
-											<li class="hassubs">
-												<a href="#">Русский<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            {% csrf_token %}
+                                        {% get_current_language as LANGUAGE_CODE %}
+                                            <input name="next" type="hidden" value="{{ redirect_to }}">
+                                            <li class="hassubs">
+												<a href="#">{{LANGUAGE_CODE}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 												<ul>
-													<li><a href="#">Казахский</a></li>
-													<li><a href="#">Англиский</a></li>
+                                                    {% get_available_languages as LANGUAGES %}
+                                                    {% get_language_info_list for LANGUAGES as languages %}
+                                                    {% for language in languages %}
+													<li><input type="submit" name="language" value="{{ language.code }}">{{ language.name_local}}({{language.code}})</input></li>
+                                                    {% endfor %}
 												</ul>
 											</li>
+
 										</ul>
+                              </form>
 									</div>
 
 									<!-- Social -->
 									<div class="top_bar_social">
-										<span class="top_bar_title social_title">Подписывайтесь</span>
+										<span class="top_bar_title social_title">{% trans 'Подписывайтесь' %}</span>
 										{% if request.user.is_authenticated %}
 										<span class="top_bar_title social_title"><a href="{% url 'sapp:login' %}">{{request.user}}</a></span>
-										<span class="top_bar_title social_title"><a href="{% url 'sapp:logout' %}">Выйти</a></span>
+										<span class="top_bar_title social_title"><a href="{% url 'sapp:logout' %}">{% trans 'Выйти' %}</a></span>
 										{% else %}
-										<span class="top_bar_title social_title"><a href="{% url 'sapp:login' %}">Логин</a></span>
-										<span class="top_bar_title social_title"><a href="{% url 'sapp:register' %}">Регистрация</a></span>
+										<span class="top_bar_title social_title"><a href="{% url 'sapp:login' %}">{% trans 'Логин' %}</a></span>
+										<span class="top_bar_title social_title"><a href="{% url 'sapp:register' %}">{% trans 'Регистрация' %}</a></span>
 										{% endif %}
 										<ul>
 											<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
@@ -93,27 +103,27 @@
 							</div>
 							<nav class="main_nav_contaner">
 								<ul class="main_nav">
-									<li class="{% if request.path == '/' %}active{% endif %} main_nav__item"><a href="{% url 'sapp:index' %}">Главная</a></li>
-									<li class="main_nav__item"><a href="{% url 'sapp:structure' %}">Структура</a></li>
-									<li class="{% if request.path == '/about-us/' %}active{% endif %} main_nav__item"><a href="{% url 'sapp:aboutUrl' %}">О колледже</a>
+									<li class="{% if request.path == '/' %}active{% endif %} main_nav__item"><a href="{% url 'sapp:index' %}">{% trans 'Главная' %}</a></li>
+									<li class="main_nav__item"><a href="{% url 'sapp:structure' %}">{% trans 'Структура' %}</a></li>
+									<li class="{% if request.path == '/about-us/' %}active{% endif %} main_nav__item"><a href="{% url 'sapp:aboutUrl' %}">{% trans 'О колледже' %}</a>
                                         <ul class="sub-main_nav sub_column">
-                                            <li class="sub-main_nav__item {% if request.path == '/employes/gov/' %}active{% endif %}"><a href="{% url 'empapp:indexG' %}">Администрация</a></li>
-											<li class="sub-main_nav__item {% if request.path == '/employes/gov/' %}active{% endif %}"><a href="{% url 'empapp:indexT' %}">Преподаватели</a></li>
-											<li class="sub-main_nav__item {% if request.path == '/code_of_honor/' %}active{% endif %}"><a href="{% url 'sapp:galleryView' %}">Галерея</a></li>
-                                            <li class="sub-main_nav__item {% if request.path == '/code_of_honor/' %}active{% endif %}"><a href="{% url 'sapp:code_of_honor' %}">Кодекс чести</a></li>
+                                            <li class="sub-main_nav__item"><a href="{% url 'empapp:indexG' %}">{% trans 'Администрация' %}</a></li>
+											<li class="sub-main_nav__item"><a href="{% url 'empapp:indexT' %}">{% trans 'Преподаватели' %}</a></li>
+											<li class="sub-main_nav__item"><a href="{% url 'sapp:galleryView' %}">{% trans 'Галерея' %}</a></li>
+                                            <li class="sub-main_nav__item"><a href="{% url 'sapp:code_of_honor' %}">{% trans 'Кодекс чести' %}</a></li>
                                         </ul>
                                     </li>
-									<li class="main_nav__item {% if request.path == '/speciliazation/' %}active{% endif %}"><a href="{% url 'specapp:index' %}">Специальности</a></li>
-									<li class="main_nav__item {% if request.path == '/news/' %}active{% endif %}"><a href="{% url 'newsapp:listView' %}">Новости</a></li>
-									<li class="main_nav__item"><a href="">Абитуриенту</a>
+									<li class="main_nav__item {% if request.path == '/speciliazation/' %}active{% endif %}"><a href="{% url 'specapp:index' %}">{% trans 'Специальности' %}</a></li>
+									<li class="main_nav__item {% if request.path == '/news/' %}active{% endif %}"><a href="{% url 'newsapp:listView' %}">{% trans 'Новости' %}</a></li>
+									<li class="main_nav__item"><a href="">{% trans 'Абитуриенту' %}</a>
 										<ul class="sub-main_nav">
-                                            <li class="sub-main_nav__item "><a href="{% url 'sapp:admission_rules' %}">Правила приема на обучение</a></li>
-                                            <li class="sub-main_nav__item "><a href="{% url 'sapp:newEFormat' %}">Новый формат ЕНТ</a></li>
-											<li class="sub-main_nav__item "><a href="{% url 'sapp:ab2020' %}">Абитуриент-2020</a></li>
+                                            <li class="sub-main_nav__item "><a href="{% url 'sapp:admission_rules' %}">{% trans 'Правила приема на обучение' %}</a></li>
+                                            <li class="sub-main_nav__item "><a href="{% url 'sapp:newEFormat' %}">{% trans 'Новый формат ЕНТ' %}</a></li>
+											<li class="sub-main_nav__item "><a href="{% url 'sapp:ab2020' %}">{% trans 'Абитуриент-2020' %}</a></li>
                                         </ul>
 									</li>
-									<li class="main_nav__item {% if request.path == '/international/' %}active{% endif %}"><a href="{% url 'sapp:internationalUrl' %}">Международный отдел</a></li>
-									<li class="main_nav__item {% if request.path == '/contacts/' %}active{% endif %}"><a href="{% url 'sapp:contact' %}">Контакты</a></li>
+									<li class="main_nav__item {% if request.path == '/international/' %}active{% endif %}"><a href="{% url 'sapp:internationalUrl' %}">{% trans 'Международный отдел' %}</a></li>
+									<li class="main_nav__item {% if request.path == '/contacts/' %}active{% endif %}"><a href="{% url 'sapp:contact' %}">{% trans 'Контакты' %}</a></li>
 								</ul>
                               
 							</nav>
@@ -160,25 +170,25 @@
 		</div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="menu_mm"><a href="index.html">Главная</a></li>
-				<li class="menu_mm"><a href="courses.html">О колледже</a></li>
-				<li class="menu_mm"><a href="instructors.html">Специальности</a></li>
-				<li class="menu_mm"><a href="#">Новости</a></li>
-				<li class="menu_mm"><a href="blog.html">Международный отдел</a></li>
-				<li class="menu_mm"><a href="contact.html">Контакты</a></li>
+				<li class="menu_mm"><a href="{% url 'sapp:index' %}">{% trans 'Главная' %}</a></li>
+				<li class="menu_mm"><a href="{% url 'sapp:aboutUrl' %}">{% trans 'О колледже' %}</a></li>
+				<li class="menu_mm"><a href="{% url 'specapp:index' %}">{% trans 'Специальности' %}</a></li>
+				<li class="menu_mm"><a href="{% url 'newsapp:listView' %}">{% trans 'Новости' %}</a></li>
+				<li class="menu_mm"><a href="{% url 'sapp:internationalUrl' %}">{% trans 'Международный отдел' %}</a></li>
+				<li class="menu_mm"><a href="{% url 'sapp:contact' %}">{% trans 'Контакты' %}</a></li>
 			</ul>
 		</nav>
-		<div class="menu_extra">
-			<div class="menu_phone"><span class="menu_title">phone:</span>+44 300 303 0266</div>
-			<div class="menu_social">
-				<span class="menu_title">follow us</span>
-				<ul>
-					<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-				</ul>
-			</div>
-		</div>
+{#		<div class="menu_extra">#}
+{#			<div class="menu_phone"><span class="menu_title">phone:</span>+44 300 303 0266</div>#}
+{#			<div class="menu_social">#}
+{#				<span class="menu_title">follow us</span>#}
+{#				<ul>#}
+{#					<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>#}
+{#					<li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>#}
+{#					<li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>#}
+{#				</ul>#}
+{#			</div>#}
+{#		</div>#}
 	</div>
 	
 	{% block content %}
@@ -200,7 +210,8 @@
 							</div>
 							<ul class="footer_list">
 								<li><a href="">
-									Основателем и первым президентом учреждения «Высший Педагогический колледж «Shynkent»   является – Юнусов Бахтияр Саидович (1954-2010 г.г.) – профессор, ученый-арабист, член-корреспондент Академии естественных наук РК и Международной Академии наук педагогического образования России
+                                    {% trans "Основателем и первым президентом учреждения «Высший Педагогический колледж «Shynkent»   является – Юнусов Бахтияр Саидович (1954-2010 г.г.) – профессор, ученый-арабист, член-корреспондент Академии естественных наук РК и Международной Академии наук педагогического образования России" %}
+
 								</a></li>
 							</ul>
 							
@@ -211,12 +222,12 @@
 					<!-- About -->
 					<div class="col-lg-2 offset-lg-3 footer_col">
 						<div>
-							<div class="footer_title">Контакты</div>
+							<div class="footer_title">{% trans 'Контакты' %}</div>
 							<ul class="footer_list">
 								<li><a href="#">+7 (702) 890-00-80</a></li>
 								<li><a href="#">+7 7252 506136</a></li>
 								<li><a href="#">ukpk_shym@mail.ru</a></li>
-								<li><a href="#">г.Шымкент, ул. 8 марта, 22</a></li>
+								<li><a href="#">{% trans 'г.Шымкент, ул. 8 марта, 22' %}</a></li>
 								
 							</ul>
 						</div>

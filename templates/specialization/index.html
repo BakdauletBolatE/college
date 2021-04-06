@@ -1,6 +1,6 @@
 {% extends 'layouts/app2.html' %}
 {% load static %}
-
+  {% load i18n %}
 {% block content %}
 
 	<div class="courses ">
@@ -8,7 +8,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h2 class="section_title text-center">Наши специалисности</h2>
+					<h2 class="section_title text-center">{% trans 'Наши специалисности' %}</h2>
 				</div>
 			</div>
 			<div class="row courses_row">
@@ -24,7 +24,7 @@
 							<div class="course_info">
 								<ul>
 									<li><a href="">{{specialization.uid}}</a></li>
-									<li><a href="#">Шифр</a></li>
+									<li><a href="#">{% trans 'Шифр' %}</a></li>
 								</ul>
 							</div>
 							<div class="course_text">
@@ -34,7 +34,7 @@
 						<div class="course_footer d-flex flex-row align-items-center justify-content-start">
 							<!-- <div class="course_students"><i class="fa fa-user" aria-hidden="true"></i><span>10</span></div>
 							<div class="course_rating ml-auto"><i class="fa fa-star" aria-hidden="true"></i><span>4,5</span></div> -->
-							<div class="course_mark course_free trans_200"><a href="{% url 'specapp:detail' specialization.id  %}">Посмотреть</a></div>
+							<div class="course_mark course_free trans_200"><a href="{% url 'specapp:detail' specialization.id  %}">{% trans 'Посмотреть' %}</a></div>
 						</div>
 					</div>
 				</div>

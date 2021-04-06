@@ -1,13 +1,14 @@
 {% extends 'layouts/app2.html' %}
 
 {% block content %}
+      {% load i18n %}
 {% load static %}
 <div class="container" style="margin-top:150px">
     <div class="row">
-        <div class="col-3 titlestruc">Профиль</div>
-        <div class="col-3 titlestruc">ПодПрофиль</div>
-        <div class="col-3 titlestruc">Специализация</div>
-        <div class="col-3 titlestruc">Квалификация</div>
+        <div class="col-3 titlestruc">{% trans 'Профиль' %}</div>
+        <div class="col-3 titlestruc">{% trans 'ПодПрофиль' %}</div>
+        <div class="col-3 titlestruc">{% trans 'Специализация' %}</div>
+        <div class="col-3 titlestruc">{% trans 'Квалификация' %}</div>
     </div>
     <div class="gridlayout">
         <ul class="gridlayout__items border">
@@ -16,10 +17,10 @@
             {% endfor %}
         </ul>
         <ul class="gridlayout__items border" id="subsection" >
-            Пожалуйста выберите профиль
+            {% trans 'Пожалуйста выберите профиль' %}
         </ul>
-        <div id="specializationid" class="gridlayout__items border">Пожалуйста выберите подпрофиль</div>
-        <div id="quaid" class="gridlayout__items border">Пожалуйста выберите специялизацию</div>
+        <div id="specializationid" class="gridlayout__items border">{% trans 'Пожалуйста выберите подпрофиль' %}</div>
+        <div id="quaid" class="gridlayout__items border">{% trans 'Пожалуйста выберите специялизацию' %}</div>
     </div>
 </div>
  

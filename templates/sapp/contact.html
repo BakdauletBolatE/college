@@ -1,6 +1,7 @@
 {% extends 'layouts/app2.html' %}
 
 {% block content %}
+      {% load i18n %}
 {% load static %}
 <div class="contact_map">
 
@@ -24,7 +25,7 @@
             <!-- Details -->
             <div class="col-lg-6">
                 <div class="contact_details">
-                    <div class="contact_details_title">Связь</div>
+                    <div class="contact_details_title">{% trans 'Связь' %}</div>
                     <ul>
                         <li>
                             <svg fill="rgba(0,0,0,0.4)" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +63,7 @@
             <!-- Form -->
             <div class="col-lg-6">
                 <div class="contact_form_container">
-                    <div class="form_title">Отправте нам свою сообщению</div>
+                    <div class="form_title">{% trans 'Отправте нам свою сообщению' %}</div>
                     <form action="#" id="contact_form" class="contact_form">
                         <div class="row contact_row">
                             <div class="col-lg-6 contact_col">
@@ -75,7 +76,7 @@
                                 <textarea class="form_input form_text" placeholder="Сообщение" required="required"></textarea>
                             </div>
                             <div class="col">
-                                <button type="submit" class="form_button trans_200">Отправить</button>
+                                <button type="submit" class="form_button trans_200">{% trans 'Отправить' %}</button>
                             </div>
                         </div>
                     </form>

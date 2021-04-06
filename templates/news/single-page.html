@@ -1,6 +1,6 @@
 {% extends 'layouts/app2.html' %}
 {% load static %}
-
+  {% load i18n %}
 {% block content %}
 
 <!-- Blog Image -->
@@ -35,14 +35,14 @@
                     <div class="blog_text">
                         {{new.description}}
                     </div>
-                    <div class="blog_tags">
-                        <ul>
-                            <li><a href="#">Manual</a></li>
-                            <li><a href="#">Liberty</a></li>
-                            <li><a href="#">Interpretation</a></li>
-                            <li><a href="#">Recommendations</a></li>
-                        </ul>
-                    </div>
+{#                    <div class="blog_tags">#}
+{#                        <ul>#}
+{#                            <li><a href="#">Manual</a></li>#}
+{#                            <li><a href="#">Liberty</a></li>#}
+{#                            <li><a href="#">Interpretation</a></li>#}
+{#                            <li><a href="#">Recommendations</a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
                     <div class="blog_post_footer d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
                         <div class="blog_post_author d-flex flex-row align-items-center justify-content-start">
                            
@@ -71,7 +71,7 @@
 
         <div class="row register">
             <div class="col-lg-6 offset-lg-3">
-                <div class="register_form_title">Отправка коментарий</div>
+                <div class="register_form_title">{% trans 'Отправка коментарий' %}</div>
                 <div class="register_form_container">
                     <form action="" id="register_form" method="POST"  class="register_form">
                         {% csrf_token %}
@@ -81,7 +81,7 @@
                                 {{form}}
                             </div>
                             <div class="col">
-                                <button type="submit" class="form_button trans_200">Коментировать новость</button>
+                                <button type="submit" class="form_button trans_200">{% trans 'Коментировать новость' %}</button>
                             </div>
                         </div>
                     </form>
@@ -91,7 +91,7 @@
 
         <div class="row comments">
             <div class="col-lg-6 offset-lg-3">
-                <div class="comments_title">Коментарий <span>{{new.comments.count}}</span></div>
+                <div class="comments_title">{% trans 'Коментарий' %} <span>{{new.comments.count}}</span></div>
                 <div class="comments_container">
                     <ul class="comments_list">
                         {% for comment in new.comments.all %}
@@ -113,9 +113,9 @@
                        {% endfor %}
                     </ul>
                 </div>
-                <div class="comments_more">
-                    <div class="comments_more_button"><a href="#">load more</a></div>
-                </div>
+{#                <div class="comments_more">#}
+{#                    <div class="comments_more_button"><a href="#">load more</a></div>#}
+{#                </div>#}
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 {% extends 'layouts/app2.html' %}
 {% load static %}
-
+  {% load i18n %}
 {% block content %}
 
 <div class="course pt-15">
@@ -48,7 +48,7 @@
 
                         <!-- FAQs -->
                         <div class="faqs">
-                            <div class="panel_title">Вопросы-ответы</div>
+                            <div class="panel_title">{% trans 'Вопросы-ответы' %}</div>
                             <div class="accordions">
                                             
                                 <div class="elements_accordions">
@@ -87,7 +87,7 @@
                             {% else %}
 
                             <div class="">
-                                <a href="{% url 'sapp:login' %}">Авторизуитесь чтобы оставить отзыв</a>
+                                <a href="{% url 'sapp:login' %}">{% trans 'Авторизуитесь чтобы оставить отзыв' %}</a>
                             </div>
 
                             {% endif %}
@@ -117,9 +117,9 @@
 
                     <!-- Members -->
                     <div class="tab_panel members">
-                        <div class="panel_title">Преподаватели</div>
+                        <div class="panel_title">{% trans 'Преподаватели' %}</div>
                         <div class="panel_text">
-                            <p>В нашем колледже проподают самые лучшие преподаватели</p>
+                            <p>{% trans 'В нашем колледже проподают самые лучшие преподаватели' %}</p>
                         </div>
                         <div class="members_list d-flex flex-row flex-wrap align-items-start justify-content-start">
                             
@@ -143,18 +143,18 @@
             <div class="col-lg-3">
                 <div class="sidebar">
                     <div class="sidebar_background"></div>
-                    <div class="sidebar_top"><a href="#">Отправить заявку</a></div>
+                    <div class="sidebar_top"><a href="#">{% trans 'Отправить заявку' %}</a></div>
                     <div class="sidebar_content">
 
                         <!-- Features -->
                         <div class="sidebar_section features">
-                            <div class="sidebar_title">Подробнее</div>
+                            <div class="sidebar_title">{% trans 'Подробнее' %}</div>
                             <div class="features_content">
                                 <ul class="features_list">
 
                                     <!-- Feature -->
                                     <li class="d-flex flex-row align-items-start justify-content-start">
-                                        <div class="feature_title"><i class="fab fa-clock-o" aria-hidden="true"></i><span>Продолжительность</span></div>
+                                        <div class="feature_title"><i class="fab fa-clock-o" aria-hidden="true"></i><span>{% trans 'Продолжительность' %}</span></div>
                                         <div class="feature_text ml-auto">{{specialization.duration}}</div>
                                     </li>
 
@@ -165,7 +165,7 @@
 
                         <!-- Cert -->
                         <div class="sidebar_section cert">
-                            <div class="sidebar_title">Сертификат</div>
+                            <div class="sidebar_title">{% trans 'Сертификат' %}</div>
                             {% if specialization.sertification %}
                             <div class="cert_image"><img src="{{specialization.sertification.url}}" alt=""></div>
                             {% endif %}

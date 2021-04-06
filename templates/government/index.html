@@ -2,12 +2,13 @@
 
 {% block content %}
 {% load static %}
+    {% load i18n %}
 	<div class="instructors">
 		<div class="instructors_background" style="background-image:url({% static 'images/instructors_background.png' %})"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h2 class="section_title text-center">Наши руководители</h2>
+					<h2 class="section_title text-center">{% trans 'Наши руководители' %}</h2>
 				</div>
 			</div>
 			<div class="row instructors_row">

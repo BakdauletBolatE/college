@@ -1,12 +1,12 @@
 {% extends 'layouts/app2.html' %}
 {% load static %}
-
+  {% load i18n %}
 {% block content %}
 <div class="blog">
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="welcome_title">Правила приема на обучение</div>
+                <div class="welcome_title">{% trans 'Правила приема на обучение' %}</div>
             </div>
         </div>
     
@@ -14,16 +14,16 @@
         <div>
             <div class="blog_content blog_content2">
                 <div class="blog_post_title_container">
-                    <div class="blog_title">Об утверждении Типовых правил приема в средние профессиональные учебные заведения Республики Казахстан</div>
+                    <div class="blog_title">{% trans 'Об утверждении Типовых правил приема в средние профессиональные учебные заведения Республики Казахстан' %}</div>
                 </div>
                 <div class="blog_text">
                     <div>
-                        <div class="blog_quote"><span></span>И.о. Министра
+                        <div class="blog_quote"><span></span>{% trans 'И.о. Министра' %}
 
-                            Приложение к приказу <br>
-                     Министерства образования и науки <br>
-                           Республики Казахстан <br>
-                        от 10 июля 2000 г. N 707 <br>
+                            {% trans 'Приложение к приказу' %} <br>
+                     {% trans 'Министерства образования и науки ' %}<br>
+                      {% trans ' Республики Казахстан' %}     <br>
+                       {% trans 'от 10 июля 2000 г. N 707 ' %} <br>
                     </div>
                         
 				
