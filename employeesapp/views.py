@@ -5,7 +5,7 @@ from .models import Government,Employees
 
 def indexG(request):
 
-    imps = Government.objects.all()
+    imps = Government.objects.order_by('isimp').all()
 
     data = {
         'imps':imps
@@ -19,11 +19,20 @@ def indexT(request):
     data = {
         'imps':imps
     }
-    return render(request,'government/index.html',data)
+    return render(request,'government/tindex.html',data)
 
-def detailView(request,pk):
+def tDetailView(request,pk):
 
     government = Employees.objects.get(id=pk)
+
+    data = {
+        'government':government
+    }
+    return render(request,'government/tsingle-page.html',data)
+
+def gDetailView(request,pk):
+
+    government = Government.objects.get(id=pk)
 
     data = {
         'government':government

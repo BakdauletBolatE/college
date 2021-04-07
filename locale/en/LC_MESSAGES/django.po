@@ -1,0 +1,357 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-07 23:41+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:7
+msgid "Django: the Web framework for perfectionists with deadlines."
+msgstr ""
+
+#: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:346
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:368
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:369
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
+msgstr ""
+
+#: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:384
+msgid "Django Documentation"
+msgstr ""
+
+#: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:385
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:396
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:397
+msgid "Get started with Django"
+msgstr ""
+
+#: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:408
+msgid "Django Community"
+msgstr ""
+
+#: .\env\Lib\site-packages\django\views\templates\default_urlconf.html:409
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: .\templates\government\index.html:11 .\templates\sapp\home.html:180
+msgid "Наши руководители"
+msgstr "Our leaders"
+
+#: .\templates\government\tindex.html:11
+msgid "Наши преподаватели"
+msgstr "Our instructors"
+
+#: .\templates\layouts\app2.html:41
+msgid "Телефон:"
+msgstr "Phone:"
+
+#: .\templates\layouts\app2.html:46
+msgid "Язык:"
+msgstr "Language:"
+
+#: .\templates\layouts\app2.html:69
+msgid "Подписывайтесь"
+msgstr "Subscribe"
+
+#: .\templates\layouts\app2.html:72
+msgid "Выйти"
+msgstr "Log out"
+
+#: .\templates\layouts\app2.html:74
+msgid "Логин"
+msgstr "Login"
+
+#: .\templates\layouts\app2.html:75
+msgid "Регистрация"
+msgstr "Registration"
+
+#: .\templates\layouts\app2.html:107 .\templates\layouts\app2.html:181
+msgid "Главная"
+msgstr "Home"
+
+#: .\templates\layouts\app2.html:109
+msgid "Структура"
+msgstr "Structure"
+
+#: .\templates\layouts\app2.html:111 .\templates\layouts\app2.html:182
+msgid "О колледже"
+msgstr "About college"
+
+#: .\templates\layouts\app2.html:113
+msgid "Администрация"
+msgstr "Administration"
+
+#: .\templates\layouts\app2.html:114 .\templates\sapp\home.html:112
+#: .\templates\specialization\single-page.html:120
+msgid "Преподаватели"
+msgstr "Teachers"
+
+#: .\templates\layouts\app2.html:115
+msgid "Галерея"
+msgstr "Gallery"
+
+#: .\templates\layouts\app2.html:116
+msgid "Кодекс чести"
+msgstr "Code of Honor"
+
+#: .\templates\layouts\app2.html:120 .\templates\layouts\app2.html:183
+msgid "Специальности"
+msgstr "Specialties"
+
+#: .\templates\layouts\app2.html:122 .\templates\layouts\app2.html:184
+msgid "Новости"
+msgstr "News"
+
+#: .\templates\layouts\app2.html:123
+msgid "Абитуриенту"
+msgstr "Applicant"
+
+#: .\templates\layouts\app2.html:125 .\templates\pages\admission_rules.html:9
+msgid "Правила приема на обучение"
+msgstr "Admission rules"
+
+#: .\templates\layouts\app2.html:126
+msgid "Новый формат ЕНТ"
+msgstr "New format for the UNT"
+
+#: .\templates\layouts\app2.html:127 .\templates\pages\2020ab.html:9
+msgid "Абитуриент-2020"
+msgstr "Applicant 2020"
+
+#: .\templates\layouts\app2.html:132 .\templates\layouts\app2.html:185
+msgid "Международный отдел"
+msgstr "International Division"
+
+#: .\templates\layouts\app2.html:134 .\templates\layouts\app2.html:186
+#: .\templates\layouts\app2.html:233
+msgid "Контакты"
+msgstr "Contact"
+
+#: .\templates\layouts\app2.html:221
+msgid ""
+"Основателем и первым президентом учреждения «Высший Педагогический колледж "
+"«Shynkent»   является – Юнусов Бахтияр Саидович (1954-2010 г.г.) – "
+"профессор, ученый-арабист, член-корреспондент Академии естественных наук РК "
+"и Международной Академии наук педагогического образования России"
+msgstr ""
+"The founder and first president of the institution Higher Pedagogical College"
+"Shynkent is - Yunusov Bakhtiyar Saidovich (1954-2010) - "
+"Professor, scientist-arabist, correspondent member of the Academy of Natural Sciences of the RK"
+"and the International Academy of Sciences of Pedagogical Education of Russia"
+
+#: .\templates\layouts\app2.html:238
+msgid "г.Шымкент, ул. 8 марта, 22"
+msgstr "Shymkent city, March 8, 22"
+
+#: .\templates\news\list.html:9
+msgid "Добро пожаловать в наш блог"
+msgstr "Welcome to our blog"
+
+#: .\templates\news\single-page.html:74
+msgid "Отправка коментарий"
+msgstr "Sending Comments"
+
+#: .\templates\news\single-page.html:84
+msgid "Коментировать новость"
+msgstr "Sending Comments"
+
+#: .\templates\news\single-page.html:94
+msgid "Коментарий"
+msgstr "Commentary"
+
+#: .\templates\pages\2020ab.html:17
+msgid "Приемная комиссия работает последующем адресам: "
+msgstr "The Admissions Office works at the following addresses: "
+
+#: .\templates\pages\2020ab.html:19
+msgid "1)ул. Токаева,27А"
+msgstr "1)ul. 27A Tokaeva"
+
+#: .\templates\pages\2020ab.html:20
+msgid "2)ул. Джангельдина,13"
+msgstr "2) ul. Dzhangeldina,13"
+
+#: .\templates\pages\2020ab.html:21
+msgid "3)ул. 8 Марта, 22"
+msgstr "3) 22, 8 Marta Street"
+
+#: .\templates\pages\2020ab.html:29
+msgid "2020-2021 ШЖПК Ережесі"
+msgstr "2020-2021 The Yerezhesi School of Life Sciences"
+
+#: .\templates\pages\admission_rules.html:17
+msgid ""
+"Об утверждении Типовых правил приема в средние профессиональные учебные "
+"заведения Республики Казахстан"
+msgstr ""
+"On approval of the standard rules of admission to secondary vocational educational "
+"Of the Republic of Kazakhstan"
+
+#: .\templates\pages\admission_rules.html:21
+msgid "И.о. Министра"
+msgstr "Acting Minister"
+
+#: .\templates\pages\admission_rules.html:23
+msgid "Приложение к приказу"
+msgstr "Appendix to the order"
+
+#: .\templates\pages\admission_rules.html:24
+msgid "Министерства образования и науки "
+msgstr "Ministry of Education and Science "
+
+#: .\templates\pages\admission_rules.html:25
+msgid " Республики Казахстан"
+msgstr " of the Republic of Kazakhstan"
+
+#: .\templates\pages\admission_rules.html:26
+msgid "от 10 июля 2000 г. N 707 "
+msgstr "of July 10, 2000 N 707"
+
+#: .\templates\sapp\contact.html:28
+msgid "Связь"
+msgstr "Link"
+
+#: .\templates\sapp\contact.html:66
+msgid "Отправте нам свою сообщению"
+msgstr "Send us your message"
+
+#: .\templates\sapp\contact.html:79 .\templates\sapp\home.html:242
+msgid "Отправить"
+msgstr "Send"
+
+#: .\templates\sapp\home.html:20
+msgid "Высший педагогический колледж Shymkent"
+msgstr "Higher Pedagogical College Shymkent"
+
+#: .\templates\sapp\home.html:21
+msgid "Начинаем"
+msgstr "Beginning"
+
+#: .\templates\sapp\home.html:88
+msgid "Достижение"
+msgstr "Achievement"
+
+#: .\templates\sapp\home.html:96
+msgid "Расписание"
+msgstr "Schedule"
+
+#: .\templates\sapp\home.html:104
+msgid "Наука и Исследования"
+msgstr "Science and Research"
+
+#: .\templates\sapp\home.html:134
+msgid "СПЕЦИАЛЬНОСТИ"
+msgstr "SPECIALITIES"
+
+#: .\templates\sapp\home.html:150 .\templates\specialization\index.html:27
+msgid "Шифр"
+msgstr "Cipher"
+
+#: .\templates\sapp\home.html:226
+msgid "Задайте вопрос"
+msgstr "Ask a question"
+
+#: .\templates\sapp\home.html:253
+msgid "Подписывайтесь сейчас"
+msgstr "Sign up now"
+
+#: .\templates\sapp\home.html:275
+msgid "Последние новости"
+msgstr "Latest news"
+
+#: .\templates\sapp\strucrure.html:8
+msgid "Профиль"
+msgstr "Profile"
+
+#: .\templates\sapp\strucrure.html:9
+msgid "ПодПрофиль"
+msgstr "SubProfile"
+
+#: .\templates\sapp\strucrure.html:10
+msgid "Специализация"
+msgstr "Specialty"
+
+#: .\templates\sapp\strucrure.html:11
+msgid "Квалификация"
+msgstr "Qualifications"
+
+#: .\templates\sapp\strucrure.html:20
+msgid "Пожалуйста выберите профиль"
+msgstr "Please select a profile"
+
+#: .\templates\sapp\strucrure.html:22
+msgid "Пожалуйста выберите подпрофиль"
+msgstr "Please select a sub-profile"
+
+#: .\templates\sapp\strucrure.html:23
+msgid "Пожалуйста выберите специялизацию"
+msgstr "Please choose a specialization"
+
+#: .\templates\specialization\index.html:11
+msgid "Наши специалисности"
+msgstr "Our specialties"
+
+#: .\templates\specialization\index.html:37
+msgid "Посмотреть"
+msgstr "View"
+
+#: .\templates\specialization\single-page.html:51
+msgid "Вопросы-ответы"
+msgstr "Q&A"
+
+#: .\templates\specialization\single-page.html:90
+msgid "Авторизуитесь чтобы оставить отзыв"
+msgstr "Log in to leave a review"
+
+#: .\templates\specialization\single-page.html:122
+msgid "В нашем колледже проподают самые лучшие преподаватели"
+msgstr "Our college has some of the best teachers in the world"
+
+#: .\templates\specialization\single-page.html:146
+msgid "Отправить заявку"
+msgstr "Send request"
+
+#: .\templates\specialization\single-page.html:151
+msgid "Подробнее"
+msgstr "Read more"
+
+#: .\templates\specialization\single-page.html:157
+msgid "Продолжительность"
+msgstr "Duration"
+
+#: .\templates\specialization\single-page.html:168
+msgid "Сертификат"
+msgstr "Certificate"

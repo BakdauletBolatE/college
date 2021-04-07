@@ -2,7 +2,9 @@
 {% load static %}
   {% load i18n %}
 {% block content %}
-
+{% block title %}
+   {{specialization.name}}
+{% endblock %}
 <div class="course pt-15">
     <div class="course_top"></div>
     <div class="container">

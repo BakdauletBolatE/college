@@ -1,8 +1,11 @@
 {% extends 'layouts/app2.html' %}
-
-{% block content %}
-  {% load i18n %}
+{% load i18n %}
 {% load static %}
+{% block title %}
+    {% trans 'Высший педагогический колледж Shymkent' %}
+{% endblock %}
+{% block content %}
+
 
 	<!-- Home -->
 	<!-- Slider main container -->
@@ -91,7 +94,7 @@
 
 							<!-- Flag -->
 							<div class="owl-item language_item">
-								<a href="#">
+								<a href="{% static 'xls/расписания.xls' %}">
 									<div class="flag"><img src="{% static 'icons/svg/024-schedule.svg' %}" alt=""></div>
 									<div class="lang_name">{% trans 'Расписание' %}</div>
 								</a>

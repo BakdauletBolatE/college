@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import indexG,indexT,detailView
+from .views import indexG,indexT,tDetailView,gDetailView
 urlpatterns = [
     path('govs/',indexG,name='indexG'),
     path('teachers/',indexT,name='indexT'),
-    path('d/<int:pk>/',detailView,name="detailView")
+    path('t/<int:pk>/',tDetailView,name="tDetailView"),
+    path('g/<int:pk>/',gDetailView,name="gDetailView")
 ]

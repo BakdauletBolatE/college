@@ -152,6 +152,10 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+LOCALE_PATHS = [
+    BASE_DIR / 'locale'
+]
+
 gettext = lambda s: s
 LANGUAGES = (
     ('ru',gettext('Russian')),
