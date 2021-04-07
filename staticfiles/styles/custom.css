@@ -1,0 +1,226 @@
+.logo_img{
+    height: 100%;
+    width:100%;
+}
+.logo_text{
+    width: 250px;
+}
+.home_title{
+    color:white;
+}
+.home_background{
+    position: relative;
+}
+.home_background::after{
+    content: "";
+    background-color: rgba(0, 0, 0, 0.534);
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.swiper-container {
+    width: 100%;
+    height: 600px;
+  }
+@media screen and (max-width:550px){
+    .swiper-container {
+        width: 100%;
+        height: 400px;
+      } 
+}
+  
+.blog{
+    padding-top: 200px;
+}
+.info{
+    display: flex;
+    justify-content: center;
+}
+.info__item{
+    flex-basis: 45%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 2px;
+}
+.info__item-icon{
+    font-size: 45px;
+    margin-right: 20px;
+}
+.info__item-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.blue{
+    color:#2e21df;
+}
+.yellow{
+    color:#f9cf0e;
+}
+.red{
+    color:#d80031;
+}
+.green{
+    color:#009246;
+}
+
+.container{
+    max-width: 1400px;
+}
+.sub-main_nav{
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+
+    border-radius: 2px;
+    display: none;
+    box-shadow: 0px 5px 20px rgb(0 0 0 / 3%);
+    border-bottom: 1px solid #004878;
+    grid-template-columns: minmax(100px,500px) minmax(100px,500px);
+}
+.main_nav__item:hover .sub-main_nav {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 400px;
+}
+.sub-main_nav li a{
+    font-weight: 500;
+}
+.sub-main_nav__item{
+    flex-basis: 40%;
+    padding: 20px 0px;
+}
+.sub-main_nav__item.active{
+    color:black;
+}
+/* #map::before{
+    content: "";
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(23, 7, 59, 0.24);
+
+    position: absolute;
+} */
+
+.sub_column{
+    flex-direction: column;
+}
+
+.instructor_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.border {
+    list-style: none;
+    padding: 0;
+    border: none!important  ;
+    }
+    .border li {
+    color:rgb(0, 3, 26);
+    padding: 7px 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-left: 10px solid #f05d22; 
+    box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+         -2px -2px 5px 0 rgba(0,0,0,.1),
+        2px 2px 5px 0 rgba(0,0,0,.1),
+        -2px 2px 5px 0 rgba(0,0,0,.1);
+    font-size: 14px;
+    letter-spacing: 2px;
+    background-color: white;
+    transition: 0.2s all ease;
+    }
+    .border li:nth-child(2){border-color: #8bc63e;}
+    .border li:nth-child(3){border-color: #fcba30;}
+    .border li:nth-child(4){border-color: #1ccfc9;}
+    .border li:nth-child(5){border-color: #493224;}
+    .border li:hover {background-color: rgb(240, 240, 240);}
+
+
+.gridlayout{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap:30px;
+}
+.gridlayout__items{
+    
+}
+
+
+:root {
+	--yellow: #feb60a;
+	--red: #ff0062;
+	--blue: #00dbf9;
+	--violet: #da00f7;
+}
+
+.spinner-container {
+	display: flex;
+    height: 200px;
+
+	justify-content: center;
+	align-items: center;
+}
+.ffall {
+	width: 10px;
+	height: 10px;
+	border-radius: 100%;
+	margin: 5px;
+	background-image: linear-gradient(145deg, rgba(255,255,255,0.5) 0%, rgba(0,0,0,0) 100%);
+	animation: bounce 1.5s 0.5s linear infinite;
+}
+.yellow {
+	background-color: var(--yellow);
+}
+
+.red {
+	background-color: var(--red);
+	animation-delay: 0.1s;
+}
+
+.blue {
+	background-color: var(--blue);
+	animation-delay: 0.2s;
+}
+
+.violet {
+	background-color: var(--violet);
+	animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+	0%, 50%, 100% {
+		transform: scale(1);
+		filter: blur(0px);
+	}
+	25% {
+		transform: scale(0.6);
+		filter: blur(3px);
+	}
+	75% {
+		filter: blur(3px);
+		transform: scale(1.4);
+	}
+}
+
+.titlestruc{
+    font-size: 18px;
+    color:rgb(0, 3, 26);
+
+    padding: 20px;
+    background: white;
+    text-align: center;
+}
