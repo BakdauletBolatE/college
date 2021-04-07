@@ -5,7 +5,7 @@ from .models import Government,Employees
 
 def indexG(request):
 
-    imps = Government.objects.order_by('isimp').all()
+    imps = Government.objects.order_by('id').all()
 
     data = {
         'imps':imps
