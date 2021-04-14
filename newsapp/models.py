@@ -34,6 +34,20 @@ class NewsPost(models.Model):
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
 
+class GalleryPost(models.Model):
+    title = models.CharField('Названия',max_length=255,null=True,blank=True)
+    url = models.CharField('Ссылка на ютуб',max_length=255,null=True,blank=True)
+    poster = models.ImageField('Постер',upload_to="gallery/",null=True,blank=True)
+    created_at = models.DateTimeField('Когда создано',default=timezone.now)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+
+        verbose_name = 'Галерея'
+        verbose_name_plural = 'Галерея'
+
 class NewsLikes(models.Model):
 
     newspost = models.ForeignKey(NewsPost,

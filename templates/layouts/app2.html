@@ -106,9 +106,10 @@
 								<ul class="main_nav">
                                     {% url 'sapp:index' as sapindex %}
 									<li class="{% if request.path == sapindex %}active{% endif %} main_nav__item"><a href="{{ sapindex }}">{% trans 'Главная' %}</a></li>
-                                    {% url 'sapp:structure' as structure %}
-									<li class="main_nav__item {% if request.path == structure %}active{% endif %}"><a href="{{structure}}">{% trans 'Структура' %}</a></li>
+
                                     {% url 'sapp:aboutUrl' as aboutUrl %}
+                                    {% url 'newsapp:listView' as newsListView %}
+									<li class="main_nav__item {% if request.path == newsListView %}active{% endif %}"><a href="{{ newsListView }}">{% trans 'Новости' %}</a></li>
 									<li class="{% if request.path == aboutUrl %}active{% endif %} main_nav__item"><a href="{{aboutUrl}}">{% trans 'О колледже' %}</a>
                                         <ul class="sub-main_nav sub_column">
                                             <li class="sub-main_nav__item"><a href="{% url 'empapp:indexG' %}">{% trans 'Администрация' %}</a></li>
@@ -117,10 +118,22 @@
                                             <li class="sub-main_nav__item"><a href="{% url 'sapp:code_of_honor' %}">{% trans 'Кодекс чести' %}</a></li>
                                         </ul>
                                     </li>
+                                {% url 'sapp:structure' as structure %}
+									<li class="main_nav__item {% if request.path == structure %}active{% endif %}"><a href="{{structure}}">{% trans 'Структура' %}</a></li>
                                     {% url 'specapp:index' as specindex %}
 									<li class="main_nav__item {% if request.path == specindex %}active{% endif %}"><a href="{{ specindex }}">{% trans 'Специальности' %}</a></li>
-                                    {% url 'newsapp:listView' as newsListView %}
-									<li class="main_nav__item {% if request.path == newsListView %}active{% endif %}"><a href="{{ newsListView }}">{% trans 'Новости' %}</a></li>
+                                    <li class="main_nav__item"><a href="">Дистанционное обучение</a>
+                                        <ul class="sub-main_nav">
+                                            <li class="sub-main_nav__item"><a href="https://college.smartnation.kz/kz/tko">Smartnation</a></li>
+                                            <li class="sub-main_nav__item"><a href="https://nobd.iac.kz/">НОБД</a></li>
+                                            <li class="sub-main_nav__item "><a href="https://platonus.kz/ru/">Плантонус</a></li>
+											<li class="sub-main_nav__item "><a href="https://zoom.us/">ZOOM</a></li>
+                                            <li class="sub-main_nav__item "><a href="https://www.office.com/">Office 365</a></li>
+                                            <li class="sub-main_nav__item "><a href="https://www.microsoft.com/ru-ru/microsoft-teams/download-app">Microsoft Teams</a></li>
+
+                                        </ul>
+                                    </li>
+
 									<li class="main_nav__item"><a href="">{% trans 'Абитуриенту' %}</a>
 										<ul class="sub-main_nav">
                                             <li class="sub-main_nav__item "><a href="{% url 'sapp:admission_rules' %}">{% trans 'Правила приема на обучение' %}</a></li>

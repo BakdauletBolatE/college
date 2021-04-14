@@ -6,7 +6,7 @@ from django.contrib.auth.views import LoginView,LogoutView
 from django.views.generic import CreateView
 from .forms import AuthUserForm,RegisterUserForm
 from django.contrib.auth import authenticate, login
-from newsapp.models import NewsPost
+from newsapp.models import NewsPost,GalleryPost
 
 # Create your views here.
 
@@ -51,7 +51,11 @@ def aboutUrl(request):
     return render(request,'sapp/about.html')
 
 def galletyView(request):
-    return render(request,'pages/gallery.html')
+    galleries = GalleryPost.objects.all()
+    data = {
+        'galleries':galleries
+    }
+    return render(request,'pages/gallery.html',data)
 
 def internationalUrl(request):
     return render(request,'sapp/international.html')

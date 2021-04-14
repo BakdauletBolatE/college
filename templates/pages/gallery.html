@@ -7,23 +7,20 @@
 {% endblock %}
 {% block content %}
 
-<video
-id="my-video"
-class="video-js"
-controls
-preload="auto"
-width="640"
-height="264"
-data-setup="{}"
->
-<source src="https://www.youtube.com/watch?v=2KdXIKsRunw" type="video/mp4" />
-<p class="vjs-no-js">
-  To view this video please enable JavaScript, and consider upgrading to a
-  web browser that
-  <a href="https://www.youtube.com/watch?v=2KdXIKsRunw" target="_blank"
-    >supports HTML5 video</a
-  >
-</p>
-</video>
+<div class="container">
+
+<div class="gallery__block mt-15">
+    {% for gallery in galleries %}
+        <div class="gallery__item">
+    {% if gallery.poster %}
+        <img class="gallery__img" src="{{ gallery.poster.url }}" alt="{{ gallery.title }}">
+    {% else %}
+    <iframe width="100%" height="100%" src="{{ gallery.url}}" title="{{ gallery.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    {% endif %}
+        </div>
+    {% endfor %}
+
+</div>
+</div>
 
 {% endblock %}
