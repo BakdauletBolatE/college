@@ -3,11 +3,11 @@ from .models import *
 
 @register(Government)
 class GovernmentTranslationsOptions(TranslationOptions):
-    fields = ('name','position')
+    fields = ('name','position','about')
 
 @register(Employees)
 class NewsCategoryTranslationsOptions(TranslationOptions):
-    fields = ('name','position')
+    fields = ('name','position','about')
 
 
 
