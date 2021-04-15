@@ -168,10 +168,8 @@ LANGUAGES = (
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
-if DEBUG:
-    CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
-else:
-    CKEDITOR_BASEPATH = "/staticfiles/ckeditor/ckeditor/"
+
+CKEDITOR_BASEPATH = "staticfiles/ckeditor/ckeditor/"
 
 
 CKEDITOR_CONFIGS = {
