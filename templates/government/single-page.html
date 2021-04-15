@@ -43,9 +43,10 @@
                         <img height="100%" src="{{ government.photo.url }}" alt="">
                     </div>
                  <div>
-                    <p class="blog__description mt-2">
-                       {% autoescape %} {{ government.about }} {% endautoescape %}
+                     {% autoescape on %}<p class="blog__description mt-2">
+                       {{ government.about }}
                     </p>
+                     {% endautoescape %}
                 </div>
 
                   
