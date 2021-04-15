@@ -684,6 +684,7 @@ section
 	right: -400px;
 	width: 400px;
 	height: 100vh;
+	overflow: scroll;
 	background: #FFFFFF;
 	z-index: 101;
 	padding-right: 60px;
@@ -748,6 +749,9 @@ section
 .menu .logo
 {
 	margin-bottom: 60px;
+}
+.menu_nav{
+	width:100%;
 }
 .menu_nav ul li
 {
@@ -3409,6 +3413,9 @@ section
 {
 	margin-top: 29px;
 }
+.mt-1{
+	margin-top:10px;
+}
 .elements_accordions
 {
 	margin-top: 34px;
@@ -3421,6 +3428,11 @@ section
 	padding-right: 30px;
 	padding-top: 16px;
 	padding-bottom: 5px;
+}
+.accordion_containerv2{
+border: none;
+    border-radius: 5px;
+    background: #f2f2f2;
 }
 .accordion
 {
@@ -3435,6 +3447,7 @@ section
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
+
 .accordion div
 {
 	max-width: 90%;

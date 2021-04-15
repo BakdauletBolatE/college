@@ -165,7 +165,7 @@
 								
 
 								
-								<div class="hamburger menu_mm">
+								<div id="menu" class="hamburger menu_mm">
 									<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
 								</div>
 							</div>
@@ -180,8 +180,8 @@
 
 	<!-- Menu -->
 
-	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
-		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+	<div id="menunav" class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+		<div class="menu_close_container" id="menu_close"><div class="menu_close"><div></div><div></div></div></div>
 		<div class="search">
 			<form action="#" class="header_search_form menu_mm">
 				<input type="search" class="search_input menu_mm" placeholder="Search" required="required">
@@ -191,14 +191,107 @@
 			</form>
 		</div>
 		<nav class="menu_nav">
-			<ul class="menu_mm">
-				<li class="menu_mm"><a href="{% url 'sapp:index' %}">{% trans 'Главная' %}</a></li>
-				<li class="menu_mm"><a href="{% url 'sapp:aboutUrl' %}">{% trans 'О колледже' %}</a></li>
-				<li class="menu_mm"><a href="{% url 'specapp:index' %}">{% trans 'Специальности' %}</a></li>
-				<li class="menu_mm"><a href="{% url 'newsapp:listView' %}">{% trans 'Новости' %}</a></li>
-				<li class="menu_mm"><a href="{% url 'sapp:internationalUrl' %}">{% trans 'Международный отдел' %}</a></li>
-				<li class="menu_mm"><a href="{% url 'sapp:contact' %}">{% trans 'Контакты' %}</a></li>
-			</ul>
+        {% url 'sapp:index' as sapindex %}
+         {% url 'sapp:internationalUrl' as internationalUrl %}
+        {% url 'sapp:aboutUrl' as aboutUrl %}
+         {% url 'specapp:index' as specindex %}
+        {% url 'newsapp:listView' as newsListView %}
+        {% url 'sapp:structure' as structure %}
+        {% url 'sapp:contact' as contact %}
+            <ul class="main_nav-mob">
+            <div class="accordions">
+                <div class="elements_accordions mt-1">
+                    <div class="accordion_container accordion_containerv2">
+                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="{{ sapindex }}">{% trans 'Главная' %}</a></div></div>
+                        <div class="accordion_panel">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="elements_accordions mt-1">
+                    <div class="accordion_container accordion_containerv2">
+                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="{{ newsListView }}">{% trans 'Новости' %}</a></div></div>
+                        <div class="accordion_panel">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="elements_accordions mt-1">
+                    <div class="accordion_container accordion_containerv2">
+                        <div class="accordion  d-flex flex-row align-items-center"><div>{% trans 'О колледже' %}</a></div></div>
+                        <div class="accordion_panel">
+                            <p><a href="{{aboutUrl}}">{% trans 'О колледже' %}</a></p>
+                            <p><a href="{% url 'empapp:indexG' %}">{% trans 'Администрация' %}</a></p>
+                            <p><a href="{% url 'empapp:indexT' %}">{% trans 'Преподаватели' %}</a></p>
+                            <p><a href="{% url 'sapp:galleryView' %}">{% trans 'Галерея' %}</a></p>
+                            <p><a href="{% url 'sapp:code_of_honor' %}">{% trans 'Кодекс чести' %}</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="elements_accordions mt-1">
+                    <div class="accordion_container accordion_containerv2">
+                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="{{structure}}">{% trans 'Структура' %}</a></div></div>
+                        <div class="accordion_panel">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="elements_accordions mt-1">
+                    <div class="accordion_container accordion_containerv2">
+                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="{{ specindex }}">{% trans 'Специальности' %}</a></div></div>
+                        <div class="accordion_panel">
+{#                            <p><a href="{{aboutUrl}}">{% trans 'О колледже' %}</a></p>#}
+{#                            <p><a href="{% url 'empapp:indexG' %}">{% trans 'Администрация' %}</a></p>#}
+{#                            <p><a href="{% url 'empapp:indexT' %}">{% trans 'Преподаватели' %}</a></p>#}
+{#                            <p><a href="{% url 'sapp:galleryView' %}">{% trans 'Галерея' %}</a></p>#}
+{#                            <p><a href="{% url 'sapp:code_of_honor' %}">{% trans 'Кодекс чести' %}</a></p>#}
+                        </div>
+                    </div>
+                </div>
+                <div class="elements_accordions mt-1">
+                    <div class="accordion_container accordion_containerv2">
+                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="">Дистанционное обучение</a></div></div>
+                        <div class="accordion_panel">
+                            <p><a href="https://college.smartnation.kz/kz/tko">Smartnation</a></p>
+                            <p><a href="https://nobd.iac.kz/">НОБД</a></p>
+                            <p><a href="https://platonus.kz/ru/">Плантонус</a></p>
+                            <p><a href="https://zoom.us/">ZOOM</a></p>
+                            <p><a href="https://www.office.com/">Office 365</a></p>
+                            <p><a href="https://www.microsoft.com/ru-ru/microsoft-teams/download-app">Microsoft Teams</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="elements_accordions mt-1">
+                    <div class="accordion_container accordion_containerv2">
+                        <div class="accordion  d-flex flex-row align-items-center"><div><a>{% trans 'Абитуриенту' %}</a></div></div>
+                        <div class="accordion_panel">
+                            <p><a href="{% url 'sapp:admission_rules' %}">{% trans 'Правила приема на обучение' %}</a></p>
+                            <p><a href="{% url 'sapp:newEFormat' %}">{% trans 'Новый формат ЕНТ' %}</a></p>
+                            <p><a href="{% url 'sapp:ab2020' %}">{% trans 'Абитуриент-2020' %}</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="elements_accordions mt-1">
+                    <div class="accordion_container accordion_containerv2">
+                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="{{ internationalUrl }}">{% trans 'Международный отдел' %}</a></div></div>
+                        <div class="accordion_panel">
+{#
+                        </div>
+                    </div>
+                </div>
+                <div class="elements_accordions mt-1">
+                    <div class="accordion_container accordion_containerv2">
+                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="{{ contact }}">{% trans 'Контакты' %}</a></div></div>
+                        <div class="accordion_panel">
+{#
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </ul>
+
 		</nav>
 {#		<div class="menu_extra">#}
 {#			<div class="menu_phone"><span class="menu_title">phone:</span>+44 300 303 0266</div>#}
@@ -304,6 +397,45 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Вс�
     //     // text.innerText = base;
     // })
     // })
+    const toggleItemList = document.querySelectorAll(".main_nav__item-mob"),
+          toggleItems = document.querySelectorAll(".sub-main_nav-mob");
+    function clearAllItems(){
+  toggleItemList.forEach(toggleItemList=>{
+    toggleItemList.classList.remove('toglle-item__list--active');
+
+  })
+  toggleItems.forEach(toggleItem=>{
+    toggleItem.classList.remove('toglle-item--active');
+    let text = toggleItem.querySelector('.hero__description-text');
+    text.classList.remove('hero__description-text--active');
+  })
+}
+
+
+function visibleOneItem(itemId){
+  clearAllItems();
+  if (activeElem == itemId){
+    toggleItemList[itemId].classList.remove('toglle-item__list--active');
+    toggleItems[itemId].classList.remove('toglle-item--active');
+    let text = toggleItems[itemId].querySelector('.hero__description-text');
+    text.classList.remove('hero__description-text--active');
+    activeElem = -1;
+  }
+  else{
+    activeElem = itemId;
+    toggleItemList[itemId].classList.add('toglle-item__list--active');
+    toggleItems[itemId].classList.add('toglle-item--active');
+    let text = toggleItems[itemId].querySelector('.hero__description-text');
+    text.classList.add('hero__description-text--active');
+  }
+
+}
+
+toggleItems.forEach((toggleItem,i)=>{
+  toggleItem.addEventListener('click',tIC=>{
+    visibleOneItem(i);
+  });
+});
     
 </script>
 

@@ -52,9 +52,7 @@
                         <div class="faqs">
                             <div class="panel_title">{% trans 'Вопросы-ответы' %}</div>
                             <div class="accordions">
-                                            
                                 <div class="elements_accordions">
-
                                     {% for faq in specialization.faq.all %}
                                     <div class="accordion_container">
                                         <div class="accordion d-flex flex-row align-items-center"><div>{{faq.question}}</div></div>
@@ -63,11 +61,7 @@
                                         </div>
                                     </div>
                                     {% endfor %}
-
-                                    
-
                                 </div>
-
                             </div>
                         </div>
                     </div>

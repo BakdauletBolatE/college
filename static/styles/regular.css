@@ -678,6 +678,7 @@ section
 	height: 100vh;
 	background: #FFFFFF;
 	z-index: 101;
+	overflow: scroll;
 	padding-right: 60px;
 	padding-top: 87px;
 	padding-left: 50px;

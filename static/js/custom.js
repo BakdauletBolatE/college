@@ -114,40 +114,44 @@ $(document).ready(function()
 	4. Init Menu
 
 	*/
-
-	function initMenu()
-	{
-		if($('.menu').length)
-		{
-			var menu = $('.menu');
-			if($('.hamburger').length)
-			{
-				burger.on('click', function()
-				{
-					if(menuActive)
-					{
-						closeMenu();
-					}
-					else
-					{
-						openMenu();
-
-						$(document).one('click', function cls(e)
-						{
-							if($(e.target).hasClass('menu_mm'))
-							{
-								$(document).one('click', cls);
-							}
-							else
-							{
-								closeMenu();
-							}
-						});
-					}
-				});
-			}
-		}
+	function  initMenu(){
+		const menu = document.querySelector('#menu'),
+			menunav = document.querySelector('#menunav'),
+			closeMenuCon = document.querySelector('#menu_close');
+		menu.addEventListener('click',function (){
+				menunav.classList.add('active');
+		});
+		closeMenuCon.addEventListener('click',function (){
+			menunav.classList.remove('active');
+		})
 	}
+	// function initMenu()
+	// {
+	// 	if($('.menu').length)
+	// 	{
+	// 		var menu = $('.menu');
+	// 		if($('.hamburger').length)
+	// 		{
+	// 			burger.on('click', function()
+	// 			{
+	// 				if(menuActive)
+	// 				{
+	// 					closeMenu();
+	// 				}
+	// 				else
+	// 				{
+	// 					openMenu();
+	//
+	// 					$(document).one('click', function cls(e)
+	// 					{
+	//
+	// 							closeMenu();
+	// 					});
+	// 				}
+	// 			});
+	// 		}
+	// 	}
+	// }
 
 	function openMenu()
 	{
