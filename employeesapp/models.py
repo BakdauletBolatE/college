@@ -3,6 +3,7 @@ from specializationapp.models import Specialization,Qualification
 from django.contrib.auth.models import User
 from django.utils import timezone
 # Create your models here.
+from ckeditor.fields import RichTextField
 
 
 class Government(models.Model):
@@ -11,7 +12,7 @@ class Government(models.Model):
     age = models.IntegerField('Возраст')
     position = models.CharField('Должность',max_length=255)
     isimp = models.BooleanField('Важность')
-    about = models.TextField('Описание',default="Пишите описание")
+    about = RichTextField('Описание',default="Пишите описание")
     photo = models.ImageField('Фото',upload_to='government/')
     order = models.IntegerField('Филтрация')
 
@@ -30,7 +31,7 @@ class Employees(models.Model):
     age = models.IntegerField('Возраст')
     specialization = models.ForeignKey(Specialization,verbose_name='Специализация',related_name="employees", blank=True,null=True,on_delete=models.CASCADE)
     qualification = models.ForeignKey(Qualification,verbose_name='Квалификация',related_name="employees", blank=True,null=True,on_delete=models.CASCADE)
-    about = models.TextField('Описание',default="Пишите описание")
+    about = RichTextField('Описание',default="Пишите описание")
     position = models.CharField('Должность',max_length=255)
     photo = models.ImageField('Фото',upload_to='employees/')
 

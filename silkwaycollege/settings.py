@@ -30,6 +30,8 @@ else:
 
 INSTALLED_APPS = [
     'modeltranslation',
+'ckeditor_uploader',
+    'ckeditor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -155,6 +157,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 LOCALE_PATHS = [
     BASE_DIR / 'locale'
 ]
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 gettext = lambda s: s
 LANGUAGES = (
@@ -162,3 +165,17 @@ LANGUAGES = (
     ('en',gettext('English')),
     ('kk', gettext('Kazakhstan')),
 )
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+
+
+CKEDITOR_CONFIGS = {
+
+    'default': {
+
+     'toolbar': 'None'
+
+    },
+
+}
