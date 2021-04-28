@@ -37,7 +37,7 @@
                     <div class="blog_image" style="background-image:url({{new.poster.url}})"></div>
                     <div class="blog_title_container">
                         <div class="blog_post_category"><a href="#">{{new.category.name}}</a></div>
-                        <div class="blog_post_title"><a href="blog_single.html">{{new.title}}</a></div>
+                        <div class="blog_post_title"><a href="{% url 'newsapp:detailView' new.id %}">{{new.title}}</a></div>
                         <div class="blog_post_text">
                             <p>{{new.description}}</p>
                         </div>
