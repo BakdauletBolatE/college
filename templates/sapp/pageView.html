@@ -1,0 +1,17 @@
+{% extends 'layouts/app2.html' %}
+{% load static %}
+    {% load i18n %}
+	{% load snp %}
+    {% load widgetRender %}
+{% block title %}
+    {% trans 'Наши руководители' %}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div style="margin-top: 150px; margin-bottom: 150px;" class="pageContainer">
+        {% for widget in page.widgets.all %}
+        {{widget|renderWidget}}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

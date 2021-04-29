@@ -11,6 +11,7 @@ urlpatterns = [
     path('new-ent-format/',newEFormat,name="newEFormat"),
     path('2020ab/',ab2020,name="ab2020"),
     path('code_of_honor/',code_of_honor,name="code_of_honor"),
+    path('page/<int:pk>',pageView,name="pageView"),
     path('login/',CollegeLoginView.as_view(),name="login"),
     path('register/',CollegeRegisterView.as_view(),name="register"),
     path('logout/',CollegeLogoutView.as_view(),name="logout")

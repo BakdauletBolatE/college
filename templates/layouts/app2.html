@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load snp %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,6 +70,7 @@
 										<span class="top_bar_title social_title">{% trans 'Подписывайтесь' %}</span>
 										{% if request.user.is_authenticated %}
 										<span class="top_bar_title social_title"><a href="{% url 'sapp:login' %}">{{request.user}}</a></span>
+                                        <span class="top_bar_title social_title"><a href="{% url 'PageCategoryListView' %}">Конструктор</a></span>
 										<span class="top_bar_title social_title"><a href="{% url 'sapp:logout' %}">{% trans 'Выйти' %}</a></span>
 										{% else %}
 										<span class="top_bar_title social_title"><a href="{% url 'sapp:login' %}">{% trans 'Логин' %}</a></span>
@@ -103,66 +105,29 @@
 							</div>
 							<nav class="main_nav_contaner">
 								<ul class="main_nav">
-                                    {% url 'sapp:index' as sapindex %}
-									<li class="{% if request.path == sapindex %}active{% endif %} main_nav__item"><a href="{{ sapindex }}">{% trans 'Главная' %}</a></li>
-
-                                    {% url 'sapp:aboutUrl' as aboutUrl %}
-                                    {% url 'newsapp:listView' as newsListView %}
-									<li class="main_nav__item {% if request.path == newsListView %}active{% endif %}"><a href="{{ newsListView }}">{% trans 'Новости' %}</a></li>
-									<li class="{% if request.path == aboutUrl %}active{% endif %} main_nav__item"><a href="{{aboutUrl}}">{% trans 'О колледже' %}</a>
+                                    {% for cat in pageCats|order_bys:'order' %}
+                                    <li class="main_nav__item"><a href="{% if cat.linkto != '0' %} {{cat.linkto}} {% endif %}">{{cat.name}}</a>
+                                        {% if cat.page.all %}
                                         <ul class="sub-main_nav sub_column">
-                                            <li class="sub-main_nav__item"><a href="{% url 'empapp:indexG' %}">{% trans 'Администрация' %}</a></li>
-											<li class="sub-main_nav__item"><a href="{% url 'empapp:indexT' %}">{% trans 'Преподаватели' %}</a></li>
-											<li class="sub-main_nav__item"><a href="{% url 'sapp:galleryView' %}">{% trans 'Галерея' %}</a></li>
-                                            <li class="sub-main_nav__item"><a href="{% url 'sapp:code_of_honor' %}">{% trans 'Кодекс чести' %}</a></li>
-                                        </ul>
+                                            {% for page in cat.page.all|order_bys:'order' %}
+                                            {% if page.slug == "1" %}
+                                            <li class="sub-main_nav__item"><a href="{% url page.url %}">{{ page.title }}</a></li>
+                                            {% elif page.link %}
+                                            <li class="sub-main_nav__item"><a href="{{page.link}}">{{ page.title }}</a></li>
+                                            {% else %}
+                                            <li class="sub-main_nav__item"><a href="{% url page.url page.id %}">{{ page.title }}</a></li>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </ul>   
+                                        {% endif %}             
                                     </li>
-                                {% url 'sapp:structure' as structure %}
-									<li class="main_nav__item {% if request.path == structure %}active{% endif %}"><a href="{{structure}}">{% trans 'Структура' %}</a></li>
-                                    {% url 'specapp:index' as specindex %}
-									<li class="main_nav__item {% if request.path == specindex %}active{% endif %}"><a href="{{ specindex }}">{% trans 'Специальности' %}</a></li>
-                                    <li class="main_nav__item"><a href="">Дистанционное обучение</a>
-                                        <ul class="sub-main_nav">
-                                            <li class="sub-main_nav__item"><a href="https://college.smartnation.kz/kz/tko">Smartnation</a></li>
-                                            <li class="sub-main_nav__item"><a href="https://nobd.iac.kz/">НОБД</a></li>
-                                            <li class="sub-main_nav__item "><a href="https://platonus.kz/ru/">Плантонус</a></li>
-											<li class="sub-main_nav__item "><a href="https://zoom.us/">ZOOM</a></li>
-                                            <li class="sub-main_nav__item "><a href="https://www.office.com/">Office 365</a></li>
-                                            <li class="sub-main_nav__item "><a href="https://www.microsoft.com/ru-ru/microsoft-teams/download-app">Microsoft Teams</a></li>
-
-                                        </ul>
-                                    </li>
-
-									<li class="main_nav__item"><a href="">{% trans 'Абитуриенту' %}</a>
-										<ul class="sub-main_nav">
-                                            <li class="sub-main_nav__item "><a href="{% url 'sapp:admission_rules' %}">{% trans 'Правила приема на обучение' %}</a></li>
-                                            <li class="sub-main_nav__item "><a href="{% url 'sapp:newEFormat' %}">{% trans 'Новый формат ЕНТ' %}</a></li>
-											<li class="sub-main_nav__item "><a href="{% url 'sapp:ab2020' %}">{% trans 'Абитуриент-2020' %}</a></li>
-                                        </ul>
-									</li>
-
-                                    {% url 'sapp:internationalUrl' as internationalUrl %}
-									<li class="main_nav__item {% if request.path == internationalUrl %}active{% endif %}"><a href="{{ internationalUrl }}">{% trans 'Международный отдел' %}</a></li>
-                                    {% url 'sapp:contact' as contact %}
-									<li class="main_nav__item {% if request.path == contact %}active{% endif %}"><a href="{{ contact }}">{% trans 'Контакты' %}</a></li>
+                                    {% endfor %}
+                                    
 								</ul>
                               
 							</nav>
 							<div class="">
-								<!-- header_content_right ml-auto text-right -->
-								<!-- <div class="header_search">
-									<div class="search_form_container">
-										<form action="#" id="search_form" class="search_form trans_400">
-											<input type="search" class="header_search_input trans_400" placeholder="Type for Search" required="required">
-											<div class="search_button">
-												<i class="fa fa-search" aria-hidden="true"></i>
-											</div>
-										</form>
-									</div>
-								</div> -->
-
-								
-
+							
 								
 								<div id="menu" class="hamburger menu_mm">
 									<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
@@ -190,104 +155,28 @@
 			</form>
 		</div>
 		<nav class="menu_nav">
-        {% url 'sapp:index' as sapindex %}
-         {% url 'sapp:internationalUrl' as internationalUrl %}
-        {% url 'sapp:aboutUrl' as aboutUrl %}
-         {% url 'specapp:index' as specindex %}
-        {% url 'newsapp:listView' as newsListView %}
-        {% url 'sapp:structure' as structure %}
-        {% url 'sapp:contact' as contact %}
             <ul class="main_nav-mob">
             <div class="accordions">
-                <div class="elements_accordions mt-1">
+                {% for cat in pageCats|order_bys:'order' %}    
+                <div class="elements_accordions elements_accordionsv2">
                     <div class="accordion_container accordion_containerv2">
-                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="{{ sapindex }}">{% trans 'Главная' %}</a></div></div>
-                        <div class="accordion_panel">
-
+                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="{% if cat.linkto != '0' %} {{cat.linkto}} {% endif %}">{{cat.name}}</a></div></div>
+                        {% if cat.page.all %}
+                        <div class="accordion_panel accordion_panelv2">
+                        {% for page in cat.page.all|order_bys:'order' %}
+                        {% if page.slug == "1" %}
+                        <p><a href="{% url page.url %}">{{ page.title }}</a></p>
+                        {% elif page.link %}
+                        <p><a href="{{page.link}}">{{ page.title }}</a></p>
+                        {% else %}
+                        <p><a href="{% url page.url page.id %}">{{ page.title }}</a></p>
+                        {% endif %}
+                        {% endfor %}
                         </div>
+                        {% endif %}
                     </div>
                 </div>
-                <div class="elements_accordions mt-1">
-                    <div class="accordion_container accordion_containerv2">
-                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="{{ newsListView }}">{% trans 'Новости' %}</a></div></div>
-                        <div class="accordion_panel">
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="elements_accordions mt-1">
-                    <div class="accordion_container accordion_containerv2">
-                        <div class="accordion  d-flex flex-row align-items-center"><div>{% trans 'О колледже' %}</a></div></div>
-                        <div class="accordion_panel">
-                            <p><a href="{{aboutUrl}}">{% trans 'О колледже' %}</a></p>
-                            <p><a href="{% url 'empapp:indexG' %}">{% trans 'Администрация' %}</a></p>
-                            <p><a href="{% url 'empapp:indexT' %}">{% trans 'Преподаватели' %}</a></p>
-                            <p><a href="{% url 'sapp:galleryView' %}">{% trans 'Галерея' %}</a></p>
-                            <p><a href="{% url 'sapp:code_of_honor' %}">{% trans 'Кодекс чести' %}</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="elements_accordions mt-1">
-                    <div class="accordion_container accordion_containerv2">
-                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="{{structure}}">{% trans 'Структура' %}</a></div></div>
-                        <div class="accordion_panel">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="elements_accordions mt-1">
-                    <div class="accordion_container accordion_containerv2">
-                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="{{ specindex }}">{% trans 'Специальности' %}</a></div></div>
-                        <div class="accordion_panel">
-{#                            <p><a href="{{aboutUrl}}">{% trans 'О колледже' %}</a></p>#}
-{#                            <p><a href="{% url 'empapp:indexG' %}">{% trans 'Администрация' %}</a></p>#}
-{#                            <p><a href="{% url 'empapp:indexT' %}">{% trans 'Преподаватели' %}</a></p>#}
-{#                            <p><a href="{% url 'sapp:galleryView' %}">{% trans 'Галерея' %}</a></p>#}
-{#                            <p><a href="{% url 'sapp:code_of_honor' %}">{% trans 'Кодекс чести' %}</a></p>#}
-                        </div>
-                    </div>
-                </div>
-                <div class="elements_accordions mt-1">
-                    <div class="accordion_container accordion_containerv2">
-                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="">Дистанционное обучение</a></div></div>
-                        <div class="accordion_panel">
-                            <p><a href="https://college.smartnation.kz/kz/tko">Smartnation</a></p>
-                            <p><a href="https://nobd.iac.kz/">НОБД</a></p>
-                            <p><a href="https://platonus.kz/ru/">Плантонус</a></p>
-                            <p><a href="https://zoom.us/">ZOOM</a></p>
-                            <p><a href="https://www.office.com/">Office 365</a></p>
-                            <p><a href="https://www.microsoft.com/ru-ru/microsoft-teams/download-app">Microsoft Teams</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="elements_accordions mt-1">
-                    <div class="accordion_container accordion_containerv2">
-                        <div class="accordion  d-flex flex-row align-items-center"><div><a>{% trans 'Абитуриенту' %}</a></div></div>
-                        <div class="accordion_panel">
-                            <p><a href="{% url 'sapp:admission_rules' %}">{% trans 'Правила приема на обучение' %}</a></p>
-                            <p><a href="{% url 'sapp:newEFormat' %}">{% trans 'Новый формат ЕНТ' %}</a></p>
-                            <p><a href="{% url 'sapp:ab2020' %}">{% trans 'Абитуриент-2020' %}</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="elements_accordions mt-1">
-                    <div class="accordion_container accordion_containerv2">
-                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="{{ internationalUrl }}">{% trans 'Международный отдел' %}</a></div></div>
-                        <div class="accordion_panel">
-{#
-                        </div>
-                    </div>
-                </div>
-                <div class="elements_accordions mt-1">
-                    <div class="accordion_container accordion_containerv2">
-                        <div class="accordion  d-flex flex-row align-items-center"><div><a href="{{ contact }}">{% trans 'Контакты' %}</a></div></div>
-                        <div class="accordion_panel">
-{#
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             </ul>
 

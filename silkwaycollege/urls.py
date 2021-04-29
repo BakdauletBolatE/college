@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('i18/',include('django.conf.urls.i18n')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('page-const/',include('page.urls')),
 
 ]
 

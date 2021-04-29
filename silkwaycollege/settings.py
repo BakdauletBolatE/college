@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'newsapp',
     'sapp',
     'specializationapp',
+    'page'
 ]
 
 MIDDLEWARE = [

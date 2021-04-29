@@ -7,6 +7,7 @@ from django.contrib import messages
 from .serializator import SubSectionsSerializer,QualificationSerializer,SpecializationSerializer
 from rest_framework.views import APIView
 from django.http import JsonResponse
+from page.models import PageCategory
 # Create your views here.
 
 class SubSectionView(APIView):
@@ -41,7 +42,9 @@ class QualificationDetailView(APIView):
 def index(request):
 
     specializations = Specialization.objects.all()
+    pageCats = PageCategory.objects.all()
     data = {
+        'pageCats':pageCats,
         'specializations':specializations
     }
 
@@ -50,6 +53,7 @@ def index(request):
 def detail(request,pk):
 
     specialization = Specialization.objects.get(id=pk)
+    pageCats = PageCategory.objects.all()
     comments = specialization.comments.filter(visible=True)
     form = SpecializationCommentForm()
     if request.method == "POST":
@@ -66,6 +70,7 @@ def detail(request,pk):
 
     data = {
         'form':form,
+        'pageCats':pageCats,
         'comments':comments,
         'specialization':specialization
     }

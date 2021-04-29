@@ -1,3 +1,4 @@
+from page.models import PageCategory,Page
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from specializationapp.models import Section, Specialization
@@ -16,49 +17,94 @@ def index(request):
     specializations = Specialization.objects.all()[:3]
     imps = Government.objects.filter(isimp=1).order_by('order')[:3]
     news = NewsPost.objects.all()[:3]
+    pageCats = PageCategory.objects.all()
 
     data = {
         'specializations':specializations,
         'imps':imps,
-        'news':news
+        'news':news,
+        'pageCats':pageCats
     }
     return render(request,'sapp/home.html',data)
 
 def structure(request):
 
     section = Section.objects.all()
+    pageCats = PageCategory.objects.all()
     data = {
-        'sections': section
+        'sections': section,
+        'pageCats':pageCats
     }
     return render(request,'sapp/strucrure.html',data)
 
+
 def code_of_honor(request):
-    return render(request,'pages/code_of_honor.html')
+
+    pageCats = PageCategory.objects.all()
+    data = {
+        'pageCats':pageCats
+    }
+    return render(request,'pages/code_of_honor.html',data)
 
 def admission_rules(request):
-    return render(request,'pages/admission_rules.html')
+    pageCats = PageCategory.objects.all()
+    data = {
+        'pageCats':pageCats
+    }
+    return render(request,'pages/admission_rules.html',data)
 
 def newEFormat(request):
-    return render(request,'pages/newEFormat.html')
+    pageCats = PageCategory.objects.all()
+    data = {
+        'pageCats':pageCats
+    }
+    return render(request,'pages/newEFormat.html',data)
     
 def ab2020(request):
-    return render(request,'pages/2020ab.html')
+    pageCats = PageCategory.objects.all()
+    data = {
+        'pageCats':pageCats
+    }
+    return render(request,'pages/2020ab.html',data)
 
 def contact(request):
-    return render(request,'sapp/contact.html')
+    pageCats = PageCategory.objects.all()
+    data = {
+        'pageCats':pageCats
+    }
+    return render(request,'sapp/contact.html',data)
 
 def aboutUrl(request):
-    return render(request,'sapp/about.html')
+    pageCats = PageCategory.objects.all()
+    data = {
+        'pageCats':pageCats
+    }
+    return render(request,'sapp/about.html',data)
 
 def galletyView(request):
+    pageCats = PageCategory.objects.all()
     galleries = GalleryPost.objects.all()
     data = {
-        'galleries':galleries
+        'galleries':galleries,
+        'pageCats':pageCats
     }
     return render(request,'pages/gallery.html',data)
 
 def internationalUrl(request):
-    return render(request,'sapp/international.html')
+    pageCats = PageCategory.objects.all()
+    data = {
+        'pageCats':pageCats
+    }
+    return render(request,'sapp/international.html',data)
+
+def pageView(request,pk):
+    pageCats = PageCategory.objects.all()
+    page = Page.objects.get(id=pk)
+    data = {
+        'page':page,
+        'pageCats':pageCats
+    }
+    return render(request,'sapp/pageView.html',data)
 
 class CollegeLoginView(LoginView):
 
