@@ -30,7 +30,7 @@ else:
 
 INSTALLED_APPS = [
     'modeltranslation',
-'ckeditor_uploader',
+    'ckeditor_uploader',
     'ckeditor',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -86,12 +86,8 @@ WSGI_APPLICATION = 'silkwaycollege.wsgi.application'
 if DEBUG:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'college5',
-            'USER': 'postgres',
-            'PASSWORD': '123',
-            'HOST': 'localhost',
-            'PORT':''
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
 else:
