@@ -19,12 +19,12 @@
      </div>
     </div>
 <div class="container">
-    <div class="grid">
+    <div class="grid" >
         {% for file in abiturent.files.all %}
-        <article class="box">
+        <a class="box" href="{{file.file.url}}">
             <i class="file fas fa-file"></i>
-            <a class="box-text" href="{{file.file.url}}"><h3>{{file.fileName}}</h3></a>
-        </article>
+            <h3 class="box-text" >{{file.fileName}}</h3>
+        </a>
         {% endfor %}
     </div>
 </div>
