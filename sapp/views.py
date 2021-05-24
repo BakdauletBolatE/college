@@ -8,6 +8,7 @@ from django.views.generic import CreateView
 from .forms import AuthUserForm,RegisterUserForm
 from django.contrib.auth import authenticate, login
 from newsapp.models import NewsPost,GalleryPost
+from .models import Abiturent
 
 # Create your views here.
 
@@ -60,12 +61,7 @@ def newEFormat(request):
     }
     return render(request,'pages/newEFormat.html',data)
     
-def ab2020(request):
-    pageCats = PageCategory.objects.all()
-    data = {
-        'pageCats':pageCats
-    }
-    return render(request,'pages/2020ab.html',data)
+
 
 def contact(request):
     pageCats = PageCategory.objects.all()
@@ -141,4 +137,13 @@ class CollegeLogoutView(LogoutView):
     next_page = '/'
 
 
-    
+def abiturent2021(request):
+    pageCats = PageCategory.objects.all()
+    abiturent = Abiturent.objects.first()
+    data = {
+        'pageCats':pageCats,
+        'abiturent':abiturent
+    }
+    return render(request, 'sapp/enroller.html', data)
+
+

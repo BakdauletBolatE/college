@@ -106,6 +106,7 @@
 							<nav class="main_nav_contaner">
 								<ul class="main_nav">
                                     {% for cat in pageCats|order_bys:'order' %}
+
                                     <li class="main_nav__item"><a href="{% if cat.linkto != '0' %} {{cat.linkto}} {% endif %}">{{cat.name}}</a>
                                         {% if cat.page.all %}
                                         <ul class="sub-main_nav sub_column">

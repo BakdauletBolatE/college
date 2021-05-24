@@ -367,5 +367,53 @@
 .sortable-chosen {
   background-color: #f2f2f2;
 }
+.text-content{
+position:relative;
+}
+.text-content::after{
+position:absolute;
+    content: "";
+    background-color:rgba(0,0,0,0.5);
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:1;
+}
+.text-content-h1{
+position:relative;
+z-index:2;
+color:white;
+}
+.text-content-p{
+    position:relative;
+    z-index:2;
+    color:white;
+}
+.grid{
+margin-top:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    grid-gap:30px;
+    margin-bottom:50px;
+}
+.box{
+padding:30px;
+background:#f2f2f2;
+border-radius:5px;
+}
+.file{
+font-size:40px;
+margin:0 auto;
+width:100%;
+color:#EB742A;
 
+text-align:center;
+}
+.box-text{
+display:block;
+margin:20px auto;
+width:100%;
+text-align:center;
+}
 /*# sourceMappingURL=realpage.css.map */

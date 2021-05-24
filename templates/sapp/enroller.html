@@ -1,0 +1,31 @@
+{% extends 'layouts/app2.html' %}
+{% load i18n %}
+{% load snp %}
+{% load static %}
+{% block title %}
+    {% trans 'ПОРЯДОК ПРИЕМА В КОЛЛЕДЖИ В 2021 году' %}
+{% endblock %}
+{% block content %}
+ <div class="text-content" style="background: url({{abiturent.background.url}})">
+     <div class="container"  style="padding-top:200px; padding-bottom:30px;">
+         <h1 class="text-content-h1">{{abiturent.title}}</h1>
+
+        <div class="text-content-p">
+               {% autoescape off %}
+        {{abiturent.description}}
+             {% endautoescape %}
+        </div>
+
+     </div>
+    </div>
+<div class="container">
+    <div class="grid">
+        {% for file in abiturent.files.all %}
+        <article class="box">
+            <i class="file fas fa-file"></i>
+            <a class="box-text" href="{{file.file.url}}"><h3>{{file.fileName}}</h3></a>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
