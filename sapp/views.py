@@ -17,7 +17,7 @@ from .models import Abiturent
 def index(request):
     specializations = Specialization.objects.all()[:3]
     imps = Government.objects.filter(isimp=1).order_by('order')[:3]
-    news = NewsPost.objects.all()[:3]
+    news = NewsPost.objects.all().order_by('created_at')[:3]
 
     data = {
         'specializations': specializations,
