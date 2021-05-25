@@ -9,10 +9,10 @@
             <div class="main-grid">
                 <div class="sidebar">
                     <h2 class="lined-title">Категорий страницы <span class="btn-create"><a href="{% url 'PageCategoryCreateView' %}">Создать новую</a></span></h2>
-                    <ul class="sidebar__nav">
+                    <ul class="sidebar__nav" id="sidebarNav">
                         {% for category in categories %}
                         {% url 'pageListView' category.id as urltolist %}
-                        <li class="sidebar__nav-item"><a class="sidebar__nav-link {% if request.path == urltolist %}active {% endif %}" href="{{urltolist}}">{{category.name}}</a> <a class="sidebar__nav-link" href="{% url 'PageCategoryUpdateView' category.id %}"> Изменить </a></li>
+                        <li class="sidebar__nav-item" data-pk="{{category.id}}"><a class="sidebar__nav-link {% if request.path == urltolist %}active {% endif %}" href="{{urltolist}}">{{category.name}}</a> <a class="sidebar__nav-link" href="{% url 'PageCategoryUpdateView' category.id %}"> Изменить </a></li>
                         {% endfor %}
                        
                     </ul>

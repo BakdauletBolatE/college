@@ -8,20 +8,17 @@ from page.models import PageCategory
 
 def listView(request):
 
-    pageCats = PageCategory.objects.all()
     news = NewsPost.objects.all()
     categories = NewsCategory.objects.all()
 
     data = {
         'news':news,
         'categories':categories,
-        'pageCats':pageCats
     }
     return render(request,'news/list.html',data)
 
 def detailView(request,pk):
 
-    pageCats = PageCategory.objects.all()
     new = NewsPost.objects.get(id=pk)
     comments = new.comments.filter(visible=True)
     form = NewsCommentForm()
@@ -41,7 +38,6 @@ def detailView(request,pk):
         'form':form,
         'comments':comments,
         'new':new,
-        'pageCats':pageCats
     }
    
     return render(request,'news/single-page.html',data)

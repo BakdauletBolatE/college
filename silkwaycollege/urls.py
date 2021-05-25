@@ -21,17 +21,17 @@ from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('i18/',include('django.conf.urls.i18n')),
+    path('i18/', include('django.conf.urls.i18n')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('page-const/',include('page.urls')),
-
+    path('page-const/', include('page.urls')),
+    path('summernote/', include('django_summernote.urls')),
 ]
 
 urlpatterns += i18n_patterns(
     path('',include(('sapp.urls','sapp'))),
-    path('employes/',include(('employeesapp.urls','empapp'))),
+    path('employes/', include(('employeesapp.urls','empapp'))),
     path('speciliazation/', include(('specializationapp.urls','specapp'))),
-    path('news/',include(('newsapp.urls','newsapp'))),
+    path('news/', include(('newsapp.urls','newsapp'))),
 )
 
 

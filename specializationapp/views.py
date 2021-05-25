@@ -42,9 +42,7 @@ class QualificationDetailView(APIView):
 def index(request):
 
     specializations = Specialization.objects.all()
-    pageCats = PageCategory.objects.all()
     data = {
-        'pageCats':pageCats,
         'specializations':specializations
     }
 
@@ -53,7 +51,6 @@ def index(request):
 def detail(request,pk):
 
     specialization = Specialization.objects.get(id=pk)
-    pageCats = PageCategory.objects.all()
     comments = specialization.comments.filter(visible=True)
     form = SpecializationCommentForm()
     if request.method == "POST":
@@ -70,7 +67,6 @@ def detail(request,pk):
 
     data = {
         'form':form,
-        'pageCats':pageCats,
         'comments':comments,
         'specialization':specialization
     }

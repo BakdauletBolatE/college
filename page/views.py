@@ -43,8 +43,12 @@ class WidgetTextUpdateView(View):
 class PageCategoryListView(ListView):
 
     model = PageCategory
-    context_object_name = 'categories'
     template_name = 'page/category_page_list.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = PageCategory.objects.all().order_by('order')
+        return context
 
 class PageListView(ListView):
     model = Page
@@ -57,7 +61,7 @@ class PageListView(ListView):
         context = super().get_context_data(**kwargs)
         id = self.kwargs['pk']
         context['category'] = PageCategory.objects.get(id=id)
-        context['categories'] = PageCategory.objects.all()
+        context['categories'] = PageCategory.objects.all().order_by('order')
         return context
 
 class PageDetailView(DetailView):
@@ -119,6 +123,17 @@ def orderedPages(request):
     
         for b in pages:
             page = get_object_or_404(Page, id=int(b['pk']))
+            page.order = b['order']
+            page.save()
+        return HttpResponse('saved')
+
+
+def orderedCatPages(request):
+    if request.method == "POST":
+        pages = json.loads(request.body)
+
+        for b in pages:
+            page = get_object_or_404(PageCategory, id=int(b['pk']))
             page.order = b['order']
             page.save()
         return HttpResponse('saved')

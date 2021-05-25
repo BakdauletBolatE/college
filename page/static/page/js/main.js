@@ -65,6 +65,18 @@ if (pagegroup){
     });
 }
 
+let pageCat = document.getElementById('sidebarNav');
+
+if (pageCat) {
+    let sortable = new Sortable(pageCat, {
+        animation: 150,
+        onUpdate: function (evt) {
+            let data = UpdateDataOrder(pageCat,'sidebar__nav-item');
+            FetchToUpdate(data,'/page-const/ordered-page-categories/');
+        },
+    });
+}
+
 
 
 

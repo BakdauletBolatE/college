@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.urls import reverse
 
 # Create your models here.
 
@@ -29,16 +30,19 @@ class NewsPost(models.Model):
     def __str__(self):
         return self.title_ru
 
+    def get_absolute_url(self):
+        return reverse('newsapp:detailView', args=[self.id])
+
     class Meta:
 
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
 
 class GalleryPost(models.Model):
-    title = models.CharField('Названия',max_length=255,null=True,blank=True)
-    url = models.CharField('Ссылка на ютуб',max_length=255,null=True,blank=True)
-    poster = models.ImageField('Постер',upload_to="gallery/",null=True,blank=True)
-    created_at = models.DateTimeField('Когда создано',default=timezone.now)
+    title = models.CharField('Названия', max_length=255, null=True,blank=True)
+    url = models.CharField('Ссылка на ютуб', max_length=255, null=True,blank=True)
+    poster = models.ImageField('Постер', upload_to="gallery/", null=True,blank=True)
+    created_at = models.DateTimeField('Когда создано', default=timezone.now)
 
     def __str__(self):
         return self.title
@@ -47,6 +51,7 @@ class GalleryPost(models.Model):
 
         verbose_name = 'Галерея'
         verbose_name_plural = 'Галерея'
+        ordering = ['-created_at']
 
 class NewsLikes(models.Model):
 

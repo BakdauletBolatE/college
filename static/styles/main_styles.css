@@ -1609,11 +1609,10 @@ section
 }
 .event_tag
 {
-	width: 61px;
-	height: 25px;
 	background: #2e21df;
 	border-radius: 3px;
 	font-size: 12px;
+	padding: 3px 14px;
 	text-align: center;
 	line-height: 25px;
 	color: #FFFFFF;
@@ -2980,7 +2979,9 @@ section
 .contact_map
 {
 	width: 100%;
-	padding-top: 130px;
+}
+.pt-13{
+    padding-top: 130px;
 }
 .map
 {

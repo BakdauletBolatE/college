@@ -14,5 +14,6 @@ urlpatterns = [
     path('page-delete/<int:cat_id>/<int:pk>',PageDeleteView.as_view(),name="PageDeleteView"),
     path('page-category-create',PageCategoryCreateView.as_view(),name="PageCategoryCreateView"),
     path('page-category-update/<int:pk>',PageCategoryUpdateView.as_view(),name="PageCategoryUpdateView"),
+    path('ordered-page-categories/', orderedCatPages)
     
 ]
