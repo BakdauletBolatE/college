@@ -56,7 +56,7 @@ def aboutUrl(request):
 
 
 def galletyView(request):
-    galleries = GalleryPost.objects.all().order_by('-created_at')
+    galleries = GalleryPost.objects.all().order_by('created_at')
     data = {
         'galleries': galleries,
     }
