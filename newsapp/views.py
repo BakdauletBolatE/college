@@ -9,7 +9,7 @@ from page.models import PageCategory
 def listView(request):
 
     news = NewsPost.objects.all()
-    categories = NewsCategory.objects.all()
+    categories = NewsCategory.objects.all().order_by('-created_at')
 
     data = {
         'news':news,
