@@ -8,10 +8,16 @@ from django.http import HttpResponse
 from django.views.generic import ListView,DetailView,CreateView,UpdateView
 from django.urls import reverse,reverse_lazy
 import json
+from django.contrib.auth.mixins import PermissionRequiredMixin
+
+import operator
+from django.contrib.auth.decorators import user_passes_test
+
+# @user_passes_test(operator.attrgetter('is_staff'))
 
 # Create your views here.
 
-class WidgetTextUpdateView(View):
+class WidgetTextUpdateView(PermissionRequiredMixin, View):
 
     def post(self,request,pk):
 
@@ -40,20 +46,23 @@ class WidgetTextUpdateView(View):
 
         return HttpResponse("Hello")
 
-class PageCategoryListView(ListView):
-
+class PageCategoryListView(PermissionRequiredMixin, ListView):
+    redirect_field_name = '/'
     model = PageCategory
     template_name = 'page/category_page_list.html'
+    permission_required = ('page.add_pagecategory')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = PageCategory.objects.all().order_by('order')
         return context
 
-class PageListView(ListView):
+class PageListView(PermissionRequiredMixin, ListView):
+    redirect_field_name = '/'
     model = Page
     context_object_name = 'pages'
     template_name = 'page/page_list.html'
+    permission_required = ('page.add_pagecategory')
 
     def get_queryset(self):
         return Page.objects.filter(category_id=self.kwargs['pk']).order_by('order')
@@ -64,10 +73,11 @@ class PageListView(ListView):
         context['categories'] = PageCategory.objects.all().order_by('order')
         return context
 
-class PageDetailView(DetailView):
+class PageDetailView(PermissionRequiredMixin, DetailView):
     model = Page
     context_object_name = 'page'
     template_name = 'page/pageDetail.html'
+    permission_required = ('page.add_pagecategory')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -77,20 +87,23 @@ class PageDetailView(DetailView):
         context['pageWidgets'] = pageWidgets
         return context
 
-class PageCreateView(CreateView):
+class PageCreateView(PermissionRequiredMixin, CreateView):
 
     model = Page
     template_name = 'page/page_form.html'
     form_class = PageForm
+    permission_required = ('page.add_pagecategory')
 
 class PageUpdateView(UpdateView):
+    permission_required = ('page.add_pagecategory')
 
     model = Page
     template_name = 'page/page_form.html'
     form_class = PageForm
 
 
-class PageDeleteView(DeleteView):
+class PageDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = ('page.add_pagecategory')
 
     model = Page
     template_name = "page/page_confirm_delete.html"
@@ -104,13 +117,15 @@ class PageDeleteView(DeleteView):
         return context
     
 
-class PageCategoryCreateView(CreateView):
+class PageCategoryCreateView(PermissionRequiredMixin, CreateView):
+    permission_required = ('page.add_pagecategory')
 
     model = PageCategory
     form_class = PageCategoryForm
     template_name = 'page/pageCategory_form.html'
 
-class PageCategoryUpdateView(UpdateView):
+class PageCategoryUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = ('page.add_pagecategory')
 
     model = PageCategory
     template_name = 'page/pageCategory_form.html'

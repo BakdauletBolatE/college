@@ -1,14 +1,16 @@
 from page.models import PageCategory, Page
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from specializationapp.models import Section, Specialization
 from employeesapp.models import Government
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import CreateView
-from .forms import AuthUserForm, RegisterUserForm
+from .forms import AuthUserForm, RegisterUserForm, AppealForm
 from django.contrib.auth import authenticate, login
 from newsapp.models import NewsPost, GalleryPost
+from .models import Appeal
 from .models import Abiturent
+from django.contrib import messages
 
 
 # Create your views here.
@@ -112,3 +114,17 @@ def abiturent2021(request):
         'abiturent': abiturent
     }
     return render(request, 'sapp/enroller.html', data)
+
+
+def appealView(request):
+
+    if request.method == 'POST':
+        form = AppealForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Ваша заявка успешно отправлено')
+        else:
+            messages.success(request, 'Что то пошло не так')
+
+        return redirect('sapp:index')
+

@@ -14,5 +14,6 @@ urlpatterns = [
     path('page/<int:pk>', pageView, name="pageView"),
     path('login/', CollegeLoginView.as_view(), name="login"),
     path('register/', CollegeRegisterView.as_view(), name="register"),
-    path('logout/', CollegeLogoutView.as_view(), name="logout")
+    path('logout/', CollegeLogoutView.as_view(), name="logout"),
+    path('appeal-send/', appealView, name='appealRoute')
 ]

@@ -65,7 +65,7 @@
                                         {% get_current_language as LANGUAGE_CODE %}
                                             <input name="next" type="hidden" value="{{ redirect_to }}">
                                             <li class="hassubs">
-												<a href="#">{{LANGUAGE_CODE}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+												<a style="text-transform:uppercase" href="#">{{LANGUAGE_CODE}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 												<ul class="hassubs__list">
                                                     {% get_available_languages as LANGUAGES %}
                                                     {% get_language_info_list for LANGUAGES as languages %}
@@ -91,9 +91,9 @@
 										<span class="top_bar_title social_title"><a href="{% url 'sapp:register' %}">{% trans 'Регистрация' %}</a></span>
 										{% endif %}
 										<ul>
-											<li><a href="https://www.facebook.com/Shym.kolledj"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-											<li><a href="https://www.instagram.com/shym_kolledj/"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+											<li><a href="https://www.facebook.com/Shym.kolledj"><i style="color:white" class="fab fa-facebook" aria-hidden="true"></i></a></li>
+											<li><a href="https://www.instagram.com/shym_kolledj/"><i style="color:white" class="fab fa-instagram" aria-hidden="true"></i></a></li>
+											<li><a href="#"><i style="color:white" class="fab fa-twitter" aria-hidden="true"></i></a></li>
 										</ul>
 									</div>
 								</div>
@@ -242,7 +242,7 @@
 						<div>
 							<div class="footer_title">{% trans 'Контакты' %}</div>
 							<ul class="footer_list">
-								<li><a href="#">+7 (702) 890-00-80</a></li>
+								<li><a href="#">+7 701 400 1363</a></li>
 								<li><a href="#">+7 7252 506136</a></li>
 								<li><a href="#">ukpk_shym@mail.ru</a></li>
 								<li><a href="#">{% trans 'г.Шымкент, ул. 8 марта, 22' %}</a></li>
