@@ -37,7 +37,9 @@
                         <div class="blog_title">{{new.title}}</div>
                     </div>
                     <div class="blog_text">
+                        {% autoescape off %}
                         {{new.description}}
+                         {% endautoescape %}
                     </div>
 {#                    <div class="blog_tags">#}
 {#                        <ul>#}
