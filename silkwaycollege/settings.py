@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'employeesapp',
     'newsapp',
     'specializationapp',
+    'registrationapp',
     'page'
 ]
 

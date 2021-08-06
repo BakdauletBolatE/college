@@ -25,6 +25,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('page-const/', include('page.urls')),
     path('summernote/', include('django_summernote.urls')),
+    path('req/', include('registrationapp.urls'))
 ]
 
 urlpatterns += i18n_patterns(
