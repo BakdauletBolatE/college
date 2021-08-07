@@ -1,6 +1,7 @@
 from django.db import models
 from docxtpl import DocxTemplate
 from django.conf import settings
+from specializationapp.models import Specialization
 
 class EduProgram(models.Model):
     name = models.CharField('Образовательная программа', max_length=255)
@@ -33,7 +34,7 @@ class App(models.Model):
     name = models.CharField('Имя', max_length=255)
     otch = models.CharField('Отчество', max_length=255, null=True, blank=True, default="")
     phone = models.CharField('Номер телефона', max_length=11)
-    edu_program = models.ForeignKey(EduProgram, on_delete=models.CASCADE, verbose_name='Образовательная программа')
+    edu_program = models.ForeignKey(Specialization, on_delete=models.CASCADE, verbose_name='Образовательная программа')
     language = models.CharField('Язык обучения', choices=lang, max_length=255)
     finish_edu = models.TextField("Прежнее место обучение и дата окончания", null=True, blank=True)
     address = models.CharField("Адрес проживания", max_length=255)
@@ -72,7 +73,7 @@ class App(models.Model):
             'finish_edu': self.finish_edu,
             'address': self.address,
             'place': place,
-            'edu': self.edu_program.name,
+            'edu': self.edu_program,
             'about_me': self.about,
             'gender': self.gender,
             'birthday': self.birthday,
@@ -85,7 +86,7 @@ class App(models.Model):
             'created': self.created_at
         }
         doc.render(context)
-        name = f"\genereted\{self.name}_{self.surname}_request.docx"
+        name = f"/genereted/{self.name}_{self.surname}_request.docx"
         print(settings.MEDIA_ROOT)
         doc.save(str(settings.MEDIA_ROOT)+name)
         self.genereted_file = name

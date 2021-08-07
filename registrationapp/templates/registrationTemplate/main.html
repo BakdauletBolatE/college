@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="{% static 'registrationapp/css/style.css' %}">
 
     <title>Contact Form #7</title>
+    <style>
+      .col-form-label{
+        color:#35467d;
+      }
+    </style>
   </head>
   <body>
 
@@ -30,153 +35,129 @@
           <div class="form h-100">
 
 
-            <h3>Форма заявки на поступление в колледж</h3>
+            <h3>Колледжге түсуге өтінім нысаны</h3>
             <form action="{% url 'data' %}" class="mb-5" method="POST" id="" name="contactForm" enctype="multipart/form-data">
                 {% csrf_token %}
-{#                {% for message in messages %}#}
-<div class="row">
+            <div class="row">
                    {% if messages %}
-  {% for msg in messages %}
-    <div class="alert alert-info alert-dismissable">
-        <a style="text-decoration: none" href="{% url 'regdoc' %}"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a>
-      {{msg.message}}
-    </div>
-  {% endfor %}
-{% endif %}
-                    </div>
-{#{% endfor %}#}
+                      {% for msg in messages %}
+                        <div class="alert alert-info alert-dismissable">
+                            <a style="text-decoration: none" href="{% url 'regdoc' %}"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a>
+                          {{msg.message}}
+                        </div>
+                      {% endfor %}
+                  {% endif %}
+              </div>
               <div class="row">
                 <div class="col-md-6 form-group mb-5">
-                  <label for="" class="col-form-label">{{ form.name.label }} </label>
+                  <label for="id_name" class="col-form-label">Аты:</label>
                   {{ form.name }}
-{#                    <input type="text" class="form-control" name="name" id="name" placeholder="Your name">#}
                 </div>
                 <div class="col-md-6 form-group mb-5">
-                  <label for="" class="col-form-label">{{ form.surname.label }} </label>
+                  <label for="id_surname" class="col-form-label">Тегі:</label>
                   {{ form.surname }}
-{#                    <input type="text" class="form-control" name="surname" id="surname"  placeholder="Your surname">#}
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-6 form-group mb-5">
-                  <label for="" class="col-form-label">{{ form.otch.label }}</label>
+                  <label for="id_otch" class="col-form-label">Әкесінің аты:</label>
                   {{ form.otch }}
-{#                    <input type="text" class="form-control" name="" id=""  placeholder="Phone +7">#}
                 </div>
                 <div class="col-md-6 form-group mb-5">
-                  <label for="" class="col-form-label">{{ form.phone.label }}</label>
+                  <label for="id_phone" class="col-form-label">Телефон</label>
                   {{ form.phone }}
-{#                    <input type="text" class="form-control" name="phone" id="phone"  placeholder="Phone +7">#}
                 </div>
                   <div class="col-md-6 form-group mb-5">
-                  <label for="" class="col-form-label">{{ form.finish_edu.label }}</label>
+                  <label for="id_finish_edu" class="col-form-label"> (мектеп немесе басқа оқу орнының атауы, қай жылы бітіргенін жазу)</label>
                   {{ form.finish_edu }}
-{#                    <input type="text" class="form-control" name="phone" id="phone"  placeholder="Phone +7">#}
                 </div>
                   <div class="col-md-6 form-group mb-5">
-                  <label for="" class="col-form-label">{{ form.address.label }}</label>
+                  <label for="id_address" class="col-form-label">Тұрғынның адресі:</label>
                   {{ form.address }}
-{#                    <input type="text" class="form-control" name="phone" id="phone"  placeholder="Phone +7">#}
                 </div>
                   <div class="col-md-6 form-group mb-5">
-                  <label for="" class="col-form-label form-check-label">{{ form.place.label }}</label>
+                  <label for="id_place" class="col-form-label form-check-label">Жатақхана қажет, қажет емес (сызып көрсетіңіз):</label>
                       {{ form.place }}
-{#                    <input type="text" class="form-control" name="phone" id="phone"  placeholder="Phone +7">#}
                 </div>
                   <div class="col-md-6 form-group mb-5">
-                  <label for="" class="col-form-label">{{ form.about.label }}</label>
+                  <label for="id_about" class="col-form-label">Өзім жайлы мәлімет: </label>
                       {{ form.about }}
-{#                    <input type="text" class="form-control" name="phone" id="phone"  placeholder="Phone +7">#}
                 </div>
                   <div class="col-md-6 form-group mb-5">
-                  <label for="" class="col-form-label">{{ form.birthday.label }}</label>
+                  <label for="id_birthday" class="col-form-label">Туған жылы: </label>
                       {{ form.birthday }}
-{#                    <input type="datetime-local" class="icon-date_range" name="phone" id="phone"  placeholder="Phone +7">#}
                 </div>
                   <div class="col-md-6 form-group mb-5">
-                  <label for="" class="col-form-label">{{ form.born_place.label }}</label>
+                  <label for="id_born_place" class="col-form-label">Туған  жері: </label>
                       {{ form.born_place }}
-{#                    <input type="datetime-local" class="icon-date_range" name="phone" id="phone"  placeholder="Phone +7">#}
-                </div>
+                  </div>
+                  <div class="col-12 ">
+                    <h3>Ата-анасының аты-жөні,  мекен – жайы, атқаратын қызметі, жұмыс орнының атауы байланыс телефондары:</h3>
+                  </div>
                   <div class="col-md-6 form-group mb-5">
-                      <label for="" class="col-form-label">{{ form.information_parent_mom.label }}</label>
+                      <label for="id_information_parent_mom" class="col-form-label">Шешесі:</label>
                       {{ form.information_parent_mom }}
-                      {#                    <input type="datetime-local" class="icon-date_range" name="phone" id="phone"  placeholder="Phone +7">#}
                   </div>
                   <div class="col-md-6 form-group mb-5">
-                      <label for="" class="col-form-label">{{ form.information_parent_dad.label }}</label>
+                      <label for="id_information_parent_dad" class="col-form-label">Әкесі: </label>
                       {{ form.information_parent_dad }}
-                      {#                    <input type="datetime-local" class="icon-date_range" name="phone" id="phone"  placeholder="Phone +7">#}
                   </div>
                   <div class="col-md-6 form-group mb-5">
-                      <label for="" class="col-form-label">{{ form.polojenie.label }}</label>
+                      <label for="id_polojenie" class="col-form-label">Әлеуметтік жағдайы:</label>
                       {{ form.polojenie }}
-                      {#                                          <input type="" class="icon-date_range" name="phone" id="phone"  placeholder="Phone +7">#}
                   </div>
                   <div class="col-md-6 form-group mb-5">
-                      <label for="" class="col-form-label">{{ form.gender.label }}</label>
+                      <label for="id_gender" class="col-form-label">Жынысы: </label>
                       {{ form.gender }}
-                      {#                                          <input type="" class="icon-date_range" name="phone" id="phone"  placeholder="Phone +7">#}
                   </div>
                   <div class="col-md-6 form-group mb-5">
-                      <label for="" class="col-form-label">{{ form.national.label }}</label>
+                      <label for="id_national" class="col-form-label">Ұлты: </label>
                       {{ form.national }}
-                      {#                    <input type="datetime-local" class="icon-date_range" name="phone" id="phone"  placeholder="Phone +7">#}
                   </div>
-                  <label class="col-form-label ml-3" for="id_edu_program">Образовательная программа</label>
-                <div class="col-md-6 form-group mb-5">
-
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="id_national" id="id_edu_program" class="col-form-label">Мамандық бойынша: </label>
                     {{form.edu_program}}
-                </div>
-                <div class="col-md-6 form-group mb-5">
-{#                  <select name="language" id="" class="custom-select">#}
-{#                    <option value="Русский">Русский</option>#}
-{#                    <option value="Казахский">Казахский</option>#}
-{#                  </select>#}
+                  </div>
+                  <div class="col-md-6 form-group mb-5">
+                    <label for="id_national" id="id_edu_program" class="col-form-label">Тілі:</label>
                     {{ form.language }}
-                </div>
-              </div>
+                  </div>
+                
+        
               <div class="row ">
                 <div class="col-md-6 form-group">
-                  <label for="" class="custom-file-label">{{  form.id_card_front.label }}</label>
+                  <label for="" id="id_card_frontLabel" class="custom-file-label">{{  form.id_card_front.label }}</label>
                   {{ form.id_card_front }}
-{#                    <input type="file" class="custom-file-input" name="file" id="file"  placeholder="Уд.лич лицевая #">#}
                 </div>
                 <div class="col-md-6 form-group mb-5">
-                  <label for="" class="custom-file-label">{{ form.id_card_back.label }}</label>
+                  <label for="" id="id_card_backLabel" class="custom-file-label">{{ form.id_card_back.label }}</label>
                   {{ form.id_card_back }}
-{#                    <input type="file" class="custom-file-input" name="company" id="company"  placeholder="Company  name">#}
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-6 form-group mb-5">
-                  <label for="" class="custom-file-label">{{ form.diplom.label }}</label>
+                  <label for="" id="diplomLabel" class="custom-file-label">{{ form.diplom.label }}</label>
                   {{ form.diplom }}
-{#                    <input type="file" class="custom-file-input" name="company" id="company"  placeholder="Company  name">#}
                 </div>
                   <div class="col-md-6 form-group mb-5">
-                  <label for="" class="custom-file-label">{{ form.zayavka.label }}</label>
+                  <label for="" id="zayavkaLabel" class="custom-file-label">{{ form.zayavka.label }}</label>
                   {{ form.zayavka }}
-{#                      <input type="file" class="custom-file-input" name="company" id="company"  placeholder="Company  name">#}
                 </div>
               </div>
                 <div class="row">
                 <div class="col-md-6 form-group mb-5">
-                  <label for="" class="custom-file-label">{{ form.fluro.label }}</label>
+                  <label for="" id="fluroLabel" class="custom-file-label">{{ form.fluro.label }}</label>
                   {{ form.fluro }}
-{#                    <input type="file" class="custom-file-input" name="company" id="company"  placeholder="Company  name">#}
                 </div>
                   <div class="col-md-6 form-group mb-5">
-                  <label for="" class="custom-file-label">{{ form.zdorovie.label }}</label>
+                  <label for="" id="zdorovieLabel" class="custom-file-label">{{ form.zdorovie.label }}</label>
                   {{ form.zdorovie }}
-{#                      <input type="file" class="custom-file-input" name="company" id="company"  placeholder="Company  name">#}
                 </div>
                     <div class="col-md-12 form-group mb-5">
-                  <label for="" class="custom-file-label">{{ form.photo.label }}</label>
+                  <label for="" id="34photoSize" class="custom-file-label">{{ form.photo.label }}</label>
                   {{ form.photo }}
-{#                        <input type="file" class="custom-file-input" name="company" id="company"  placeholder="Company  name">#}
                 </div>
               </div>
               <div class="row">
@@ -194,6 +175,7 @@
 
           </div>
         </div>
+      </div>
         <div class="col-md-4">
           <div class="contact-info h-100">
             <h3>Контактная информация</h3>
@@ -221,11 +203,14 @@
 
 
 
-{#    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>#}
-{#    <script src="{% static 'js/popper.min.js' %}"></script>#}
-{#    <script src="{% static 'js/bootstrap.min.js' %}"></script>#}
-{#    <script src="{% static 'js/jquery.validate.min.js' %}"></script>#}
-{#    <script src="{% static 'js/main.js' %}"></script>#}
+      <script>
+        const updateValue = (event, id) => {
+          console.log(id)
+            let elem = document.getElementById(`${id}`);
+            console.log(elem)
+            elem.innerHTML = event.value
+        }
+      </script>
 
   </body>
 </html>

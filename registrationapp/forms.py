@@ -1,5 +1,6 @@
 from django import forms
-from .models import App, EduProgram
+from .models import App
+from specializationapp.models import Specialization
 
 lang = (
         ('Русский', 'Русский'),
@@ -17,7 +18,7 @@ poloj = (
         ('Высокое', 'Высокое'),
     )
 class AppForm(forms.ModelForm):
-    edu_program = forms.ModelChoiceField(queryset=EduProgram.objects.all(), to_field_name="name",widget=forms.Select(attrs={'class': 'custom-select'}) )
+    edu_program = forms.ModelChoiceField(queryset=Specialization.objects.all(), to_field_name="id",widget=forms.Select(attrs={'class': 'custom-select'}) )
     language = forms.ChoiceField(choices=lang, widget=forms.Select(attrs={'class': 'custom-select'}))
     gender = forms.ChoiceField(choices=gend, widget=forms.Select(attrs={'class': 'custom-select'}))
     polojenie = forms.ChoiceField(choices=poloj, widget=forms.Select(attrs={'class': 'custom-select'}))
@@ -39,13 +40,13 @@ class AppForm(forms.ModelForm):
             'information_parent_mom': forms.Textarea(attrs={'class': 'form-control'}),
             'information_parent_dad': forms.Textarea(attrs={'class': 'form-control'}),
             'created_at': forms.DateInput(attrs={'type':"datetime-local", 'class':"icon-date_range"}),
-            'id_card_front': forms.FileInput(attrs={'class': 'custom-file-input'}),
-            'id_card_back': forms.FileInput(attrs={'class': 'custom-file-input', "placeholder": "Уд.лич обратная"}),
-            'diplom': forms.FileInput(attrs={'class': 'custom-file-input', "placeholder": "Диплом"}),
-            'zayavka': forms.FileInput(attrs={'class': 'custom-file-input', "placeholder": "Заявление на обучение"}),
-            'fluro': forms.FileInput(attrs={'class': 'custom-file-input', "placeholder": "Флюрография"}),
-            'zdorovie': forms.FileInput(attrs={'class': 'custom-file-input', "placeholder": "Справка о здоровье"}),
-            'photo': forms.FileInput(attrs={'class': 'custom-file-input', "placeholder": "3х4 фото"}),
+            'id_card_front': forms.FileInput(attrs={'class': 'custom-file-input', "onChange":"updateValue(this, 'id_card_frontLabel')"}),
+            'id_card_back': forms.FileInput(attrs={'class': 'custom-file-input', "placeholder": "Уд.лич обратная", "onChange":"updateValue(this, 'id_card_backLabel')"}),
+            'diplom': forms.FileInput(attrs={'class': 'custom-file-input', "placeholder": "Диплом", "onChange":"updateValue(this, 'diplomLabel')"}),
+            'zayavka': forms.FileInput(attrs={'class': 'custom-file-input', "placeholder": "Заявление на обучение", "onChange":"updateValue(this, 'zayavkaLabel')"}),
+            'fluro': forms.FileInput(attrs={'class': 'custom-file-input', "placeholder": "Флюрография", "onChange":"updateValue(this, 'fluroLabel')"}),
+            'zdorovie': forms.FileInput(attrs={'class': 'custom-file-input', "placeholder": "Справка о здоровье", "onChange":"updateValue(this, 'zdorovieLabel')"}),
+            'photo': forms.FileInput(attrs={'class': 'custom-file-input', "placeholder": "3х4 фото", "onChange":"updateValue(this, '34photoSize')"}),
         }
         # finish_edu = models.TextField
         # address = models.CharField

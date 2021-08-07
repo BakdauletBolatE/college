@@ -16,10 +16,11 @@ def dataView(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Файлы были успешно загружены')
-            return redirect('/req/reg-doc/')
+            return redirect('/req/')
         else:
+            print(form)
             print(form.errors)
-            messages.error(request, 'Форма неверно заполнена')
-            return redirect('/req/reg-doc/')
+            messages.error(request, 'Форма неверно заполнена ')
+            return redirect('/req/')
 
-    return render(request, 'registrationTemplate/main.html', content)
+    return render(request, 'registrationTemplate/main.html')
