@@ -1,4 +1,5 @@
 from page.models import PageCategory
+from newsapp.models import NewsPost
 from django.shortcuts import render
 from .models import Government,Employees
 # Create your views here.
@@ -7,6 +8,7 @@ from .models import Government,Employees
 def indexG(request):
 
     imps = Government.objects.order_by('id').all()
+    
     data = {
         'imps':imps,
     }

@@ -1,0 +1,13 @@
+.button{
+    display: inline-block;
+    text-decoration: none;
+    border:none;
+    border-radius: $radius;
+    padding:10px 20px;
+    background:$secondary-color;
+    color:white;
+
+    &:hover{
+        background:darken($secondary-color,10%);
+    }
+}

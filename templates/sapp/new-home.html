@@ -1,0 +1,85 @@
+{% extends 'layouts/new-layout.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="main-slider">
+    <div class="main-slider__container">
+        <div class="swiper-wrapper __query-swiper">
+            <div class="swiper-slide">
+                <div class="main-slider__item">
+                    <video class="main-slider__video" loop autoplay muted >
+                        <source src="{% static 'videos/college-preview.mov' %}">
+                    </video>
+                    <div class="main-slider__content">
+                        <h1 class="main-slider__title">{% trans 'Онлайн заявка в Высший педагогический <br> колледж Shymkent' %}</h1>
+                        <div class="main-slider__btns">
+                            <a class="button" href="{% url 'regdoc' %}">
+                       
+                                {% trans 'Поступить' %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="main-slider__item">
+                    <video class="main-slider__video" loop autoplay muted >
+                        <source src="{% static 'videos/college-preview.mov' %}">
+                    </video>
+                    <div class="main-slider__content">
+                        <h1 class="main-slider__title">{% trans 'Онлайн заявка в Высший педагогический <br> колледж Shymkent' %}</h1>
+                        <div class="main-slider__btns">
+                            <a class="button" href="{% url 'regdoc' %}">{% trans 'Поступить' %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="short-slider">
+        <div class="short-slider__container">
+            <h2 class="short-slider__main-title">Горячие новости</h2>
+            <div class="swiper-wrapper">
+                {% for new in news %}
+                <div class="swiper-slide">
+                    <div class="short-slider__item">
+                        <div class="short-slider__img">
+                            <img src="{{new.poster.url}}" alt="">
+                        </div>
+                        <h3 class="short-slider__title">{{new.title}}</h3>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+   
+</div>
+<div class="news __container">
+    <h2 class="titlex1">Последние новости</h2>
+    <div class="news__container ">
+        {% for new in news %}
+        <article class="news__item">
+            <a href="{{new.get_absolute_url}}" class="news__img">
+                <img src="{{new.poster.url}}" alt="">
+            </a>
+            <div class="news__footer">
+                <h3 class="news__title"><a href="{{new.get_absolute_url}}">{{new.title}}</a> </h3>
+                <a class="button" href="{{new.get_absolute_url}}">{% trans 'Посмотреть' %}</a>
+            </div>
+        </article> 
+        {% endfor %}
+        
+    </div>
+</div>
+<div class="director">
+    <div class="director__container __container">
+        <div class="director__item">
+            <div class="director__img">
+                <img src="" alt="">
+            </div>
+            <h2 class="director__name"></h2>
+            <h3 class="director__position"></h3>
+        </div>
+    </div>
+</div>
+{% endblock %}

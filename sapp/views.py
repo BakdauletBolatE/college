@@ -26,6 +26,18 @@ def index(request):
         'imps': imps,
         'news': news,
     }
+    return render(request, 'sapp/new-home.html', data)
+
+def old_index(request):
+    specializations = Specialization.objects.all()[:3]
+    imps = Government.objects.filter(isimp=1).order_by('order')[:3]
+    news = NewsPost.objects.all().order_by('-created_at')[:3]
+
+    data = {
+        'specializations': specializations,
+        'imps': imps,
+        'news': news,
+    }
     return render(request, 'sapp/home.html', data)
 
 

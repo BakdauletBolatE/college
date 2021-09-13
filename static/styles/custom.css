@@ -10,6 +10,7 @@
 }
 .home_background{
     position: relative;
+    height:100vh;
 }
 .home_background::after{
     content: "";
@@ -22,7 +23,7 @@
 }
 .swiper-container {
     width: 100%;
-    height: 600px;
+    height: 100vh;
   }
 @media screen and (max-width:550px){
     .swiper-container {
