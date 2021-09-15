@@ -93,7 +93,7 @@
         {% for item in specializations %}
         <article class="card__item">
             <a href="{{item.get_absolute_url}}" class="card__img">
-                <img src="{{item.poster.url}}" alt="">
+                <img src="{{item.photo.url}}" alt="">
             </a>
             <h3 class="card__title"><a href="{{item.get_absolute_url}}">{{item.name}}</a> </h3>
             <h3 class="card__code">Шифр: {{item.uid}}</h3>
