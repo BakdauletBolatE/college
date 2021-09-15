@@ -6,9 +6,35 @@ from django.contrib import messages
 from page.models import PageCategory
 # Create your views here.
 
-def listView(request):
+def list_view(request):
+
+    news = NewsPost.objects.all().order_by('-created_at')
+    categories = NewsCategory.objects.order_by('-created_at')
+
+    data = {
+        'news':news,
+        'categories':categories,
+    }
+    return render(request,'news/new-list.html',data)
+
+def list_by_category(request, pk):
+
+    news = NewsPost.objects.filter(category_id=pk).order_by('-created_at')
+    categories = NewsCategory.objects.all().order_by('-created_at')
+    active_category = NewsCategory.objects.get(id=pk)
+
+    data = {
+        'news':news,
+        'categories':categories,
+        'active_category':active_category
+    }
+
+    return render(request,'news/new-list.html',data)
+
+def old_listView(request):
 
     news = NewsPost.objects.all()
+    
     categories = NewsCategory.objects.all().order_by('-created_at')
 
     data = {

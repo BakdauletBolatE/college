@@ -1,0 +1,11 @@
+.contact{
+    position: relative;
+    display: block;
+    padding-bottom: 150px;
+    margin-top: 100px;
+    background: #f8f8f8;
+
+    @media screen and (max-width:480px) {
+        padding-bottom: 200px;
+    }
+}

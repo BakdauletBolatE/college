@@ -1,6 +1,7 @@
 from django.db import models
 from specializationapp.models import Specialization,Qualification
 from django.contrib.auth.models import User
+from django.urls import reverse
 from django.utils import timezone
 # Create your models here.
 from ckeditor.fields import RichTextField
@@ -15,6 +16,10 @@ class Government(models.Model):
     about = RichTextField('Описание',default="Пишите описание")
     photo = models.ImageField('Фото',upload_to='government/')
     order = models.IntegerField('Филтрация')
+
+
+    def get_absolute_url(self):
+        return reverse('empapp:gDetailView', kwargs={'pk':self.id})
 
     def __str__(self):
 
@@ -36,13 +41,27 @@ class Employees(models.Model):
     photo = models.ImageField('Фото',upload_to='employees/')
 
     def __str__(self):
-
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('empapp:tDetailView', kwargs={'pk':self.id})
 
     class Meta:
 
         verbose_name = 'Преподаватель колледжа'
         verbose_name_plural = 'Преподаватели колледжа'
+
+class Leсture(models.Model):
+
+    name = models.CharField(max_length=255, null=True, blank=True)
+    video_link = models.CharField(max_length=255,blank=True,null=True)
+    video = models.CharField(max_length=255, null=True,blank=True)
+
+    teacher = models.ForeignKey(Employees, null=True, blank=True, on_delete=models.CASCADE, related_name='lectures')
+
+    class Meta:
+        verbose_name = 'Лекция'
+        verbose_name_plural = 'Лекций'
 
 
 class EmployeesLikes(models.Model):

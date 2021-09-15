@@ -44,11 +44,15 @@
         position:absolute;
         top:50%;
         transform: translateY(-50%);
-        left:0px;
+        left:40px;
     }
     &__title{
         position: relative;
         z-index: 3;
+
+        @media screen and (max-width:480px){
+            font-size:25px;
+        }
     }
 }
 

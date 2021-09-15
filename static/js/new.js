@@ -1,15 +1,15 @@
 window.addEventListener('scroll', (e)=>{
     const header = document.querySelector('.header');
-    const mainSlider = document.querySelector('.main-slider');
+    const body = document.querySelector('body');
 
     const scrollY = window.scrollY;
     if (scrollY > 47) {
         header.classList.add('header--fixed');
-        mainSlider.classList.add('main-slider--fixed');
+        body.classList.add('body--fixed');
     }
     else{
         header.classList.remove('header--fixed');
-        mainSlider.classList.remove('main-slider--fixed');
+        body.classList.remove('body--fixed');
     }
 })
 

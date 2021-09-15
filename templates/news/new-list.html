@@ -1,0 +1,47 @@
+{% extends 'layouts/new-layout.html' %}
+{% load static %}
+  {% load i18n %}
+  {% load snp %}
+{% block title %}
+{% trans 'Добро пожаловать в наш блог' %}
+{% endblock %}
+{% block content %}
+<div class="one-card">
+    <h2 class="titlex1 __container">Категорий</h2>
+    <div class="one-card__container __container">
+        {% for category in categories %}
+        <div class="one-card__item {% if category.id == active_category.id %} one-card__item--active {% endif %}" style="background: url({{category.poster.url}})">
+            <a href="{{category.get_absolute_url}}" class="one-card__title">{{category.name}}</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="card-hover">
+    {% if active_category %}
+    <h2 class="titlex1 __container">{{active_category.name}}</h2>
+    {% else %}
+    <h2 class="titlex1 __container">Все категории</h2>
+    {% endif %}
+    <div class="card-hover__container __container">
+        {% for new in news %}
+        <!-- Blog Post -->
+        <div class="card-hover__item">
+                <div class="card-hover__image" style="background-image:url({{new.poster.url}})"></div>
+                <div class="card-hover__text-container card-hover__text-container--visible">
+                    <div class="card-hover__visible">
+                        <a class="card-hover__category" href="#">{{new.category.name}}</a>
+                        <div class="card-hover__title"><a href="{{new.get_absolute_url}}">{{new.title}}</a></div>
+                    </div>
+                    
+                    <div class="card-hover__text">
+                        <p>    {% autoescape off %}
+                            {{new.description}}
+                             {% endautoescape %}</p>
+                    </div>
+                    <a href="{{new.get_absolute_url}}" class="button card-hover__button">Читать далее</a>
+                </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -15,6 +15,9 @@ class NewsCategory(models.Model):
 
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('newsapp:list_by_cat', kwargs={'pk': self.id})
+
     class Meta:
 
         verbose_name = 'Категория новости'
