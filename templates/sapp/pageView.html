@@ -9,7 +9,7 @@
 {% block content %}
 <div class="container">
     <div style="margin-top: 150px; margin-bottom: 150px;" class="pageContainer">
-        {% for widget in page.widgets.all %}
+        {% for widget in widgets %}
         {{widget|renderWidget}}
         {% endfor %}
     </div>

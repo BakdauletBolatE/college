@@ -1,4 +1,4 @@
-from page.models import PageCategory, Page
+from page.models import PageCategory, Page,Widget
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from specializationapp.models import Section, Specialization
@@ -82,9 +82,9 @@ def internationalUrl(request):
 
 
 def pageView(request, pk):
-    page = Page.objects.get(id=pk)
+    widgets = Widget.objects.filter(page_id=pk).order_by('order')
     data = {
-        'page': page,
+        'widgets': widgets,
     }
     return render(request, 'sapp/pageView.html', data)
 
