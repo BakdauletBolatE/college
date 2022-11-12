@@ -49,18 +49,36 @@
                         <li class="topbar__item"><a class="topbar__link" href="{% url 'sapp:register' %}">{% trans 'Регистрация' %}</a></li>
                         {% endif %}
                     </div>
-                </div>         
+                </div>
             </nav>
             <nav class="navbar">
                 <div class="navbar__container __container">
                     <a href="/" class="navbar__logo">
                         <img class="navbar__logo-img" src="{% static 'images/new/dark.png' %}" alt="">
                     </a>
+                    <div id="burger-mobile">
+                      <li class="1"></li>
+                      <li class="2"></li>
+                      <li class="3"></li>
+                    </div>
                     <ul class="navbar__list">
+                        <div class="navbar__top-menu">
+                     <div id="burger-mobile-exit">
+                      <li class="1"></li>
+                      <li class="2"></li>
+                    </div>
+
+                        </div>
                         {% for cat in pageCats|order_bys:'order' %}
-                            <li class="navbar__item"><a class="navbar__link" href="{% if cat.linkto != '0' %} {{cat.linkto}} {% endif %}">{{cat.name}}</a>
+                            <li class="navbar__item">
+                                <div class="navbar__link--row">
+                                    <a class="navbar__link" href="{% if cat.linkto != '0' %} {{cat.linkto}} {% endif %}" >{{cat.name}}</a>
+                                    {% if cat.page.all|length > 0 %}
+                                     <span data-plus="{{cat.name}}" class="navbar__plus">+</span>
+                                    {% endif %}
+                                </div>
                                 {% if cat.page.all %}
-                                    <ul class="sub-navbar">
+                                    <ul class="sub-navbar" data-toggle="{{cat.name}}">
                                         {% for page in cat.page.all|order_bys:'order' %}
                                         {% if page.slug == "1" %}
                                             <li class="sub-navbar__item"><a class="sub-navbar__link" href="{% url page.url %}">{{ page.title }}</a></li>
@@ -70,13 +88,13 @@
                                             <li class="sub-navbar__item"><a class="sub-navbar__link" href="{% url page.url page.id %}">{{ page.title }}</a></li>
                                         {% endif %}
                                         {% endfor %}
-                                    </ul>   
-                                {% endif %}             
+                                    </ul>
+                                {% endif %}
                             </li>
                         {% endfor %}
                     </ul>
                 </div>
-                
+
             </nav>
         </div>
         <div class="body">
@@ -104,12 +122,12 @@
                    </div>
                </div>
             </div>
-           
+
            <div class="footer__bottom">
                <div class="__container">
                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> Все права защищены </div>
                </div>
-            
+
            </div>
         </div>
     </div>

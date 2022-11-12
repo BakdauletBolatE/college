@@ -64,7 +64,7 @@ class NewsLikes(models.Model):
     likeuser = models.ForeignKey(User,
                                 verbose_name='Пользователь который нажал(а) лайк',
                                 on_delete=models.CASCADE)
-    check = models.BooleanField('Чек',default=False)
+    is_check = models.BooleanField('Чек',default=False)
     created_at = models.DateTimeField('Когда создано',default=timezone.now)
 
     def __str__(self):

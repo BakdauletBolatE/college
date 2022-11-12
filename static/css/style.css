@@ -7,7 +7,7 @@
 }
 @media screen and (max-width: 1180px) {
   .navbar {
-    padding: 12px 0px;
+    padding: 12px 0;
   }
 }
 .navbar__container {
@@ -23,15 +23,32 @@
   height: 100%;
 }
 .navbar__list {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   display: flex;
   align-items: center;
+  transition: 0.3s ease;
 }
 @media screen and (max-width: 1180px) {
   .navbar__list {
-    display: none;
+    position: absolute;
+    display: block;
+    transform: translateY(-100vh);
+    background: white;
+    width: 100%;
+    transition: 0.3s ease;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    height: 100vh;
+    overflow: scroll;
   }
+}
+.navbar__list--active {
+  transform: translateY(0px);
+}
+.navbar__top-menu {
+  padding: 20px;
 }
 .navbar__item {
   position: relative;
@@ -39,11 +56,32 @@
 }
 .navbar__item:hover .sub-navbar {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
+}
+@media screen and (max-width: 1000px) {
+  .navbar__item:hover .sub-navbar {
+    display: none;
+  }
+}
+.navbar__link--row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 1180px) {
+  .navbar__link--row {
+    padding: 0 15px;
+  }
+}
+.navbar__plus {
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.navbar__plus--active {
+  transform: rotateZ(45deg);
 }
 .navbar__link {
-  display: block;
+  width: 100%;
   padding: 30px 10px;
   font-size: 14px;
   color: black;
@@ -52,6 +90,78 @@
 }
 .navbar__link:hover {
   border-bottom: 2px solid #8f2437;
+}
+@media screen and (max-width: 1180px) {
+  .navbar__link {
+    padding: 15px 0;
+  }
+}
+
+#burger-mobile {
+  margin: 0;
+  margin-right: 10px;
+  list-style-type: none;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 1000px) {
+  #burger-mobile {
+    display: flex;
+  }
+}
+
+#burger-mobile-exit {
+  margin: 0;
+  margin-right: 10px;
+  list-style-type: none;
+  display: none;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+}
+@media screen and (max-width: 1000px) {
+  #burger-mobile-exit {
+    display: block;
+  }
+}
+
+#burger-mobile-exit li {
+  width: 25px;
+  height: 3px;
+  background: #8f2437;
+  margin: 6px 0;
+  transition: width 0.2s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#burger-mobile-exit li:nth-child(1) {
+  transform: rotateZ(45deg);
+}
+
+#burger-mobile-exit li:nth-child(2) {
+  transform: rotateZ(-45deg);
+}
+
+#burger-mobile li {
+  width: 25px;
+  height: 3px;
+  background: #8f2437;
+  margin: 3px 0;
+  transition: width 0.2s ease-in-out;
+}
+
+.navbar__plus {
+  display: none;
+}
+@media screen and (max-width: 1000px) {
+  .navbar__plus {
+    display: block;
+  }
 }
 
 .topbar {
@@ -100,16 +210,36 @@
   top: 100%;
   background-color: white;
   list-style: none;
-  right: 0%;
+  right: 0;
   display: none;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
   z-index: 11;
   padding: 10px 20px;
   border-radius: 5px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  -webkit-box-shadow: 0px 7px 13px 1px rgba(34, 60, 80, 0.1);
-  -moz-box-shadow: 0px 7px 13px 1px rgba(34, 60, 80, 0.1);
-  box-shadow: 0px 7px 13px 1px rgba(34, 60, 80, 0.1);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  -webkit-box-shadow: 0 7px 13px 1px rgba(34, 60, 80, 0.1);
+  -moz-box-shadow: 0 7px 13px 1px rgba(34, 60, 80, 0.1);
+  box-shadow: 0 7px 13px 1px rgba(34, 60, 80, 0.1);
+}
+@media screen and (max-width: 1180px) {
+  .sub-navbar {
+    position: relative;
+    display: none;
+    background: white;
+    width: 100%;
+    top: 0;
+    padding: 0;
+    left: 0;
+    z-index: 10000;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+.sub-navbar__list--active {
+  display: grid !important;
 }
 .sub-navbar__link {
   color: black;
@@ -118,6 +248,14 @@
   font-size: 14px;
   text-decoration: none;
   white-space: nowrap;
+}
+@media screen and (max-width: 1100px) {
+  .sub-navbar__link {
+    padding: 5px;
+    padding-left: 20px;
+    color: grey;
+    font-size: 12px;
+  }
 }
 .sub-navbar__link:hover {
   background-color: #f2f2f2;

@@ -1,32 +1,14 @@
-
-try:
-    from .local_settings import *
-    DEBUG = True
-except ImportError as e:
-    DEBUG = False
-
 from pathlib import Path
+import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+SECRET_KEY = os.environ.get("SECRET_KEY", default='asdasfsg')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '8rp&j5jfqdi-spuqv-)!g%erfdw2qzizrp_h0keouv$0+391f('
+DEBUG = os.environ.get('DEBUG', default=1)
 
-
-
-if DEBUG:
-    ALLOWED_HOSTS = ['*','185.146.3.237'] 
-else:
-    ALLOWED_HOSTS = ['185.146.3.237','shym-college.kz']
-
-
-
-# Application definition
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'modeltranslation',
@@ -88,29 +70,17 @@ WSGI_APPLICATION = 'silkwaycollege.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+DATABASES = {
+    "default": {
+        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
+        "USER": os.environ.get("SQL_USER", "user"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
+        "HOST": os.environ.get("SQL_HOST", "localhost"),
+        "PORT": os.environ.get("SQL_PORT", "5432"),
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'college4',
-            'USER': 'bbb',
-            'PASSWORD': 'baguvix123F',
-            'HOST': 'localhost',
-            'PORT':''
-        }
-    }
+}
 
-
-
-# Password validation
-# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {

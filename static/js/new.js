@@ -26,3 +26,30 @@ const shortSlider = new Swiper('.short-slider__container', {
     direction: 'vertical',
     loop: true,
 })
+
+const burger_mobile = document.getElementById('burger-mobile');
+const burger_mobile_exit = document.getElementById('burger-mobile-exit');
+const navbar__list = document.querySelector('.navbar__list');
+
+burger_mobile.addEventListener('click', ()=>{
+    navbar__list.classList.add('navbar__list--active');
+});
+
+burger_mobile_exit.addEventListener('click', ()=>{
+    navbar__list.classList.remove('navbar__list--active');
+});
+
+const datapluses = document.querySelectorAll('[data-plus]');
+
+
+datapluses.forEach(elem=>{
+    elem.addEventListener('click', ()=>{
+        const dataName = elem.getAttribute('data-plus');
+
+        const navbar = document.querySelector(`[data-toggle="${dataName}"]`);
+        if (navbar) {
+            elem.classList.toggle('navbar__plus--active');
+            navbar.classList.toggle('sub-navbar__list--active');
+        }
+    })
+})
