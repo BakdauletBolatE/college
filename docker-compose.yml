@@ -23,7 +23,7 @@ services:
     restart: always
     volumes:
       - static_volume:/usr/src/app/staticfiles
-      - ./nginx/nginx.conf/:/etc/nginx/conf.d/:ro
+      - ./nginx/:/etc/nginx/conf.d/:ro
       - ./certbot/www:/var/www/certbot/:ro
       - ./certbot/conf/:/etc/nginx/ssl/:ro
     ports:
