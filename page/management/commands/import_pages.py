@@ -1,6 +1,6 @@
 from django.core.management import BaseCommand
 from page.models import Page, PageType
-from news
+
 
 class Command(BaseCommand):
 
