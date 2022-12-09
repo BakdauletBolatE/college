@@ -1,6 +1,8 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% block content %}
+
+{% if object.category.id != 3 %}
 <div class="edu-breadcrumb-area breadcrumb-style-2 bg-image" style="background: url({{object.poster.url}})">
     <div class="container">
         <div class="breadcrumb-inner">
@@ -18,6 +20,8 @@
     </div>
 </div>
 
+{% endif %}
+
 <!--=====================================-->
 <!--=       Blog Details Area Start     =-->
 <!--=====================================-->
@@ -32,10 +36,14 @@
                         <ul class="blog-meta">
                             <li><i class="icon-27"></i>{{object.created_at|date:"M d, Y"}}</li>
                         </ul>
+                        {% if object.category.id != 3 %}
                         <div class="thumbnail">
                             <img src="{{object.poster.url}}" alt="{{object.title}}">
                         </div>
+                        {% endif %}
                     </div>
+
+                    {% if object.files.all|length > 0 %}
                     <div>
                         <h3 class="title">Файлы</h3>
                         <div class="row g-5">
@@ -56,6 +64,7 @@
                             {% endfor %}
                         </div>
                     </div>
+                    {% endif %}
                     <div style="margin-top: 20px">
                         <h3 class="title">Описание</h3>
                         {{object.description|safe}}

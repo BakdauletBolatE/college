@@ -12,7 +12,7 @@ class NewsCategory(models.Model):
     created_at = models.DateTimeField('Когда создано', default=timezone.now)
 
     def __str__(self):
-        return self.name
+        return f"{self.id}: {self.name}"
 
     def get_absolute_url(self):
         return reverse('newsapp:list_by_cat', kwargs={'pk': self.id})

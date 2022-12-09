@@ -11,7 +11,7 @@ def list_by_category(request, pk):
     paginator = Paginator(news, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    categories = NewsCategory.objects.all().order_by('-created_at')
+    categories = NewsCategory.objects.all().exclude(id=3).order_by('-created_at')
     active_category = NewsCategory.objects.get(id=pk)
     data = {
         'page_obj': page_obj,
@@ -35,11 +35,11 @@ def list_gallery_view(request):
 
 
 def news_list_view(request):
-    news = NewsPost.objects.all()
+    news = NewsPost.objects.all().exclude(category_id=3)
     paginator = Paginator(news, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    categories = NewsCategory.objects.all().order_by('-created_at')
+    categories = NewsCategory.objects.all().exclude(id=3).order_by('-created_at')
 
     data = {
         'page_obj': page_obj,
@@ -51,7 +51,7 @@ def news_list_view(request):
 def news_detail_view(request, pk):
     new = get_object_or_404(NewsPost, id=pk)
     comments = new.comments.filter(visible=True)
-    categories = NewsCategory.objects.all().order_by('-created_at')
+    categories = NewsCategory.objects.all().exclude(id=3).order_by('-created_at')
     form = NewsCommentForm()
     if request.method == "POST":
         form = NewsCommentForm(request.POST or None)
