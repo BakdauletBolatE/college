@@ -1,0 +1,49 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="edu-breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-inner">
+            <div class="page-title">
+                <h1 class="title">Кодекс чести</h1>
+            </div>
+            <ul class="edu-breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                <li class="separator"><i class="icon-angle-right"></i></li>
+                <li class="breadcrumb-item active" aria-current="page">Кодекс чести</li>
+            </ul>
+        </div>
+    </div>
+    <ul class="shape-group">
+        <li class="shape-1">
+            <span></span>
+        </li>
+        <li class="shape-2 scene"><img data-depth="2" src="{% static 'app/assets/images/about/shape-13.png' %}" alt="shape"></li>
+        <li class="shape-3 scene"><img data-depth="-2" src="{% static 'app/assets/images/about/shape-15.png' %}" alt="shape"></li>
+        <li class="shape-4">
+            <span></span>
+        </li>
+        <li class="shape-5 scene"><img data-depth="2" src="{% static 'app/assets/images/about/shape-07.png' %}" alt="shape"></li>
+    </ul>
+</div>
+
+<!--=====================================-->
+<!--=        Blog Area Start            =-->
+<!--=====================================-->
+<section class="section-gap-equal">
+    <div class="container">
+        <div class="row g-5" id="masonry">
+            <img src="{% static 'images/kodex1.jpg' %}"/>
+            <img src="{% static 'images/kodex2.jpg' %}"/>
+            <img src="{% static 'images/kodex3.jpg' %}"/>
+        </div>
+
+
+
+
+    </div>
+</section>
+
+{% endblock %}

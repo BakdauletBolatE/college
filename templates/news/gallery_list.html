@@ -1,0 +1,80 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="edu-breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-inner">
+            <div class="page-title">
+                <h1 class="title">Галерея</h1>
+            </div>
+            <ul class="edu-breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                <li class="separator"><i class="icon-angle-right"></i></li>
+                <li class="breadcrumb-item active" aria-current="page">Галерея</li>
+            </ul>
+        </div>
+    </div>
+    <ul class="shape-group">
+        <li class="shape-1">
+            <span></span>
+        </li>
+        <li class="shape-2 scene"><img data-depth="2" src="{% static 'app/assets/images/about/shape-13.png' %}" alt="shape"></li>
+        <li class="shape-3 scene"><img data-depth="-2" src="{% static 'app/assets/images/about/shape-15.png' %}" alt="shape"></li>
+        <li class="shape-4">
+            <span></span>
+        </li>
+        <li class="shape-5 scene"><img data-depth="2" src="{% static 'app/assets/images/about/shape-07.png' %}" alt="shape"></li>
+    </ul>
+</div>
+
+<!--=====================================-->
+<!--=        Blog Area Start            =-->
+<!--=====================================-->
+<section class="section-gap-equal">
+    <div class="container">
+        <div class="row g-5" id="masonry-gallery">
+            {% for object in page_obj %}
+            <!-- Start Blog Grid  -->
+            <div class="col-lg-4 col-md-6 col-12 masonry-item" data-sal-delay="100" data-sal="slide-up"
+                 data-sal-duration="800">
+                <div class="edu-blog blog-style-5">
+                    <div class="inner">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <iframe width="370" height="370" src="{{object.url}}" title="YouTube video player"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Blog Grid  -->
+            {% endfor %}
+
+        </div>
+
+
+        {% if page_obj|length > 0 %}
+        <ul class="edu-pagination top-space-30 justify-content-start">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" aria-label="Назад"><i class="icon-west"></i></a>
+            </li>
+            {% endif %}
+            <li class="active"><a href="#">{{ page_obj.number }}</a>
+            </li>
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" aria-label="Next"><i class="icon-east"></i></a>
+            </li>
+            {% endif %}
+        </ul>
+        {% endif %}
+
+    </div>
+</section>
+
+{% endblock %}

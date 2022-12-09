@@ -1,60 +1,169 @@
-{% extends 'layouts/app2.html' %}
+{% extends 'layouts/base.html' %}
+
 {% load static %}
-  {% load i18n %}
-  {% load snp %}
-{% block title %}
-{% trans 'Добро пожаловать в наш блог' %}
-{% endblock %}
 {% block content %}
-<div class="blog">
+<!--=====================================-->
+<!--=       Breadcrumb Area Start      =-->
+<!--=====================================-->
+
+
+<div class="edu-breadcrumb-area">
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="welcome_title">{% trans 'Добро пожаловать в наш блог' %}</div>
+        <div class="breadcrumb-inner">
+            <div class="page-title">
+                {% if active_category %}
+                <h1 class="title">{{active_category.name}}</h1>
+                {% else %}
+                 <h1 class="title">Новости</h1>
+                {% endif %}
             </div>
+            <ul class="edu-breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                <li class="separator"><i class="icon-angle-right"></i></li>
+                {% if active_category %}
+                <li class="breadcrumb-item active" aria-current="page">{{active_category.name}}</li>
+                {% else %}
+                <li class="breadcrumb-item active" aria-current="page">Новости</li>
+                {% endif %}
+            </ul>
         </div>
-        <div class="row categories_row">
-            {% for category in categories %}
-            <!-- Category -->
-            <div class="col-xl-2 col-lg-4 col-md-6 blog_category_col">
-                <a href="">
-                    <div class="blog_category">
-                        <div class="blog_category_image"><img src="{{category.poster.url}}" alt=""></div>
-                        <div class="blog_category_title">{{category.name}}</div>
-                    </div>
-                </a>
-            </div>
-            {% endfor %}
-        </div>
+    </div>
+    <ul class="shape-group">
+        <li class="shape-1">
+            <span></span>
+        </li>
+        <li class="shape-2 scene"><img data-depth="2" src="{% static 'app/assets/images/about/shape-13.png' %}" alt="shape"></li>
+        <li class="shape-3 scene"><img data-depth="-2" src="{% static 'app/assets/images/about/shape-15.png' %}" alt="shape"></li>
+        <li class="shape-4">
+            <span></span>
+        </li>
+        <li class="shape-5 scene"><img data-depth="2" src="{% static 'app/assets/images/about/shape-07.png' %}" alt="shape"></li>
+    </ul>
+</div>
 
-        <!-- Blog Posts -->
-        
-        <div class="row blog_row">
-
-            {% for new in news %}
-            <!-- Blog Post -->
-            <div class="col-lg-6">
-                <div class="blog_post">
-                    <div class="blog_image" style="background-image:url({{new.poster.url}})"></div>
-                    <div class="blog_title_container">
-                        <div class="blog_post_category"><a href="#">{{new.category.name}}</a></div>
-                        <div class="blog_post_title"><a href="{% url 'newsapp:detailView' new.id %}">{{new.title}}</a></div>
-                        <div class="blog_post_text">
-                            <p>{{new.description}}</p>
+<!--=====================================-->
+<!--=        Blog Area Start            =-->
+<!--=====================================-->
+<section class="section-gap-equal">
+    <div class="container">
+        <div class="row row--30">
+            <div class="col-lg-8">
+                {% for news in page_obj %}
+                <div class="edu-blog blog-style-list" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                    <div class="inner">
+                        <div class="thumbnail">
+                            <a href="{% url 'newsapp:detail_view' news.id %}">
+                                <img style="
+                                width: 300px;
+                                height: 230px;
+                                " src="{{news.poster.url}}" alt="Фотография новостей">
+                            </a>
                         </div>
-                        <div class="read_more"><a href="{% url 'newsapp:detailView' new.id %}">Читать далее<img src="{% static 'images/right.png' %}" alt=""></a></div>
+                        <div class="content">
+                            <h5 class="title"><a href="{% url 'newsapp:detail_view' news.id %}">{{news.title}}.</a></h5>
+                            <ul class="blog-meta">
+                                <li><i class="icon-27"></i>{{news.created_at|date:"M d, Y"}}</li>
+                            </ul>
+                            <p>{{news.short_description}}</p>
+                            <div class="read-more-btn">
+                                <a class="edu-btn btn-border btn-medium" href="{% url 'newsapp:detail_view' news.id %}">Подробно <i
+                                        class="icon-4"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% empty %}
+                <div>
+                    Нет новостей по этому категорию
+                </div>
+                {% endfor %}
+
+                {% if page_obj|length > 0 %}
+                <ul class="edu-pagination top-space-30 justify-content-start">
+                    {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}" aria-label="Назад"><i class="icon-west"></i></a>
+                    </li>
+                    {% endif %}
+                    <li class="active"><a href="#">{{ page_obj.number }}</a>
+                    </li>
+                    {% if page_obj.has_next %}
+                        <li><a href="?page={{ page_obj.next_page_number }}" aria-label="Next"><i class="icon-east"></i></a>
+                        </li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+
+            </div>
+            <div class="col-lg-4">
+                <div class="edu-blog-sidebar">
+                    <!-- Start Single Widget  -->
+                    <div class="edu-blog-widget widget-search">
+                        <div class="inner">
+                            <h4 class="widget-title">Искать</h4>
+                            <div class="content">
+                                <form class="blog-search" action="#">
+                                    <button class="search-button"><i class="icon-2"></i></button>
+                                    <input type="text" placeholder="Искать">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Widget  -->
+
+                    <!-- Start Single Widget  -->
+                    <div class="edu-blog-widget widget-categories">
+                        <div class="inner">
+                            <h4 class="widget-title">Категорий</h4>
+                            <div class="content">
+                                <ul class="category-list">
+                                    {% for category in categories  %}
+                                    <li><a href="{% url 'newsapp:list_by_cat' category.id %}">{{category.name}}<span>({{category.posts.all|length}})</span></a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Widget  -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=====================================-->
+<!--=        CTA  Area Start            =-->
+<!--=====================================-->
+<!-- Start Ad Banner Area  -->
+<div class="edu-cta-banner-area home-one-cta-wrapper bg-image">
+    <div class="container">
+        <div class="edu-cta-banner">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-title section-center" data-sal-delay="150" data-sal="slide-up"
+                         data-sal-duration="800">
+                        <h2 class="title">Get Your Quality Skills <span class="color-secondary">Certificate</span>
+                            Through EduBlink</h2>
+                        <a href="contact-us.html" class="edu-btn">Get started now <i class="icon-4"></i></a>
                     </div>
                 </div>
             </div>
-            {% endfor %}
+            <ul class="shape-group">
+                <li class="shape-01 scene">
+                    <img data-depth="2.5" src="assets/images/cta/shape-10.png" alt="shape">
+                </li>
+                <li class="shape-02 scene">
+                    <img data-depth="-2.5" src="assets/images/cta/shape-09.png" alt="shape">
+                </li>
+                <li class="shape-03 scene">
+                    <img data-depth="-2" src="assets/images/cta/shape-08.png" alt="shape">
+                </li>
+                <li class="shape-04 scene">
+                    <img data-depth="2" src="assets/images/about/shape-13.png" alt="shape">
+                </li>
+            </ul>
         </div>
-
-        <!-- Load More -->
-        <!-- <div class="row">
-            <div class="col">
-                <div class="load_more_button"><a href="#">load more</a></div>
-            </div>
-        </div> -->
     </div>
 </div>
+<!-- End Ad Banner Area  -->
 {% endblock %}

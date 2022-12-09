@@ -1,14 +1,12 @@
-from page.models import PageCategory, Page,Widget
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from specializationapp.models import Section, Specialization
+from specializationapp.models import Section, Specialization, Qualification, SubSection
 from employeesapp.models import Government
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import CreateView
 from .forms import AuthUserForm, RegisterUserForm, AppealForm
 from django.contrib.auth import authenticate, login
 from newsapp.models import NewsPost, GalleryPost
-from .models import Appeal
 from .models import Abiturent
 from django.contrib import messages
 
@@ -17,76 +15,25 @@ from django.contrib import messages
 
 
 def index(request):
-    specializations = Specialization.objects.all()[:3]
-    imps = Government.objects.filter(isimp=1).order_by('order')[:3]
+    specializations = Specialization.objects.all()
     news = NewsPost.objects.all().order_by('-created_at')[:3]
 
     data = {
         'specializations': specializations,
-        'imps': imps,
-        'news': news,
+        'news': news
     }
-    return render(request, 'sapp/new-home.html', data)
-
-def old_index(request):
-    specializations = Specialization.objects.all()[:3]
-    imps = Government.objects.filter(isimp=1).order_by('order')[:3]
-    news = NewsPost.objects.all().order_by('-created_at')[:3]
-
-    data = {
-        'specializations': specializations,
-        'imps': imps,
-        'news': news,
-    }
-    return render(request, 'sapp/home.html', data)
-
-
-def structure(request):
-    section = Section.objects.all()
-    data = {
-        'sections': section,
-    }
-    return render(request, 'sapp/strucrure.html', data)
-
+    return render(request, 'home/index.html', data)
 
 def code_of_honor(request):
-    return render(request, 'pages/code_of_honor.html')
+    return render(request, 'sapp/code-of-honor.html')
 
 
 def admission_rules(request):
     return render(request, 'pages/admission_rules.html')
 
 
-def newEFormat(request):
-    return render(request, 'pages/newEFormat.html')
-
-
-def contact(request):
-    return render(request, 'sapp/contact.html')
-
-
-def aboutUrl(request):
-    return render(request, 'sapp/about.html')
-
-
-def galletyView(request):
-    galleries = GalleryPost.objects.all().order_by('-created_at')
-    data = {
-        'galleries': galleries,
-    }
-    return render(request, 'pages/gallery.html', data)
-
-
-def internationalUrl(request):
-    return render(request, 'sapp/international.html')
-
-
-def pageView(request, pk):
-    widgets = Widget.objects.filter(page_id=pk).order_by('order')
-    data = {
-        'widgets': widgets,
-    }
-    return render(request, 'sapp/pageView.html', data)
+def about_us_view(request):
+    return render(request, 'sapp/about-us.html')
 
 
 class CollegeLoginView(LoginView):

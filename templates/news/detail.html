@@ -1,0 +1,225 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="edu-breadcrumb-area breadcrumb-style-2 bg-image" style="background: url({{object.poster.url}})">
+    <div class="container">
+        <div class="breadcrumb-inner">
+            <div class="page-title">
+                <h1 class="title">{{object.title}}</h1>
+            </div>
+            <ul class="edu-breadcrumb">
+                <li class="breadcrumb-item"><a href="index-one.html">Главная</a></li>
+                <li class="separator"><i class="icon-angle-right"></i></li>
+                <li class="breadcrumb-item"><a href="{% url 'newsapp:list_by_cat' object.category.id %}">{{object.category.name}}</a></li>
+                <li class="separator"><i class="icon-angle-right"></i></li>
+                <li class="breadcrumb-item active" aria-current="page">{{object.title}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--=====================================-->
+<!--=       Blog Details Area Start     =-->
+<!--=====================================-->
+<div class="blog-details-area section-gap-equal">
+    <div class="container">
+        <div class="row row--30">
+            <div class="col-lg-8">
+                <div class="blog-details-content">
+                    <div class="entry-content">
+                        <span class="category">{{object.category.name}}</span>
+                        <h3 class="title">{{object.title}}</h3>
+                        <ul class="blog-meta">
+                            <li><i class="icon-27"></i>{{object.created_at|date:"M d, Y"}}</li>
+                        </ul>
+                        <div class="thumbnail">
+                            <img src="{{object.poster.url}}" alt="{{object.title}}">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="title">Файлы</h3>
+                        <div class="row g-5">
+                            {% for file in object.files.all %}
+                            <div class="col-lg-4 col-md-6" data-sal-delay="150" data-sal="slide-up"
+                                 data-sal-duration="800">
+                                <div class="categorie-grid categorie-style-2 color-extra06-style">
+                                    <div class="icon">
+                                        <i class="icon-17 video-photography"></i>
+                                    </div>
+                                    <div class="content">
+                                        <a href="{{file.file.url}}">
+                                            <h5 class="title">{{file.name}}</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px">
+                        <h3 class="title">Описание</h3>
+                        {{object.description|safe}}
+                    </div>
+
+                </div>
+
+
+                <!-- Start Comment Area  -->
+                <!--                <div class="comment-area">-->
+                <!--                    <h3 class="heading-title">Comments</h3>-->
+                <!--                    <div class="comment-list-wrapper">-->
+                <!--                        &lt;!&ndash; Start Single Comment  &ndash;&gt;-->
+                <!--                        <div class="comment">-->
+                <!--                            <div class="thumbnail">-->
+                <!--                                <img src="assets/images/blog/comment-01.jpg" alt="Comment Images">-->
+                <!--                            </div>-->
+                <!--                            <div class="comment-content">-->
+                <!--                                <h5 class="title">Haley Bennet</h5>-->
+                <!--                                <span class="date">Oct 10, 2021</span>-->
+                <!--                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor-->
+                <!--                                    incididunt ut labore et dolore magna aliqua.</p>-->
+                <!--                                <div class="reply-btn-wrapper">-->
+                <!--                                    <a class="reply-btn" href="#">Reply</a>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                        &lt;!&ndash; End Single Comment  &ndash;&gt;-->
+                <!--                        &lt;!&ndash; Start Single Comment  &ndash;&gt;-->
+                <!--                        <div class="comment comment-reply">-->
+                <!--                            <div class="thumbnail">-->
+                <!--                                <img src="assets/images/blog/comment-02.jpg" alt="Comment Images">-->
+                <!--                            </div>-->
+                <!--                            <div class="comment-content">-->
+                <!--                                <h5 class="title">Simon Baker</h5>-->
+                <!--                                <span class="date">Oct 10, 2021</span>-->
+                <!--                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor-->
+                <!--                                    incididunt ut labore et dolore magna aliqua.</p>-->
+                <!--                                <div class="reply-btn-wrapper">-->
+                <!--                                    <a class="reply-btn" href="#">Reply</a>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                        &lt;!&ndash; End Single Comment  &ndash;&gt;-->
+                <!--                        &lt;!&ndash; Start Single Comment  &ndash;&gt;-->
+                <!--                        <div class="comment">-->
+                <!--                            <div class="thumbnail">-->
+                <!--                                <img src="assets/images/blog/comment-03.jpg" alt="Comment Images">-->
+                <!--                            </div>-->
+                <!--                            <div class="comment-content">-->
+                <!--                                <h6 class="title">Richard Gere</h6>-->
+                <!--                                <span class="date">Oct 10, 2021</span>-->
+                <!--                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor-->
+                <!--                                    incididunt ut labore et dolore magna aliqua.</p>-->
+                <!--                                <div class="reply-btn-wrapper">-->
+                <!--                                    <a class="reply-btn" href="#">Reply</a>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                        &lt;!&ndash; End Single Comment  &ndash;&gt;-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                -->
+                <!-- End Comment Area  -->
+                <!--                <div class="comment-form-area">-->
+                <!--                    <h3 class="heading-title">Leave Your Comment Here</h3>-->
+                <!--                    <form class="comment-form">-->
+                <!--                        <div class="row g-5">-->
+                <!--                            <div class="form-group col-lg-6">-->
+                <!--                                <input type="text" name="comm-name" id="comm-name" placeholder="Your Name*">-->
+                <!--                            </div>-->
+                <!--                            <div class="form-group col-lg-6">-->
+                <!--                                <input type="email" name="comm-email" id="comm-email" placeholder="Your Email*">-->
+                <!--                            </div>-->
+                <!--                            <div class="form-group col-12">-->
+                <!--                                <textarea name="comm-message" id="comm-message" cols="30" rows="5"-->
+                <!--                                          placeholder="Leave A Comment"></textarea>-->
+                <!--                            </div>-->
+                <!--                            <div class="form-group">-->
+                <!--                                <div class="edu-form-check">-->
+                <!--                                    <input type="checkbox" id="save-info">-->
+                <!--                                    <label for="save-info">Save my name, email, and website in this browser for the next-->
+                <!--                                        time I comment.</label>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                            <div class="form-group col-12">-->
+                <!--                                <button type="submit" class="edu-btn submit-btn">Send Message <i class="icon-4"></i>-->
+                <!--                                </button>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                    </form>-->
+                <!--                </div>-->
+
+            </div>
+            <div class="col-lg-4">
+                <div class="edu-blog-sidebar">
+                    <!-- Start Single Widget  -->
+                    <div class="edu-blog-widget widget-search">
+                        <div class="inner">
+                            <h4 class="widget-title">Искать</h4>
+                            <div class="content">
+                                <form class="blog-search" action="#">
+                                    <button class="search-button"><i class="icon-2"></i></button>
+                                    <input type="text" placeholder="Искать">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Widget  -->
+
+                    <!-- Start Single Widget  -->
+                    <div class="edu-blog-widget widget-categories">
+                        <div class="inner">
+                            <h4 class="widget-title">Категорий</h4>
+                            <div class="content">
+                                <ul class="category-list">
+                                    {% for category in categories %}
+                                    <li><a href="{% url 'newsapp:list_by_cat' category.id %}">{{category.name}}<span>({{category.posts.all|length}})</span></a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Widget  -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--=====================================-->
+<!--=        CTA  Area Start            =-->
+<!--=====================================-->
+<!-- Start Ad Banner Area  -->
+<div class="edu-cta-banner-area home-one-cta-wrapper bg-image">
+    <div class="container">
+        <div class="edu-cta-banner">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-title section-center" data-sal-delay="150" data-sal="slide-up"
+                         data-sal-duration="800">
+                        <h2 class="title">Get Your Quality Skills <span class="color-secondary">Certificate</span>
+                            Through EduBlink</h2>
+                        <a href="contact-us.html" class="edu-btn">Get started now <i class="icon-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <ul class="shape-group">
+                <li class="shape-01 scene">
+                    <img data-depth="2.5" src="assets/images/cta/shape-10.png" alt="shape">
+                </li>
+                <li class="shape-02 scene">
+                    <img data-depth="-2.5" src="assets/images/cta/shape-09.png" alt="shape">
+                </li>
+                <li class="shape-03 scene">
+                    <img data-depth="-2" src="assets/images/cta/shape-08.png" alt="shape">
+                </li>
+                <li class="shape-04 scene">
+                    <img data-depth="2" src="assets/images/about/shape-13.png" alt="shape">
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End Ad Banner Area  -->
+{% endblock %}

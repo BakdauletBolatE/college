@@ -1,0 +1,337 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>EduBlink | Online Education Platform</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'app/assets/images/favicon.png' %}">
+    <!-- CSS
+	============================================ -->
+    <link rel="stylesheet" href="{% static 'app/assets/css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/assets/css/vendor/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'app/assets/css/vendor/remixicon.css' %}">
+    <link rel="stylesheet" href="{% static 'app/assets/css/vendor/magnifypopup.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/assets/css/vendor/odometer.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/assets/css/vendor/lightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/assets/css/vendor/animation.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/assets/css/vendor/jqueru-ui-min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/assets/css/vendor/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/assets/css/vendor/tipped.min.css' %}">
+
+    <!-- Site Stylesheet -->
+    <link rel="stylesheet" href="{% static 'app/assets/css/app.css' %}">
+
+</head>
+
+<body class="sticky-header">
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<div id="edublink-preloader">
+    <div class="loading-spinner">
+        <div class="preloader-spin-1"></div>
+        <div class="preloader-spin-2"></div>
+    </div>
+    <div class="preloader-close-btn-wraper">
+            <span class="btn btn-primary preloader-close-btn">
+                Отменить загрузку</span>
+    </div>
+</div>
+
+<div id="main-wrapper" class="main-wrapper">
+
+    <!--=====================================-->
+    <!--=        Header Area Start       	=-->
+    <!--=====================================-->
+    <header class="edu-header header-style-2">
+        <div class="header-top-bar">
+            <div class="container">
+                <div class="header-top">
+                    <div class="header-top-left">
+                        <ul class="header-info">
+                            <li><a href="tel:+011235641231"><i class="icon-phone"></i>Телефон: {{settings.phone}}</a>
+                            </li>
+                            <li><a href="mailto:{{settings.email}}" target="_blank"><i class="icon-envelope"></i>Почта:
+                                {{settings.email}}</a></li>
+                            <li style="display: flex; align-items: center">
+                                <span style="padding-right: 10px">{% trans 'Язык:' %}</span>
+                                <form action="{% url 'set_language' %}" method="POST">
+                                    {% csrf_token %}
+                                    {% get_current_language as LANGUAGE_CODE %}
+                                    <select name="language" onChange="this.form.submit()" id="">
+                                        {% get_available_languages as LANGUAGES %}
+                                        {% get_language_info_list for LANGUAGES as languages %}
+                                        {% for language in languages %}
+                                        {% if LANGUAGE_CODE == language.code %}
+                                        <option selected="selected" value="{{ language.code }}">{{language.name_local}}
+                                        </option>
+                                        {% else %}
+                                        <option value="{{ language.code }}">{{language.name_local}}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header-top-right">
+                        <ul class="header-info">
+                            <li class="header-btn"><a href="#" class="edu-btn btn-secondary btn-medium">Поступить сейчас<i
+                                    class="icon-4"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="edu-sticky-placeholder"></div>
+        <div class="header-mainmenu">
+            <div class="container">
+                <div class="header-navbar">
+                    <div class="header-brand">
+                        <div class="logo">
+                            <a href="/">
+                                <img class="logo-light" src="{% static 'app/assets/images/logo/logo-dark-3.png' %}"
+                                     alt="Corporate Logo">
+                                <img class="logo-dark" src="{% static 'app/assets/images/logo/logo-white-3.png' %}"
+                                     alt="Corporate Logo">
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-mainnav">
+                        <nav class="mainmenu-nav">
+                            <ul class="mainmenu">
+                                {% include 'components/page-modal.html' %}
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header-right">
+                        <ul class="header-action">
+                            <li class="icon search-icon">
+                                <a href="javascript:void(0)" class="search-trigger">
+                                    <i class="icon-2"></i>
+                                </a>
+                            </li>
+
+                            <li class="mobile-menu-bar d-block d-xl-none">
+                                <button class="hamberger-button">
+                                    <i class="icon-54"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup-mobile-menu">
+            <div class="inner">
+                <div class="header-top">
+                    <div class="logo">
+                        <a href="/">
+                            <img class="logo-light" src="{% static 'app/assets/images/logo/logo-dark-3.png' %}"
+                                 alt="Corporate Logo">
+                            <img class="logo-dark" src="{% static 'app/assets/images/logo/logo-white-3.png' %}"
+                                 alt="Corporate Logo">
+                        </a>
+                    </div>
+                    <div class="close-menu">
+                        <button class="close-button">
+                            <i class="icon-73"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <ul class="mainmenu">
+                    {% include 'components/page-modal.html' %}
+                </ul>
+                <div style="display: flex; align-items: center; padding-left:20px">
+                    <span style="padding-right: 20px">{% trans 'Язык:' %}</span>
+                    <form action="{% url 'set_language' %}" method="POST">
+                        {% csrf_token %}
+                        {% get_current_language as LANGUAGE_CODE %}
+                        <select name="language" onChange="this.form.submit()" id="">
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                            {% if LANGUAGE_CODE == language.code %}
+                            <option selected="selected" value="{{ language.code }}">{{language.name_local}}
+                            </option>
+                            {% else %}
+                            <option value="{{ language.code }}">{{language.name_local}}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <!-- Start Search Popup  -->
+        <div class="edu-search-popup">
+            <div class="content-wrap">
+                <div class="site-logo">
+                    <img class="logo-light" src="{% static 'app/assets/images/logo/logo-white-3.png' %}"
+                         alt="Corporate Logo">
+                    <img class="logo-dark" src="{% static 'app/assets/images/logo/logo-dark-3.png' %}"
+                         alt="Corporate Logo">
+                </div>
+                <div class="close-button">
+                    <button class="close-trigger"><i class="icon-73"></i></button>
+                </div>
+                <div class="inner">
+                    <form class="search-form" action="#">
+                        <input type="text" class="edublink-search-popup-field" placeholder="Искать">
+                        <button class="submit-button"><i class="icon-2"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End Search Popup  -->
+    </header>
+
+
+    {% block content %}
+    {% endblock %}
+    <!--=====================================-->
+    <!--=        Footer Area Start       	=-->
+    <!--=====================================-->
+    <!-- Start Footer Area  -->
+    <footer class="edu-footer footer-dark bg-image footer-style-3">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="edu-footer-widget">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img class="logo-light" src="{% static 'app/assets/images/logo/logo-white-3.png' %}"
+                                         alt="Corporate Logo">
+                                </a>
+                            </div>
+                            <p class="description">Основателем и первым президентом учреждения «Высший Педагогический
+                                колледж «Shynkent» является – Юнусов Бахтияр Саидович (1954-2010 г.г.) – профессор,
+                                ученый-арабист, член-корреспондент Академии естественных наук РК и Международной
+                                Академии наук педагогического образования России</p>
+                            <div class="widget-information">
+                                <ul class="information-list">
+                                    <li><span>Адрес: </span>{{settings.address}}</li>
+                                    <li><span>Телефон: </span><a href="tel:{{settings.phone}}">{{settings.phone}}</a>
+                                    </li>
+                                    <li><span>Почта: </span><a href="mailto:{{settings.email}}" target="_blank">{{settings.email}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    <div class="col-lg-3 col-sm-6">-->
+                    <!--                        <div class="edu-footer-widget explore-widget">-->
+                    <!--                            <h4 class="widget-title">Online Platform</h4>-->
+                    <!--                            <div class="inner">-->
+                    <!--                                <ul class="footer-link link-hover">-->
+                    <!--                                    <li><a href="about-one.html">About</a></li>-->
+                    <!--                                    <li><a href="course-one.html">Courses</a></li>-->
+                    <!--                                    <li><a href="team-one.html">Instructor</a></li>-->
+                    <!--                                    <li><a href="event-grid.html">Events</a></li>-->
+                    <!--                                    <li><a href="team-details.html">Instructor Profile</a></li>-->
+                    <!--                                    <li><a href="purchase-guide.html">Purchase Guide</a></li>-->
+                    <!--                                </ul>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="col-lg-2 col-sm-6">-->
+                    <!--                        <div class="edu-footer-widget quick-link-widget">-->
+                    <!--                            <h4 class="widget-title">Links</h4>-->
+                    <!--                            <div class="inner">-->
+                    <!--                                <ul class="footer-link link-hover">-->
+                    <!--                                    <li><a href="contact-us.html">Contact Us</a></li>-->
+                    <!--                                    <li><a href="gallery-grid.html">Gallery</a></li>-->
+                    <!--                                    <li><a href="blog-standard.html">News & Articles</a></li>-->
+                    <!--                                    <li><a href="faq.html">FAQ's</a></li>-->
+                    <!--                                    <li><a href="my-account.html">Sign In/Registration</a></li>-->
+                    <!--                                    <li><a href="coming-soon.html">Coming Soon</a></li>-->
+                    <!--                                </ul>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="edu-footer-widget">
+                            <h4 class="widget-title">Контакты</h4>
+                            <div class="inner">
+
+                                <ul class="social-share icon-transparent">
+                                    <li><a href="{{settings.facebook}}" class="color-fb"><i
+                                            class="icon-facebook"></i></a></li>
+                                    <li><a href="{{settings.instagram}}" class="color-ig"><i class="icon-instagram"></i></a>
+                                    </li>
+                                    <li><a href="{{settings.youtube}}" class="color-yt"><i class="icon-youtube"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner text-center">
+                            <p>Copyright 2022 <a href="/" target="_blank">Высший педагогический колледж Shymkent</a>
+                                Вы правы защищены</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer Area  -->
+
+
+</div>
+
+<div class="rn-progress-parent">
+    <svg class="rn-back-circle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+    </svg>
+</div>
+
+<!-- JS
+============================================ -->
+<!-- Modernizer JS -->
+<script src="{% static 'app/assets/js/vendor/modernizr.min.js' %}"></script>
+<!-- Jquery Js -->
+<script src="{% static 'app/assets/js/vendor/jquery.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/sal.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/backtotop.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/magnifypopup.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/odometer.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/isotop.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/imageloaded.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/lightbox.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/paralax.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/paralax-scroll.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/jquery-ui.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/svg-inject.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/vivus.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/tipped.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/smooth-scroll.min.js' %}"></script>
+<script src="{% static 'app/assets/js/vendor/isInViewport.jquery.min.js' %}"></script>
+
+<!-- Site Scripts -->
+<script src="{% static 'app/assets/js/app.js' %}"></script>
+</body>
+
+</html>

@@ -7,7 +7,7 @@ from django.contrib import messages
 from .serializator import SubSectionsSerializer,QualificationSerializer,SpecializationSerializer
 from rest_framework.views import APIView
 from django.http import JsonResponse
-from page.models import PageCategory
+
 # Create your views here.
 
 class SubSectionView(APIView):

@@ -1,41 +1,36 @@
-from page.models import PageCategory
-from newsapp.models import NewsPost
 from django.shortcuts import render
-from .models import Government,Employees
-# Create your views here.
+from .models import Government, Employees
 
 
-def indexG(request):
-
-    imps = Government.objects.order_by('order').all()
-    
-    data = {
-        'imps':imps,
-    }
-    return render(request,'government/index.html',data)
-
-def indexT(request):
-
-    imps = Employees.objects.all()
+def list_employees_view(request):
+    employees = Employees.objects.all()
 
     data = {
-        'imps':imps,
+        'type': 1,
+        'name': 'Преподаватели',
+        'employees': employees,
     }
-    return render(request,'government/tindex.html',data)
+    return render(request, 'instructor/list.html', data)
 
-def tDetailView(request,pk):
 
-    government = Employees.objects.get(id=pk)
+def list_government_view(request):
+    government = Government.objects.order_by('order').all()
+    data = {
+        'type': 2,
+        'name': 'Руководители',
+        'employees': government,
+    }
+    return render(request, 'instructor/list.html', data)
+
+
+def employees_detail_view(request, pk, type):
+    if type == 1:
+        data_detail = Employees.objects.get(id=pk)
+    else:
+        data_detail = Government.objects.get(id=pk)
 
     data = {
-        'government':government,
+        'type': type,
+        'object': data_detail,
     }
-    return render(request,'government/tsingle-page.html',data)
-
-def gDetailView(request,pk):
-    government = Government.objects.get(id=pk)
-
-    data = {
-        'government':government,
-    }
-    return render(request,'government/single-page.html',data)
+    return render(request, 'instructor/detail.html', data)
