@@ -9,5 +9,5 @@ class PageAdmin(admin.ModelAdmin):
     list_editable = ('order', 'parent')
 
 
-admin.site.register(Page)
+admin.site.register(PageAdmin, Page)
 
