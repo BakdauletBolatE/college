@@ -55,9 +55,15 @@
                                         <i class="icon-17 video-photography"></i>
                                     </div>
                                     <div class="content">
+                                        {% if file.file %}
                                         <a href="{{file.file.url}}">
                                             <h5 class="title">{{file.name}}</h5>
                                         </a>
+                                        {% else %}
+                                        <a href="{{file.file_url}}">
+                                            <h5 class="title">{{file.name}}</h5>
+                                        </a>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>

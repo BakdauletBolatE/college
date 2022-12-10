@@ -2,6 +2,22 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.urls import reverse
+from django.core.files.storage import DefaultStorage, FileSystemStorage
+import re
+
+
+class MyStorage(DefaultStorage):
+
+    def url(self, url):
+        url_pattern = "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$"
+        is_address = re.match(url_pattern, url)
+        if is_address:
+            return url
+
+        return FileSystemStorage(self).url(url)
+
+
+my_storage = MyStorage()
 
 
 # Create your models here.
@@ -27,7 +43,8 @@ class NewsPost(models.Model):
     short_description = models.TextField('Короткая описание', max_length=350)
     description = models.TextField('Описание поста')
     poster = models.ImageField('Постер', upload_to="news/")
-    category = models.ForeignKey(NewsCategory, related_name='posts', verbose_name='Категория новости', default=0, on_delete=models.CASCADE)
+    category = models.ForeignKey(NewsCategory, related_name='posts', verbose_name='Категория новости', default=0,
+                                 on_delete=models.CASCADE)
     created_at = models.DateTimeField('Когда создано', default=timezone.now)
 
     def __str__(self):
@@ -42,10 +59,10 @@ class NewsPost(models.Model):
 
 
 class File(models.Model):
-
     post = models.ForeignKey(NewsPost, on_delete=models.CASCADE, related_name='files')
     name = models.CharField(max_length=255, null=True, blank=True)
-    file = models.FileField(upload_to='files-news/')
+    file = models.FileField(upload_to='files-news/', storage=my_storage, null=True, blank=True)
+    file_url = models.CharField(max_length=255, null=True, blank=True)
 
 
 class GalleryPost(models.Model):
