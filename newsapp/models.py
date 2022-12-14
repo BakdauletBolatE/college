@@ -61,7 +61,7 @@ class NewsPost(models.Model):
 class File(models.Model):
     post = models.ForeignKey(NewsPost, on_delete=models.CASCADE, related_name='files')
     name = models.CharField(max_length=255, null=True, blank=True)
-    file = models.FileField(upload_to='files-news/', storage=my_storage, null=True, blank=True)
+    file = models.FileField(upload_to='files-news/', null=True, blank=True)
     file_url = models.CharField(max_length=255, null=True, blank=True)
 
 

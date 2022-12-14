@@ -1,4 +1,5 @@
-{% for page in pages %}
+{% load snp %}
+{% for page in pages|order_bys:'order' %}
 <li class="{% if page.children.all|length > 0 %} has-droupdown {% endif %}">
     {% if page.page_type_id == 1 %}
     <a href="{% url page.link %}">{{page.title}}</a>
