@@ -9,11 +9,11 @@ class C(forms.ModelChoiceField):
 
 
 class PageForm(forms.ModelForm):
-    variants = Page.objects.all()
-
-    products = [('a', 'a') for i in variants]
-
-    parent = forms.ChoiceField(choices=products)
+    # variants = Page.objects.all()
+    #
+    # products = [('a', 'a') for i in variants]
+    #
+    # parent = forms.ChoiceField(choices=products)
 
     class Meta:
         model = Page
