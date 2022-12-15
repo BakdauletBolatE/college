@@ -9,8 +9,8 @@ services:
       - wel_known:/usr/src/app/.well-known
     env_file:
       - ./.env.prod
-    expose:
-      - 8000
+    ports:
+      - '8000:8000'
     depends_on:
       - db
   db:
