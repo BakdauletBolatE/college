@@ -3,7 +3,7 @@ version: '3'
 services:
   web:
     build: ./
-    command: gunicorn silkwaycollege.wsgi:application --bind 127.0.0.1:8000 --workers=5
+    command: gunicorn silkwaycollege.wsgi:application --bind 0.0.0.0:8000 --workers=5
     volumes:
       - static_volume:/usr/src/app/staticfiles
     env_file:
