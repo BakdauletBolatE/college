@@ -207,7 +207,7 @@ STYLESHEET INDEXING
 
 @media only screen and (min-width: 1200px) {
   .container {
-    max-width: 1100px;
+    max-width: 1200px;
   }
 }
 /*===========================
@@ -17440,7 +17440,7 @@ body .tpd-size-medium .tpd-content {
   color: var(--color-heading);
   font-size: 15px;
   font-weight: 600;
-  padding: 0 18px;
+  padding: 0 15px;
   display: block;
   height: 90px;
   line-height: 94px;
@@ -17482,7 +17482,7 @@ body .tpd-size-medium .tpd-content {
   }
 }
 .mainmenu-nav .mainmenu li.has-droupdown .submenu {
-  min-width: 400px;
+  min-width: 500px;
   height: auto;
   position: absolute;
   top: 90%;
