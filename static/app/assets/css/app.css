@@ -5878,6 +5878,8 @@ body.sal-disabled [data-sal|=flip] {
 }
 .campus-content .features-box .content {
   flex: 1;
+  display: flex;
+  align-items: center;
 }
 .campus-content .features-box .content .title {
   margin-bottom: 12px;
@@ -5914,6 +5916,7 @@ body.sal-disabled [data-sal|=flip] {
 }
 .edu-campus-area .campus-content {
   position: relative;
+  margin-bottom: 30px;
 }
 .edu-campus-area .campus-content .shape-4 {
   z-index: -1;

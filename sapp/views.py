@@ -16,7 +16,7 @@ from django.contrib import messages
 
 def index(request):
     specializations = Specialization.objects.all()
-    news = NewsPost.objects.all().order_by('-created_at')[:3]
+    news = NewsPost.objects.all().exclude(category_id=3).order_by('-created_at')[:3]
 
     data = {
         'specializations': specializations,
