@@ -137,6 +137,8 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
+CSRF_TRUSTED_ORIGINS = ['https://shym-college.edu.kz']
+
 CKEDITOR_CONFIGS = {
 
     'default': {
