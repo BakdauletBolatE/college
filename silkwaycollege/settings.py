@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get("SECRET_KEY", default='asdasfsg')
 
-DEBUG = os.environ.get('DEBUG', default=1)
+DEBUG = os.environ.get('DEBUG', default=False)
 
 ALLOWED_HOSTS = ['*']
 
@@ -137,7 +137,7 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
-CSRF_TRUSTED_ORIGINS = ['https://shym-college.edu.kz']
+CSRF_TRUSTED_ORIGINS = ['https://shym-college.edu.kz' ,'https://127.0.0.1']
 
 CKEDITOR_CONFIGS = {
 
