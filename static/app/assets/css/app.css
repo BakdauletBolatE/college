@@ -5148,6 +5148,14 @@ body.sal-disabled [data-sal|=flip] {
 .brand-grid-wrap .brand-grid:hover {
   box-shadow: var(--shadow-darker);
 }
+.brand-grid-wrap .brand-grid a {
+  display: block;
+}
+.brand-grid-wrap .brand-grid img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+}
 .brand-grid-wrap.brand-style-2 {
   grid-template-columns: repeat(6, 1fr);
 }
