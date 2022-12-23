@@ -133,11 +133,13 @@ LANGUAGES = (
     ('kk', gettext('Kazakhstan')),
 )
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
-CSRF_TRUSTED_ORIGINS = ['https://shym-college.edu.kz' ,'https://127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://shym-college.edu.kz', 'https://127.0.0.1']
 
 CKEDITOR_CONFIGS = {
 

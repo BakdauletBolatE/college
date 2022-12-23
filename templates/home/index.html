@@ -9,21 +9,24 @@
 <div class="hero-banner hero-style-3 bg-image">
     <div class="swiper university-activator">
         <div class="swiper-wrapper">
+            {% for slide in slides %}
             <div class="swiper-slide">
                 <img data-transform-origin='center center'
-                     data-src="{% static 'images/slider-1920-1.png' %}" class="swiper-lazy" alt="image">
+                     data-src="{% static slide.image %}" class="swiper-lazy" alt="image">
                 <div class="thumbnail-bg-content">
                     <div class="container edublink-animated-shape">
                         <div class="row">
                             <div class="col-7">
                                 <div class="banner-content">
-                                    <span class="subtitle" data-sal="slide-up" data-sal-duration="1000">{% trans 'Добро пожаловать' %}</span>
+                                    <span class="subtitle" data-sal="slide-up" data-sal-duration="1000">{{slide.pre_title}}</span>
                                     <h1 class="title" data-sal-delay="100" data-sal="slide-up" data-sal-duration="1000">
-                                        Shym college</h1>
-                                    <p data-sal-delay="200" data-sal="slide-up" data-sal-duration="1000">{% trans 'в Высший педагогический колледж Shymkent — мир без горизонтов, мир новых идей и возможностей' %}</p>
+                                        {{slide.title}}</h1>
+                                    <p data-sal-delay="200" data-sal="slide-up" data-sal-duration="1000">
+                                        {{slide.description}}</p>
                                     <div class="banner-btn" data-sal-delay="400" data-sal="slide-up"
                                          data-sal-duration="1000">
-                                        <a href="#" class="edu-btn btn-secondary">Подробнее <i class="icon-4"></i></a>
+                                        <a href="#" class="edu-btn btn-secondary">{% trans 'Подробнее' %} <i
+                                                class="icon-4"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -31,29 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide">
-                <img data-transform-origin='center center'
-                     data-src="{% static 'images/slider-1920-2.png' %}" class="swiper-lazy" alt="image">
-                <div class="thumbnail-bg-content">
-                    <div class="container edublink-animated-shape">
-                        <div class="row">
-                            <div class="col-7">
-                                <div class="banner-content">
-                                    <span class="subtitle" data-sal="slide-up" data-sal-duration="1000">{% trans 'Каждый день' %}</span>
-                                    <h1 class="title" data-sal-delay="100" data-sal="slide-up" data-sal-duration="1000">
-                                        Shym college</h1>
-                                    <p data-sal-delay="200" data-sal="slide-up" data-sal-duration="1000">{% trans 'Новые воспоминаний' %}</p>
-                                    <div class="banner-btn" data-sal-delay="400" data-sal="slide-up"
-                                         data-sal-duration="1000">
-                                        <a href="#" class="edu-btn btn-secondary">Подробнее <i class="icon-4"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            {% endfor %}
         </div>
         <div class="hero-slider-bg-controls">
             <div class="swiper-slide-controls slide-prev">
@@ -91,8 +72,8 @@
                     <!-- <i class="icon-34"></i> -->
                 </div>
                 <div class="content">
-                    <h4 class="title">Миссия</h4>
-                    <p> Воспитание всесторонне гармонично развитой личности на основе общечеловеческих и национальных ценностей.</p>
+                    <h4 class="title">{% trans 'Миссия' %}</h4>
+                    <p>{{mission_text}}</p>
                 </div>
             </div>
             <div class="features-box features-style-3 color-secondary-style edublink-svg-animate">
@@ -102,8 +83,8 @@
                          alt="animated icon">
                 </div>
                 <div class="content">
-                    <h4 class="title">Политика</h4>
-                    <p>формирование научно-интеллектуальной и информационно-культурной среды конкурентоспособных специалистов с инновационными  мировозрениями. </p>
+                    <h4 class="title">{% trans 'Политика' %}</h4>
+                    <p>{{pol_text}}</p>
                 </div>
             </div>
             <div class="features-box features-style-3 color-extra02-style edublink-svg-animate">
@@ -113,8 +94,8 @@
                     <!-- <i class="icon-36"></i> -->
                 </div>
                 <div class="content">
-                    <h4 class="title">ИСТОРИЯ</h4>
-                    <p>Основателем и первым президентом учреждения «Высший Педагогический колледж «Shynkent» является – Юнусов Бахтияр Саидович (1954-2010 г.г.) – профессор</p>
+                    <h4 class="title">{% trans 'ИСТОРИЯ' %}</h4>
+                    <p>{{history_text}}</p>
                 </div>
             </div>
         </div>
@@ -130,43 +111,36 @@
             <div class="col-lg-6" data-sal-delay="50" data-sal="slide-up" data-sal-duration="800">
                 <div class="about-content">
                     <div class="section-title section-left">
-                        <span class="pre-title">О колледже</span>
-                        <h2 class="title">Мы предлагаем лучшие <span class="color-primary">Возможности</span> для тебя
+                        <span class="pre-title">{% trans 'О колледже' %}</span>
+                        <h2 class="title">{% trans 'Мы предлагаем лучшие' %} <span class="color-primary">{% trans 'Возможности' %}</span>
+                            {% trans 'для тебя' %}
                         </h2>
                         <span class="shape-line"><i class="icon-19"></i></span>
                     </div>
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#about-edu"
-                                    type="button" role="tab" aria-selected="true">Введение
+                                    type="button" role="tab" aria-selected="true">{% trans 'Введение' %}
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#about-mission" type="button"
-                                    role="tab" aria-selected="false">Миссия
+                                    role="tab" aria-selected="false">{% trans 'Миссия' %}
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#about-vision" type="button"
-                                    role="tab" aria-selected="false">Политика
+                                    role="tab" aria-selected="false">{% trans 'Политика' %}
                             </button>
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane fade show active" id="about-edu" role="tabpanel">
-                            <p>Қазақстан Республикасының Оңтүстік өңіріндегі педагогикалық  орта буын мамандар дайындайтын танымалы оқу орнының бірі – «Shymkent  jogary pedagogikalyg kolledji» . Еңбек нарығындағы түрлі салалар бойынша туындаған мамандарға қажеттілікті, сұранысты өтеу арқылы «Shymkent  jogary pedagogikalyg kolledji» қоғамдағы өзіндік дәрежесін, заманауилығын, маман даярлауда бәсекегеқабілеттілігін дәлелдеген білім ордасы.
-	 Колледждің  іргетасы 1992 жылы Қазақстан Республикасы Білім және ғылым министрлігі бұйрығымен Қожа Ахмет Яссауи атындағы  педагогикалық колледжі деп ашылды.1995 жылдарда бұл мекеме  негізінде Шығыстану институты ашылды.
-2004 жылы педагогикалық колледж «Оңтүстік Қазақстан  педагогикалық университетінің колледжі» болып  арнайы лицензиямен қайта ұйымдастырылды.</p>
+                        {% for content in about_contents %}
+                        <div class="tab-pane fade show {% if forloop.counter == 1 %} active {% endif %}"
+                             id="{{content.id}}" role="tabpanel">
+                            <p>{{content.text}}</p>
                         </div>
-                        <div class="tab-pane fade" id="about-mission" role="tabpanel">
-                            <p> Воспитание всесторонне гармонично развитой личности на основе общечеловеческих и национальных ценностей. Вносить свой вклад в модернизацию системы профессионального обучения на основе трехъязычной и модульной компетенции. Всестороннее использование инновационных технологий в учебном и воспитательном процессе колледжа.</p>
-
-                        </div>
-                        <div class="tab-pane fade" id="about-vision" role="tabpanel">
-                            <p> Бәсекегі қабілетті, жаңа көзқарасты болашақ мамандардың ғылыми- интеллектуалды және ақпаратты -мәдени ортасын қалыптастыру.
-Колледждің стратегиялық жолы білім беру қызметтерінің сапалық және сандық көрсеткіштерін жақсартуға, оқытушылардың ғылыми және педагогикалық біліктілігін арттыру жүйесін дамытуға, білім алушылардың қажеттіліктерін ресурстық қамтамасыз етуге және қызметкерлер жұмысы мен студенттердің білім алуы үшін қолайлы жағдай жасауға бағытталған. Заманауи үлгідегі кәсіби білім беру – 2020-2025 жылдарға арналған мемлекеттік бағдарламасын жүзеге асырудың өзекті 2 ауқымды жаңару бағытына тоқталсақ, олар «Экономиканың индустриалдық-инновациялық өсуімен және әлемдік кеңестіктегі интеграциялаумен сәйкес келуі» болып табылады. Осындай міндеттерді шешуге бағытталған тиімді басқарудың жаңару бағытының да мақсаты айқындалған.</p>
-
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -214,7 +188,7 @@
                     <h2 class="counter-item count-number primary-color">
                         <span class="odometer" data-odometer-final="2"></span>
                     </h2>
-                    <h6 class="title">КАНДИДАТА НАУК</h6>
+                    <h6 class="title">{% trans 'КАНДИДАТА НАУК' %}</h6>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800">
@@ -222,7 +196,7 @@
                     <h2 class="counter-item count-number secondary-color">
                         <span class="odometer" data-odometer-final="15"></span>
                     </h2>
-                    <h6 class="title">ПРЕПОДАВАТЕЛЕЙ ВЫСШЕЙ КАТЕГОРИИ</h6>
+                    <h6 class="title">{% trans 'ПРЕПОДАВАТЕЛЕЙ ВЫСШЕЙ КАТЕГОРИИ' %}</h6>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
@@ -230,7 +204,7 @@
                     <h2 class="counter-item count-number extra02-color">
                         <span class="odometer" data-odometer-final="20"></span>
                     </h2>
-                    <h6 class="title">МАГИСТРОВ</h6>
+                    <h6 class="title">{% trans 'МАГИСТРОВ' %}</h6>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
@@ -238,7 +212,7 @@
                     <h2 class="counter-item count-number extra05-color">
                         <span class="odometer" data-odometer-final="17"></span>
                     </h2>
-                    <h6 class="title">ОТЛИЧНИКОВ ОБРАЗОВАНИЯ</h6>
+                    <h6 class="title">{% trans 'ОТЛИЧНИКОВ ОБРАЗОВАНИЯ' %}</h6>
                 </div>
             </div>
         </div>
@@ -251,15 +225,15 @@
 <div class="edu-course-area course-area-3 section-gap-large bg-lighten04">
     <div class="container">
         <div class="section-title section-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-            <span class="pre-title">Наши специальности</span>
-            <h2 class="title">По категориям</h2>
+            <span class="pre-title">{% trans 'Наши специальности' %}</span>
+            <h2 class="title">{% trans 'По категориям' %}</h2>
             <span class="shape-line"><i class="icon-19"></i></span>
         </div>
         <div class="isotope-wrapper">
             <div class="isotop-button isotop-filter">
 
                 <button data-filter=".special">
-                    <span class="filter-text">Специальности</span>
+                    <span class="filter-text">{% trans 'Специальности' %}</span>
                 </button>
 
             </div>
@@ -277,9 +251,9 @@
                                             height: 250px;
                                         " src="{{obj.photo.url}}" alt="{{obj.name}}">
                                 </a>
-<!--                                <div class="time-top">-->
-<!--                                    <span class="duration"><i class="icon-61"></i>Online + Onsite</span>-->
-<!--                                </div>-->
+                                <!--                                <div class="time-top">-->
+                                <!--                                    <span class="duration"><i class="icon-61"></i>Online + Onsite</span>-->
+                                <!--                                </div>-->
                             </div>
                             <div class="content">
                                 <span class="course-level">{{obj.uid}}</span>
@@ -288,7 +262,7 @@
                                 </h5>
 
                                 <div class="read-more-btn">
-                                    <a class="edu-btn btn-small btn-secondary" href="#">Подробнее <i
+                                    <a class="edu-btn btn-small btn-secondary" href="#">{% trans 'Подробнее' %}<i
                                             class="icon-4"></i></a>
                                 </div>
                             </div>
@@ -348,8 +322,8 @@
                 <div class="campus-content">
                     <div class="inner">
                         <div class="section-title section-left">
-                            <span class="pre-title">Кампус</span>
-                            <h2 class="title">Жизнь в колледже</h2>
+                            <span class="pre-title">{% trans 'Кампус' %}</span>
+                            <h2 class="title">{% trans 'Жизнь в колледже' %}</h2>
                             <span class="shape-line"><i class="icon-19"></i></span>
                         </div>
                         <div class="features-list">
@@ -358,8 +332,8 @@
                                     <i class="icon-37 watch-icon"></i>
                                 </div>
                                 <div class="content">
-                                    <h5 class="title">Студентическая жизнь</h5>
-<!--                                    <p>Nostrud exer ciation laboris nis aliqup comodo perspiatix omnis iste natus.</p>-->
+                                    <h5 class="title">{% trans 'Студентическая жизнь' %}</h5>
+                                    <!--                                    <p>Nostrud exer ciation laboris nis aliqup comodo perspiatix omnis iste natus.</p>-->
                                 </div>
                             </div>
                             <div class="features-box color-primary-style">
@@ -367,8 +341,8 @@
                                     <i class="icon-38 art-board-icon"></i>
                                 </div>
                                 <div class="content">
-                                    <h5 class="title">Искусство и клубы</h5>
-<!--                                    <p>Omnis iste natus error sit voluptatem accusan tium doloreque laudantum.</p>-->
+                                    <h5 class="title">{% trans 'Искусство и клубы' %}</h5>
+                                    <!--                                    <p>Omnis iste natus error sit voluptatem accusan tium doloreque laudantum.</p>-->
                                 </div>
                             </div>
                             <div class="features-box color-extra05-style">
@@ -376,8 +350,8 @@
                                     <i class="icon-39 fitness-icon"></i>
                                 </div>
                                 <div class="content">
-                                    <h5 class="title">Спорт и развлечения Фитнес</h5>
-<!--                                    <p>Tempor incididunt ut labore et dolore magna aliqua enim minim veniam quis.</p>-->
+                                    <h5 class="title">{% trans 'Спорт и развлечения Фитнес' %}</h5>
+                                    <!--                                    <p>Tempor incididunt ut labore et dolore magna aliqua enim minim veniam quis.</p>-->
                                 </div>
                             </div>
                         </div>
@@ -567,7 +541,7 @@
                             <i class="icon-18"></i>
                         </a>
                     </div>
-                    <h2 class="title">Видео от колледжа</h2>
+                    <h2 class="title">{% trans 'Видео от колледжа' %}</h2>
                 </div>
             </div>
         </div>
@@ -604,9 +578,7 @@
 <!--</div>-->
 
 
-
 <!-- End CTA Area  -->
-
 
 
 <!--=====================================-->
@@ -616,8 +588,8 @@
 <div class="edu-event-area event-area-1 gap-large-text">
     <div class="container edublink-animated-shape">
         <div class="section-title section-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-            <span class="pre-title">Новости</span>
-            <h2 class="title">Популярные обновление</h2>
+            <span class="pre-title">{% trans 'Новости' %}</span>
+            <h2 class="title">{% trans 'Популярные обновление' %}</h2>
             <span class="shape-line"><i class="icon-19"></i></span>
         </div>
         <div class="row g-5">
@@ -631,9 +603,9 @@
                             <a href="{% url 'newsapp:detail_view' obj.id %}">
                                 <img src="{{obj.photo.url}}" alt="{{obj.name}}">
                             </a>
-<!--                            <div class="event-time">-->
-<!--                                <span><i class="icon-33"></i>08:00AM-10:00PM</span>-->
-<!--                            </div>-->
+                            <!--                            <div class="event-time">-->
+                            <!--                                <span><i class="icon-33"></i>08:00AM-10:00PM</span>-->
+                            <!--                            </div>-->
                         </div>
                         <div class="content">
                             <div class="event-date">
@@ -642,11 +614,12 @@
                             </div>
                             <h5 class="title"><a href="{% url 'newsapp:detail_view' obj.id %}">{{obj.name}}</a></h5>
                             <p>{{obj.short_description}}</p>
-<!--                            <ul class="event-meta">-->
-<!--                                <li><i class="icon-40"></i>Newyork City, USA</li>-->
-<!--                            </ul>-->
+                            <!--                            <ul class="event-meta">-->
+                            <!--                                <li><i class="icon-40"></i>Newyork City, USA</li>-->
+                            <!--                            </ul>-->
                             <div class="read-more-btn">
-                                <a class="edu-btn btn-small btn-secondary" href="{% url 'newsapp:detail_view' obj.id %}">Подробнее<i
+                                <a class="edu-btn btn-small btn-secondary"
+                                   href="{% url 'newsapp:detail_view' obj.id %}">{% trans 'Подробнее' %}<i
                                         class="icon-4"></i></a>
                             </div>
                         </div>
@@ -656,7 +629,9 @@
             {% endfor %}
         </div>
         <div class="event-view-all-btn" data-sal-delay="150" data-sal="slide-up" data-sal-duration="1200">
-            <h6 class="view-text"><a href="{% url 'newsapp:list_view' %}" class="btn-transparent">Посмотреть все<i class="icon-4"></i></a></h6>
+            <h6 class="view-text"><a href="{% url 'newsapp:list_view' %}" class="btn-transparent">
+                {% trans 'Посмотреть все' %}<i
+                    class="icon-4"></i></a></h6>
         </div>
 
         <ul class="shape-group">
@@ -681,22 +656,28 @@
                 <a href="https://bau.edu.tr/"><img src="{% static 'logos/https-::bau.edu.tr:.png' %}" alt="Brand Logo"></a>
             </div>
             <div class="brand-grid">
-                <a href="https://bedcouncil.com/"><img src="{% static 'logos/https-::bedcouncil.com:.jpeg' %}" alt="Brand Logo"></a>
+                <a href="https://bedcouncil.com/"><img src="{% static 'logos/https-::bedcouncil.com:.jpeg' %}"
+                                                       alt="Brand Logo"></a>
             </div>
             <div class="brand-grid">
-                <a href="https://prag-study.com/"><img src="{% static 'logos/https-::prag-study.com:.png' %}" alt="Brand Logo"></a>
+                <a href="https://prag-study.com/"><img src="{% static 'logos/https-::prag-study.com:.png' %}"
+                                                       alt="Brand Logo"></a>
             </div>
             <div class="brand-grid">
-                <a href="https://www.apu.edu.my/"><img src="{% static 'logos/https-::www.apu.edu.my:.png' %}" alt="Brand Logo"></a>
+                <a href="https://www.apu.edu.my/"><img src="{% static 'logos/https-::www.apu.edu.my:.png' %}"
+                                                       alt="Brand Logo"></a>
             </div>
             <div class="brand-grid">
-                <a href="https://www.camre.ac.uk/"><img src="{% static 'logos/https-::www.camre.ac.uk:.png' %}" alt="Brand Logo"></a>
+                <a href="https://www.camre.ac.uk/"><img src="{% static 'logos/https-::www.camre.ac.uk:.png' %}"
+                                                        alt="Brand Logo"></a>
             </div>
             <div class="brand-grid">
-                <a href="https://www.ccsw.ac.uk/"><img src="{% static 'logos/https-::www.ccsw.ac.uk:.png' %}" alt="Brand Logo"></a>
+                <a href="https://www.ccsw.ac.uk/"><img src="{% static 'logos/https-::www.ccsw.ac.uk:.png' %}"
+                                                       alt="Brand Logo"></a>
             </div>
             <div class="brand-grid">
-                <a href="https://www.ednaadanuniversity.org/"><img src="{% static 'logos/https-::www.ednaadanuniversity.org:.jpeg' %}" alt="Brand Logo"></a>
+                <a href="https://www.ednaadanuniversity.org/"><img
+                        src="{% static 'logos/https-::www.ednaadanuniversity.org:.jpeg' %}" alt="Brand Logo"></a>
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@
     <!-- Meta Data -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Shym College | Высший пед колледж</title>
+    <title>{% trans 'Высший педагогический колледж' %} Shymkent</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
@@ -58,9 +58,11 @@
                 <div class="header-top">
                     <div class="header-top-left">
                         <ul class="header-info">
-                            <li><a href="tel:+011235641231"><i class="icon-phone"></i>Телефон: {{settings.phone}}</a>
+                            <li><a href="tel:+011235641231"><i class="icon-phone"></i>{% trans 'Телефон' %}:
+                                {{settings.phone}}</a>
                             </li>
-                            <li><a href="mailto:{{settings.email}}" target="_blank"><i class="icon-envelope"></i>Почта:
+                            <li><a href="mailto:{{settings.email}}" target="_blank"><i class="icon-envelope"></i>
+                                {% trans 'Почта' %}:
                                 {{settings.email}}</a></li>
                             <li style="display: flex; align-items: center">
                                 <span style="padding-right: 10px">{% trans 'Язык:' %}</span>
@@ -85,8 +87,9 @@
                     </div>
                     <div class="header-top-right">
                         <ul class="header-info">
-                            <li class="header-btn"><a href="#" class="edu-btn btn-secondary btn-medium">Поступить сейчас<i
-                                    class="icon-4"></i></a></li>
+                            <li class="header-btn"><a href="#" class="edu-btn btn-secondary btn-medium">
+                                {% trans 'Поступить сейчас' %}
+                                <i class="icon-4"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -217,16 +220,13 @@
                                          alt="Corporate Logo">
                                 </a>
                             </div>
-                            <p class="description">Основателем и первым президентом учреждения «Высший Педагогический
-                                колледж «Shynkent» является – Юнусов Бахтияр Саидович (1954-2010 г.г.) – профессор,
-                                ученый-арабист, член-корреспондент Академии естественных наук РК и Международной
-                                Академии наук педагогического образования России</p>
+                            <p class="description">{{footer_text}}</p>
                             <div class="widget-information">
                                 <ul class="information-list">
-                                    <li><span>Адрес: </span>{{settings.address}}</li>
-                                    <li><span>Телефон: </span><a href="tel:{{settings.phone}}">{{settings.phone}}</a>
+                                    <li><span>{% trans 'Адрес:' %} </span>{{settings.address}}</li>
+                                    <li><span>{% trans 'Телефон' %}: </span><a href="tel:{{settings.phone}}">{{settings.phone}}</a>
                                     </li>
-                                    <li><span>Почта: </span><a href="mailto:{{settings.email}}" target="_blank">{{settings.email}}</a>
+                                    <li><span>{% trans 'Почта' %}: </span><a href="mailto:{{settings.email}}" target="_blank">{{settings.email}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -264,7 +264,7 @@
                     <!--                    </div>-->
                     <div class="col-lg-4 col-md-6">
                         <div class="edu-footer-widget">
-                            <h4 class="widget-title">Контакты</h4>
+                            <h4 class="widget-title">{% trans 'Контакты' %}</h4>
                             <div class="inner">
 
                                 <ul class="social-share icon-transparent">
@@ -286,8 +286,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="inner text-center">
-                            <p>Copyright 2022 <a href="/" target="_blank">Высший педагогический колледж Shymkent</a>
-                                Вы правы защищены</p>
+                            <p>Copyright 2022 <a href="/" target="_blank">{% trans 'Высший педагогический колледж' %} Shymkent</a>
+                                {% trans 'Все правы защищены' %}</p>
                         </div>
                     </div>
                 </div>

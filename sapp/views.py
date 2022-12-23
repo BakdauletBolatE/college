@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login
 from newsapp.models import NewsPost, GalleryPost
 from .models import Abiturent
 from django.contrib import messages
+from django.utils.translation import gettext
 
 
 # Create your views here.
@@ -17,12 +18,53 @@ from django.contrib import messages
 def index(request):
     specializations = Specialization.objects.all()
     news = NewsPost.objects.all().exclude(category_id=3).order_by('-created_at')[:3]
+    slides = [
+        {
+            'title': gettext('Добро пожаловать'),
+            'pre_title': gettext('Высший педагогический колледж'),
+            'description': gettext('Мир без горизонтов, мир новых идей и возможностей'),
+            'image': gettext('images/slider-1920-1.png')
+        },
+        {
+            'title': gettext('Каждый день'),
+            'pre_title': gettext('Высший педагогический колледж'),
+            'description': gettext('Новые воспоминаний'),
+            'image': gettext('images/slider-1920-2.png')
+        }
+    ]
+
+    about_contents = [
+        {
+            'id': 'about-edu',
+            'text': gettext(
+                "Высший педагогический колледж Shymkent – один из престижных учебных заведений Южного региона Республики Казахстан, готовящий педагогических специалистов среднего звена. Удовлетворяя потребности и спросы разных отраслей науки и рынка труда в квалифицированных специалистах, Высший педагогический колледж Shymkent доказал свой статус и конкурентоспособность на рынке труда современного мира.")
+        },
+        {
+            'id': 'about-mission',
+            'text': gettext(
+                "Воспитание всесторонне гармонично развитой личности на основе общечеловеческих и национальных ценностей. Вносить свой вклад в модернизацию системы профессионального обучения на основе трехъязычной и модульной компетенции. Всестороннее использование инновационных технологий в учебном и воспитательном процессе колледжа.")
+        },
+        {
+            'id': 'about-vision',
+            'text': gettext(
+                "Формирование научно-интеллектуальной и информационно-культурной среды конкурентоспособных специалистов с инновационными мировозрениями. Стратегический путь колледжа направлена на качественное и количественное усовершенствование показателей образовательной деятельности, ресурсное обеспечение потребностей обучающихся, создание благоприятной среды для работы персонала и для получения качественного образования студентов. Ссылаясь на актуальные направления осуществления государственной программы за 2011-2020 гг., были определены модернизованные направления развития нашего колледжа")
+        }
+    ]
 
     data = {
         'specializations': specializations,
-        'news': news
+        'news': news,
+        'slides': slides,
+        'mission_text': gettext(
+            'Воспитание всесторонне гармонично развитой личности на основе общечеловеческих и национальных ценностей'),
+        'pol_text': gettext(
+            'формирование научно-интеллектуальной и информационно-культурной среды конкурентоспособных специалистов с инновационными мировозрениями.'),
+        'history_text': gettext(
+            'Основателем и первым президентом учреждения «Высший Педагогический колледж «Shynkent» является – Юнусов Бахтияр Саидович (1954-2010 г.г.) – профессор'),
+        'about_contents': about_contents
     }
     return render(request, 'home/index.html', data)
+
 
 def code_of_honor(request):
     return render(request, 'sapp/code-of-honor.html')
@@ -76,7 +118,6 @@ def abiturent2021(request):
 
 
 def appealView(request):
-
     if request.method == 'POST':
         form = AppealForm(request.POST)
         if form.is_valid():
@@ -86,4 +127,3 @@ def appealView(request):
             messages.success(request, 'Что то пошло не так')
 
         return redirect('sapp:index')
-
