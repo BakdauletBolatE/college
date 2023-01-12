@@ -5,7 +5,7 @@ from .forms import PageForm
 class PageAdmin(admin.ModelAdmin):
     list_display = ('title', 'order', 'parent')
     list_editable = ('order', 'parent')
-    list_filter = ('parent', )
+    list_filter = ('parent', 'page_type')
     form = PageForm
 
 
