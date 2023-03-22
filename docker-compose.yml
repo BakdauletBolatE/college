@@ -27,6 +27,7 @@ services:
       - media_volume:/usr/src/app/media
       - ./data/nginx:/etc/nginx/conf.d
       - ./certificate:/etc/ssl
+      - ./.well-known/pki-validation/:/usr/src/files/
     ports:
       - "80:80"
       - "443:443"
