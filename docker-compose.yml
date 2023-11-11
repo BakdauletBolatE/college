@@ -2,6 +2,7 @@ version: '3'
 
 services:
   web:
+    restart: unless-stopped
     build: ./
     command: gunicorn silkwaycollege.wsgi:application --bind 0.0.0.0:8000 --workers=5
     volumes:
